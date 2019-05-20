@@ -1,0 +1,71 @@
+.auth-form__button {
+    padding: 15px 160px;
+    margin-top: 32px;
+    font-size: 18px;
+    font-weight: 500;
+    color:white;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    background-color: #21AA63;
+    border: 1px solid transparent;
+    cursor: pointer;
+    /* transition: all 0.4s ease-out; */
+}
+.auth-form__button:hover {
+    background-color: white;
+    color: #21AA63;
+    border: 1px solid #21AA63;
+    transition: all 0.4s ease-out;
+    font-weight: 500;
+}
+
+.button {
+    width: 142px;
+    height: 40px;
+    border: 1px solid #21AA63;
+    background-color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.4s ease-out; 
+}
+.button__text {
+    color: #21AA63;
+    font-size: 14px;
+    padding-left: 25px;
+    display: inline;
+    transition: all 0.4s ease-out;
+}
+.button__icon {
+    position: absolute;
+    display: inline;
+    padding-top: 4px;
+    padding-left: 2px;
+}
+.button:hover {
+    background-color: #21AA63;
+    border: none;
+    outline: none;
+    transition: all 0.4s ease-out; 
+    border: 1px solid transparent;
+}
+.button:hover .button__icon {
+    display: none;
+}
+.button:hover .button__text {
+    padding-left: 1px;
+    color: white;
+    transition: all 0.4s ease-out;
+}
+
+
+.button_border_grey {
+    /* сюда стили для кнопки  "Получить расчёт по бюджету" на странице статистика */
+    /* к этой кнопке можно применить модификаторы .button_border и .button_border_grey */
+    /* в этом классе будет только изменение цвета обводки (border-color: #DFE2E4;) */
+}
+
+.button_full {
+    /* сюда  width: 100%; чтобы кнопка с этим модификатором растягивалась на всю ширину родительского элемента */
+}

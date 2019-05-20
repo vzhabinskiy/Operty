@@ -1,0 +1,25 @@
+.page-auth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+.auth {
+    margin-top: 82px;
+}
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+ 
+.auth-form__link {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    color: #304351;
+    text-decoration: none;
+    font-weight: normal;
+    cursor: pointer;
+}
