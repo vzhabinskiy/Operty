@@ -1,5 +1,15 @@
 .main-content {
     display: flex;
+}
+.main-content_center {
     justify-content: center;
-    margin-top: 50px;
+}
+.main-content_projects {
+    flex-basis: 1032px;
+}
+.main-content_sidebar {
+    flex-basis: 293px;
+}
+.main-content_scripts {
+    flex-basis: 1040px;
 }

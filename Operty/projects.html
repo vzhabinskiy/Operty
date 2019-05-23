@@ -5,16 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
-    <!-- Ты подключил select2 два раза) Там ещё перед /body есть подключение, а это лучше убрать) -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
     <title>All projects</title>
 </head>
 <body>
-    <header class="header">
+    <header class="header mb-5">
         <nav class="menu">
             <ul class="menu__list">
                 <li class="menu__item"><a class="menu__link" href="#"><img class="menu__logo" src="img/menu_logo.svg" alt="logo"></a></li>
-                <li class="menu__item"><input class="menu__input" type="text" placeholder="Поиск"><a href="#"><img class="menu_search-icon" src="img/search_icon.svg"></a></li>
+                <li class="menu__item"><input class="search" type="text" placeholder="Поиск"><a href="#"><img class="search__icon" src="img/search_icon.svg"></a></li>
                 <li class="menu__item menu__item__projects"><a class="menu__link" href="">Проекты</a></li>
                 <li class="menu__item"><a class="menu__link" href="">Найти исполнителей</a></li>
                 <li class="menu__item menu__item__invite"><button class="button"><img class="button__icon" src="img/menu_plus.svg"><p class="button__text">Пригласить</p></button></li>
@@ -24,60 +23,60 @@
             </ul>
         </nav>
     </header>
-    <main class="main-content">
-        <section class="projects">
-            <div class="projects__head">
-                <h1>Все проекты</h1>
-            </div>
-            <div class="projects__select">
-                <select class="projects__select-list">
+    <main class="main-content main-content_center">
+        <section class="main-content_projects">
+            <div class="page-header mb-5">
+                <h1 class="h1">Все проекты</h1>
+                <select class="select">
                     <option value="">Сериалы</option>
                     <option value="">Фильмы</option>
                 </select>
             </div>
-            <div class ="projects__main">
-                <ul class="projects__main__list">
-                    <li class="projects__main__item projects__main__item__create-new">
-                        <img class="create-new__img"src="img/big_plus.svg">
-                        <p class="create-new__text">Создать проект</p>
-                    </li>
-                    <li class="projects__main__item">
-                        <figure>
-                            <img class="projects__main__item__menu" src="img/project_item_menu.svg">
-                            <img src="img/BreakingBad.svg" alt="Breaking Bad">
-                            <figcaption>Во все тяжкие <mark>Сериал</mark></figcaption>
-                        </figure>
-                    </li>
-                    <li class="projects__main__item">
-                            <figure>
-                                <img class="projects__main__item__menu" src="img/project_item_menu.svg">
-                                <img src="img/CallToSaul.svg" alt="Call To Saul">
-                                <figcaption>Лучше звоните Солу <mark>Сериал</mark></figcaption>
-                            </figure>
-                    </li>
-                    <li class="projects__main__item">
-                        <figure>
-                            <img class="projects__main__item__menu" src="img/project_item_menu.svg">
-                            <img src="img/BattleCreek.svg" alt="Battle Creek">
-                            <figcaption>Батл Крик <mark>Сериал</mark></figcaption>
-                        </figure>
-                    </li>
-                    <li class="projects__main__item">
-                        <figure>
-                            <img class="projects__main__item__menu" src="img/project_item_menu.svg">
-                            <img src="img/SecretMaterials.svg" alt="Secret Materials">
-                            <figcaption>Секретные материалы <mark>Сериал</mark></figcaption>
-                        </figure>
-                    </li>
-                </ul>
+            <div class="row">
+                <a class="project_create-new">
+                    <figure class="project_create-new__img">
+                        <img src="img/big_plus.svg">             
+                    </figure>
+                    <p class="project_create-new__text">Создать проект</p>
+                </a>
+                <article class="card card_project">
+                    <a class="card__menu"><img src="img/project_item_menu.svg"></a>
+                    <figure class="card__img">
+                        <img src="img/BreakingBad.svg" alt="Breaking Bad">             
+                    </figure>
+                    <h3 class="card__title">Во все тяжкие</h3>
+                    <span class="card_subtitle">Сериал</span>
+                </article>
+                <article class="card card_project">
+                    <a class="card__menu"><img src="img/project_item_menu.svg"></a>
+                    <figure class="card__img">
+                        <img src="img/CallToSaul.svg" alt="Call To Saul">             
+                    </figure>
+                    <h3 class="card__title">Лучше звоните Солу</h3>
+                    <span class="card_subtitle">Сериал</span>
+                </article>
+                <article class="card card_project">
+                    <a class="card__menu"><img src="img/project_item_menu.svg"></a>
+                    <figure class="card__img">
+                        <img src="img/BattleCreek.svg" alt="Battle Creek">             
+                    </figure>
+                    <h3 class="card__title">Батл Крик</h3>
+                    <span class="card_subtitle">Сериал</span>
+                </article>
+                <article class="card card_project">
+                    <a class="card__menu"><img src="img/project_item_menu.svg"></a>
+                    <figure class="card__img">
+                        <img src="img/SecretMaterials.svg" alt="Secret Materials">             
+                    </figure>
+                    <h3 class="card__title">Секретные материалы</h3>
+                    <span class="card_subtitle">Сериал</span>
+                </article>
             </div>
         </section>
-    </main>  
-    <footer class="footer">
-        <div class="help">
-            <img class="help__icon" src="img/question.svg">
-        </div>
-    </footer> 
+    </main>    
+    <div class="help">
+        <img class="help__icon" src="img/question.svg">
+    </div>
 
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>

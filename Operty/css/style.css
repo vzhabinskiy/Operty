@@ -8,6 +8,17 @@
 @import url("main-content.css");
 @import url("projects.css");
 @import url("footer.css");
+@import url("auth-form.css");
+@import url("help.css");
+@import url("search.css");
+@import url("h.css");
+@import url("card.css");
+@import url("row.css");
+@import url("project_create-new.css");
+@import url("page-header.css");
+@import url("select.css");
+@import url("sidebar.css");
+@import url("script_create-new.css");
 
 @font-face {
     font-family: 'CoFoSans';

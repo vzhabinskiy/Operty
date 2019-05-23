@@ -13,24 +13,6 @@
     text-decoration: none;
     color: #304351;
 }
-.menu .menu__input {
-    width: 393px;
-    height: 48px;
-    background-color: #F3F6F8;
-    border-radius: 4px;
-    border: none;
-    outline: none;
-    padding-left: 62px;
-}
-.menu__input::placeholder {
-    color: #304351;
-    font-size: 16px;
-}
-.menu_search-icon {
-    position: absolute;
-    margin-left: -370px;
-    margin-top: 15px; 
-}
 .menu__notice-round {
     position: absolute;
     margin-top: -5px;

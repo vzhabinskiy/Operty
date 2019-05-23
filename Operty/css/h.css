@@ -1,0 +1,17 @@
+.h1 {
+    color: #304351;
+    font-weight: 600;
+    font-size: 32px;
+    display: inline;
+}
+.h1_left {
+    margin-left: 30px;
+}
+.h4 {
+    font-weight: 500;
+    font-size: 14px;
+    color: #6D7173;
+}
+.h4_uppercase {
+    text-transform: uppercase;
+}
