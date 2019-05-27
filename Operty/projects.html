@@ -9,67 +9,93 @@
     <title>All projects</title>
 </head>
 <body>
-    <header class="header mb-5">
+    <header class=" header mb-5">
+        <a href="/"> 
+            <img src="img/menu_logo.svg" alt="logo">
+        </a>
+        <form>
+            <input class="search" type="text" placeholder="Поиск">
+            <button class="search__btn" type="submit">
+                <img src="img/search_icon.svg" alt="Иконка поиска">
+            </button>
+        </form>
         <nav class="menu">
             <ul class="menu__list">
-                <li class="menu__item"><a class="menu__link" href="#"><img class="menu__logo" src="img/menu_logo.svg" alt="logo"></a></li>
-                <li class="menu__item"><input class="search" type="text" placeholder="Поиск"><a href="#"><img class="search__icon" src="img/search_icon.svg"></a></li>
-                <li class="menu__item menu__item__projects"><a class="menu__link" href="">Проекты</a></li>
-                <li class="menu__item"><a class="menu__link" href="">Найти исполнителей</a></li>
-                <li class="menu__item menu__item__invite"><button class="button"><img class="button__icon" src="img/menu_plus.svg"><p class="button__text">Пригласить</p></button></li>
-                <li class="menu__item menu__item__message"><a class="menu__link" href=""><img class="menu__message-icon" src="img/message_icon.svg" alt="message"></a></li>
-                <li class="menu__item menu__item__notice"><a class="menu__link" href=""><img class="menu__notice-icon" src="img/notice_icon.svg" alt="notice"><img class="menu__notice-round" src="img/notice_red-round.svg"></a></li>
-                <li class="menu__item menu__item__producer"><a class="menu__link" href=""><img src="img/producer_icon.svg" alt="logo"></a></li>        
+                <li class="menu__item">
+                    <a href="#" class="menu__link">Проекты</a>
+                    <a href="#" class="menu__link">Найти исполнителей</a>
+                </li>
             </ul>
         </nav>
+        <div class="header__toolbar">
+            <button class="button button_border button_icon">
+                <img class="button__icon" src="img/menu_plus.svg">
+                <p class="button__text">Пригласить</p>
+            </button>
+            <div class="header__notices">
+                <a href="#" class="icon">
+                    <img class="menu__message-icon" src="img/message_icon.svg" alt="message">
+                </a>
+                <a href="#" class="icon red-round">
+                    <img class="menu__notice-icon" src="img/notice_icon.svg" alt="notice">
+                </a>
+            </div>
+            <style>
+            </style>
+            <a href="#" class="profile">
+                <img src="img/producer.jpg" alt="logo">
+            </a>
+        </div>
     </header>
     <main class="main-content main-content_center">
         <section class="main-content_projects">
             <div class="page-header mb-5">
                 <h1 class="h1">Все проекты</h1>
+                <div>
                 <select class="select">
-                    <option value="">Сериалы</option>
-                    <option value="">Фильмы</option>
+                    <option>Сериалы</option>
+                    <option>Фильмы</option>
                 </select>
+                </div>
             </div>
             <div class="row">
-                <a class="project_create-new">
-                    <figure class="project_create-new__img">
+                <a class="create-new create-new_project">
+                    <figure class="create-new__img">
                         <img src="img/big_plus.svg">             
                     </figure>
-                    <p class="project_create-new__text">Создать проект</p>
+                    <p class="create-new__text">Создать проект</p>
                 </a>
-                <article class="card card_project">
-                    <a class="card__menu"><img src="img/project_item_menu.svg"></a>
+                <article class="card row-4 card_project">
+                    <button class="card__menu"><img src="img/project_item_menu.svg"></button>
                     <figure class="card__img">
                         <img src="img/BreakingBad.svg" alt="Breaking Bad">             
                     </figure>
                     <h3 class="card__title">Во все тяжкие</h3>
-                    <span class="card_subtitle">Сериал</span>
+                    <span class="card__subtitle">Сериал</span>
                 </article>
-                <article class="card card_project">
-                    <a class="card__menu"><img src="img/project_item_menu.svg"></a>
+                <article class="card row-4 card_project">
+                    <button class="card__menu"><img src="img/project_item_menu.svg"></button>
                     <figure class="card__img">
                         <img src="img/CallToSaul.svg" alt="Call To Saul">             
                     </figure>
                     <h3 class="card__title">Лучше звоните Солу</h3>
-                    <span class="card_subtitle">Сериал</span>
+                    <span class="card__subtitle">Сериал</span>
                 </article>
-                <article class="card card_project">
-                    <a class="card__menu"><img src="img/project_item_menu.svg"></a>
+                <article class="card row-4 card_project">
+                    <button class="card__menu"><img src="img/project_item_menu.svg"></button>
                     <figure class="card__img">
                         <img src="img/BattleCreek.svg" alt="Battle Creek">             
                     </figure>
                     <h3 class="card__title">Батл Крик</h3>
-                    <span class="card_subtitle">Сериал</span>
+                    <span class="card__subtitle">Сериал</span>
                 </article>
-                <article class="card card_project">
-                    <a class="card__menu"><img src="img/project_item_menu.svg"></a>
+                <article class="card row-4 card_project">
+                    <button class="card__menu"><img src="img/project_item_menu.svg"></button>
                     <figure class="card__img">
                         <img src="img/SecretMaterials.svg" alt="Secret Materials">             
                     </figure>
                     <h3 class="card__title">Секретные материалы</h3>
-                    <span class="card_subtitle">Сериал</span>
+                    <span class="card__subtitle">Сериал</span>
                 </article>
             </div>
         </section>

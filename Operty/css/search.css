@@ -16,3 +16,12 @@
     margin-left: -370px;
     margin-top: 15px; 
 }
+.search__btn {
+    position: absolute;
+    margin-top: -33px;
+    margin-left: 25px; 
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+}

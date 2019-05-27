@@ -1,19 +1,30 @@
 .button {
-    width: 142px;
-    height: 40px;
-    border: 1px solid #21AA63;
-    background-color: white;
     border-radius: 4px;
     cursor: pointer;
     outline: none;
     transition: all 0.4s ease-out; 
 }
-.button__text {
+.button_login {
+    padding: 15px 160px;
+    font-size: 18px;
+    font-weight: 500;
+    color:white;
+    background-color: #21AA63;
+    border: 1px solid transparent;
+}
+.button_login:hover {
+    background-color: white;
     color: #21AA63;
-    font-size: 14px;
-    padding-left: 25px;
-    display: inline;
+    border: 1px solid #21AA63;
     transition: all 0.4s ease-out;
+    font-weight: 500;
+}
+.button_border {
+    width: 142px;
+    height: 40px;
+    border: 1px solid #21AA63;
+    background-color: white;
+    margin-right: 20px;
 }
 .button__icon {
     position: absolute;
@@ -21,20 +32,27 @@
     padding-top: 4px;
     padding-left: 2px;
 }
-.button:hover {
+ .button__text {
+    color: #21AA63;
+    font-size: 14px;
+    padding-left: 25px;
+    display: inline;
+    transition: all 0.4s ease-out;
+} 
+.button_border:hover .button__text {
+    color:white;
+    transition: all 0.4s ease-out; 
+    padding-right: 20px;
+}
+.button_border:hover {
     background-color: #21AA63;
     border: none;
     outline: none;
     transition: all 0.4s ease-out; 
     border: 1px solid transparent;
 }
-.button:hover .button__icon {
+.button_border:hover .button__icon {
     display: none;
-}
-.button:hover .button__text {
-    padding-left: 1px;
-    color: white;
-    transition: all 0.4s ease-out;
 }
 
 
@@ -45,5 +63,5 @@
 }
 
 .button_full {
-    /* сюда  width: 100%; чтобы кнопка с этим модификатором растягивалась на всю ширину родительского элемента */
+    width: 100%; 
 }

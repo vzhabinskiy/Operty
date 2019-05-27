@@ -4,3 +4,9 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+.row-4 {
+    width: calc(100% - 24px -24px -24px);
+}
+.row-5 {
+    width: calc(100% - 21px -21px -21px - 21px);
+}

@@ -14,11 +14,11 @@
 @import url("h.css");
 @import url("card.css");
 @import url("row.css");
-@import url("project_create-new.css");
 @import url("page-header.css");
 @import url("select.css");
 @import url("sidebar.css");
-@import url("script_create-new.css");
+@import url("header.css");
+@import url("create-new.css");
 
 @font-face {
     font-family: 'CoFoSans';

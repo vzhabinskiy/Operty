@@ -1,0 +1,42 @@
+.create-new {
+    background-color: #21AA63;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    margin-top: 24px;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+    border-radius: 4px;
+}
+.create-new:hover {
+    transform: scale(1.1);
+    transition: all 0.2s ease-out;
+}
+.create-new_project {
+    width: 240px;
+    height: 304px;
+}
+.create-new_project .create-new__text {
+    margin-top: 80px;
+    font-weight: 500;
+    font-size: 18px;
+}
+.create-new_project .create-new__img {
+    margin-top: 50px;
+}
+.create-new_script {
+    width: 196px;
+    height: 236px;
+}
+.create-new_script .create-new__text {
+    margin-top: 50px;
+    font-weight: 500;
+    font-size: 14px;
+}
+.create-new_script .create-new__img {
+    margin-top: 50px;
+}
+

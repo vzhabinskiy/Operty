@@ -12,30 +12,25 @@
 .menu .menu__link {
     text-decoration: none;
     color: #304351;
+    margin: 20px;
 }
-.menu__notice-round {
-    position: absolute;
-    margin-top: -5px;
-    margin-left: -3px;
+.menu .menu__link:hover {
+    text-decoration: underline;
+    color: #21AA63;
 }
-.menu__item__projects {
-    margin-left: 30px;
-}
-.menu__item__invite {
-    margin-left: 60px;   
-}
-.menu__item__producer {
-    margin-right: 15px;
-}
-.menu__item__notice,
-.menu__item__message {
+.menu__notice-icon {
     transition: all 0.3s ease-out;
 }
-.menu__item__message:hover {
+.menu__message-icon {
+    transition: all 0.3s ease-out;
+}
+.menu__notice-icon:hover {
     transition: all 0.3s ease-out;
     transform: scale(1.3);
 }
-.menu__item__notice:hover {
+.menu__message-icon:hover {
     transition: all 0.3s ease-out;
     transform: scale(1.3);
 }
+
+

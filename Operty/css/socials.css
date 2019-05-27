@@ -1,12 +1,11 @@
 .socials {
-    margin-top: 33px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     border-top: 1px solid #DFE2E4;
     width: 372px;
 }
-.socials-item {
+.socials_item {
     margin-top: 32px;
     width: 180px;
     height: 52px;
@@ -17,6 +16,6 @@
     align-items: center;
     cursor: pointer;
 }
-.socials-item:hover {
+.socials_item:hover {
     background-color: rgb(230, 230, 230);
 }

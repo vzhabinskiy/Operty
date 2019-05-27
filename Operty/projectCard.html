@@ -8,41 +8,87 @@
     <title>Project Card</title>
 </head>
 <body>
-    <header class="header mb-5">
+    <header class=" header mb-5">
+        <a href="/"> 
+            <img src="img/menu_logo.svg" alt="logo">
+        </a>
+        <form>
+            <input class="search" type="text" placeholder="Поиск">
+            <button class="search__btn" type="submit">
+                <img src="img/search_icon.svg" alt="Иконка поиска">
+            </button>
+        </form>
         <nav class="menu">
             <ul class="menu__list">
-                <li class="menu__item"><a class="menu__link" href="#"><img class="menu__logo" src="img/menu_logo.svg" alt="logo"></a></li>
-                <li class="menu__item"><input class="search" type="text" placeholder="Поиск"><a href="#"><img class="search__icon" src="img/search_icon.svg"></a></li>
-                <li class="menu__item menu__item__projects"><a class="menu__link" href="">Проекты</a></li>
-                <li class="menu__item"><a class="menu__link" href="">Найти исполнителей</a></li>
-                <li class="menu__item menu__item__invite"><button class="button"><img class="button__icon" src="img/menu_plus.svg"><p class="button__text">Пригласить</p></button></li>
-                <li class="menu__item menu__item__message"><a class="menu__link" href=""><img class="menu__message-icon" src="img/message_icon.svg" alt="message"></a></li>
-                <li class="menu__item menu__item__notice"><a class="menu__link" href=""><img class="menu__notice-icon" src="img/notice_icon.svg" alt="notice"><img class="menu__notice-round" src="img/notice_red-round.svg"></a></li>
-                <li class="menu__item menu__item__producer"><a class="menu__link" href=""><img src="img/producer_icon.svg" alt="logo"></a></li>        
+                <li class="menu__item">
+                    <a href="#" class="menu__link">Проекты</a>
+                    <a href="#" class="menu__link">Найти исполнителей</a>
+                </li>
             </ul>
         </nav>
+        <div class="header__toolbar">
+            <button class="button button_border button_icon">
+                <img class="button__icon" src="img/menu_plus.svg">
+                <p class="button__text">Пригласить</p>
+            </button>
+            <div class="header__notices">
+                <a href="#" class="icon">
+                    <img class="menu__message-icon" src="img/message_icon.svg" alt="message">
+                </a>
+                <a href="#" class="icon red-round">
+                    <img class="menu__notice-icon" src="img/notice_icon.svg" alt="notice">
+                </a>
+            </div>
+            <style>
+            </style>
+            <a href="#" class="profile">
+                <img src="img/producer.jpg" alt="logo">
+            </a>
+        </div>
     </header>
     <main class="main-content">
         <div class="sidebar main-content_sidebar">
             <div class="sidebar_top-list mb-4">
                 <ul>
-                    <li class="sidebar_list_item mb-3"><img class="sidebar_green-mark" src="img/green.svg"><img class="sidebar_list-img" src="img/home.svg"><a class="sidebar_current-list__item" href="">Главная</a></li>
-                    <li class="sidebar_list_item mb-3"><img class="sidebar_list-img" src="img/archive.svg"><a class="sidebar_list-text" href="">Архив</a></li>
+                    <li class="selected_item mb-3">
+                        <!-- <img class="sidebar_green-mark" src="img/green.svg"> -->
+                        <img class="sidebar_list-img" src="img/home.svg">
+                        <a class="sidebar_current-list__item" href="">Главная</a>
+                    </li>
+                    <li class="mb-3">
+                        <img class="sidebar_list-img" src="img/archive.svg">
+                        <a class="sidebar_list-text" href="">Архив</a>
+                    </li>
                 </ul>
             </div>
             <div class="sidebar_middle-list">
                 <h4 class="h4 mb-3 h4_uppercase">Управление</h4>
                 <ul>
-                    <li class="sidebar_list_item mb-2"><a class="sidebar_list-text" href="">Расписание</a></li>
-                    <li class="sidebar_list_item mb-2"><a class="sidebar_list-text" href="">Участники</a></li>
-                    <li class="sidebar_list_item mb-2"><a class="sidebar_list-text" href="">Статистика</a></li>
+                    <li class="mb-2">
+                        <a class="sidebar_list-text" href="">Расписание</a>
+                    </li>
+                    <li class="mb-2">
+                        <a class="sidebar_list-text" href="">Участники</a>
+                    </li>
+                    <li class="mb-2">
+                        <a class="sidebar_list-text" href="">Статистика</a>
+                    </li>
                 </ul>
             </div>
             <div class="sidebar_bottom-list">
                 <ul>
-                    <li class="mb-2"><img class="sidebar_list-img" src="img/import.svg"><a class="sidebar_list-text" href="">Импорт</a></li>
-                    <li class="mb-2"><img class="sidebar_list-img" src="img/basket.svg"><a class="sidebar_list-text" href="">Корзина</a></li>
-                    <li class="mb-2"><img class="sidebar_list-img" src="img/settings.svg"><a class="sidebar_list-text" href="">Настройки</a></li>
+                    <li class="mb-2">
+                        <img class="sidebar_list-img" src="img/import.svg">
+                        <a class="sidebar_list-text" href="">Импорт</a>
+                    </li>
+                    <li class="mb-2">
+                        <img class="sidebar_list-img" src="img/basket.svg">
+                        <a class="sidebar_list-text" href="">Корзина</a>
+                    </li>
+                    <li class="mb-2">
+                        <img class="sidebar_list-img" src="img/settings.svg">
+                        <a class="sidebar_list-text" href="">Настройки</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -59,13 +105,13 @@
                 </div>
             </div>
             <div class="row">
-                <a class="script_create-new">
-                <figure class="script_create-new__img">
+                <a class="create-new create-new_script">
+                <figure class="create-new__img">
                     <img src="img/big_plus.svg">             
                 </figure>
-                <p class="script_create-new__text">Создать сценарий</p>
+                <p class="create-new__text">Создать сценарий</p>
                 </a>
-                <article class="card card_script">
+                <article class="card row-5 card_script">
                     <div class="card_script-top_part">
                     <figure class="card_script__img mb-3">
                         <img src="img/script1.svg" alt="script">             
@@ -73,10 +119,10 @@
                     </div>
                     <div class="card_script-bottom_part">
                         <p class="card_script__text">Во все тяжкие <span>сезон 1</span></p>
-                        <a class="card_script__menu"><img src="img/project_item_menu.svg"></a>
+                        <button class="card_script__menu"><img src="img/project_item_menu.svg"></button>
                     </div>
                 </article>
-                <article class="card card_script">
+                <article class="card row-5 card_script">
                     <div class="card_script-top_part">
                     <figure class="card_script__img mb-3">
                         <img src="img/script2.svg" alt="script">             
@@ -84,10 +130,10 @@
                     </div>
                     <div class="card_script-bottom_part">
                         <p class="card_script__text">Во все тяжкие <span>сезон 2</span></p>
-                        <a class="card_script__menu"><img src="img/project_item_menu.svg"></a>
+                        <button class="card_script__menu"><img src="img/project_item_menu.svg"></button>
                     </div>
                 </article>
-                <article class="card card_script">
+                <article class="card row-5 card_script">
                     <div class="card_script-top_part">
                     <figure class="card_script__img mb-3">
                         <img src="img/script3.svg" alt="script">             
@@ -95,10 +141,10 @@
                     </div>
                     <div class="card_script-bottom_part">
                         <p class="card_script__text">Во все тяжкие <span>сезон 3</span></p>
-                        <a class="card_script__menu"><img src="img/project_item_menu.svg"></a>
+                        <button class="card_script__menu"><img src="img/project_item_menu.svg"></button>
                     </div>
                 </article>
-                <article class="card card_script">
+                <article class="card row-5 card_script">
                     <div class="card_script-top_part">
                     <figure class="card_script__img mb-3">
                         <img src="img/script4.svg" alt="script">             
@@ -106,10 +152,10 @@
                     </div>
                     <div class="card_script-bottom_part">
                         <p class="card_script__text">Во все тяжкие <span>сезон 4</span></p>
-                        <a class="card_script__menu"><img src="img/project_item_menu.svg"></a>
+                        <button class="card_script__menu"><img src="img/project_item_menu.svg"></button>
                     </div>
                 </article>
-                <article class="card card_script">
+                <article class="card row-5 card_script">
                     <div class="card_script-top_part">
                      <figure class="card_script__img mb-3">
                         <img src="img/script5.svg" alt="script">             
@@ -117,7 +163,7 @@
                     </div>
                     <div class="card_script-bottom_part">
                         <p class="card_script__text">Во все тяжкие <span>сезон 5</span></p>
-                        <a class="card_script__menu"><img src="img/project_item_menu.svg"></a>
+                        <button class="card_script__menu"><img src="img/project_item_menu.svg"></button>
                     </div>
                 </article>
             </div>
