@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Participants</title>
+</head>
+<body>
+    <header class=" header mb-5">
+        <a href="#"> 
+            <img src="img/menu_logo.svg" alt="logo">
+        </a>
+        <form>
+            <input class="search" type="text" placeholder="Поиск">
+            <button class="search__btn" type="submit">
+                <img src="img/search_icon.svg" alt="Иконка поиска">
+            </button>
+        </form>
+        <nav class="menu">
+            <ul class="menu__list">
+                <li class="menu__item">
+                    <a href="#" class="menu__link">Проекты</a>
+                    <a href="#" class="menu__link">Найти исполнителей</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header__toolbar">
+            <button class="button button_border button_icon">
+                <img class="button__icon" src="img/menu_plus.svg">
+                <p class="button__text">Пригласить</p>
+            </button>
+            <div class="header__notices">
+                <a href="#" class="icon">
+                    <img class="menu__message-icon" src="img/message_icon.svg" alt="message">
+                </a>
+                <a href="#" class="icon red-round">
+                    <img class="menu__notice-icon" src="img/notice_icon.svg" alt="notice">
+                </a>
+            </div>
+            <style>
+            </style>
+            <a href="#" class="profile">
+                <img src="img/producer.jpg" alt="logo">
+            </a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="sidebar main-content_sidebar">
+            <div class="sidebar_top-list mb-4">
+                <ul>
+                    <li class="mb-3">
+                        <!-- <img class="sidebar_green-mark" src="img/green.svg"> -->
+                        <img class="sidebar_list-img" src="img/house-icon_grey.svg">
+                        <a class="sidebar_list-text" href="">Главная</a>
+                    </li>
+                    <li class="mb-3">
+                        <img class="sidebar_list-img" src="img/archive.svg">
+                        <a class="sidebar_list-text" href="">Архив</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar_middle-list">
+                <h4 class="h4 mb-3 h4_uppercase">Управление</h4>
+                <ul>
+                    <li class="mb-2">
+                        <a class="sidebar_list-text" href="">Расписание</a>
+                    </li>
+                    <li class="selected_item mb-2">
+                        <a class="sidebar_current-list__item" href="">Участники</a>
+                    </li>
+                    <li class="mb-2">
+                        <a class="sidebar_list-text" href="">Статистика</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar_bottom-list">
+                <ul>
+                    <li class="mb-2">
+                        <img class="sidebar_list-img" src="img/import.svg">
+                        <a class="sidebar_list-text" href="">Импорт</a>
+                    </li>
+                    <li class="mb-2">
+                        <img class="sidebar_list-img" src="img/basket.svg">
+                        <a class="sidebar_list-text" href="">Корзина</a>
+                    </li>
+                    <li class="mb-2">
+                        <img class="sidebar_list-img" src="img/settings.svg">
+                        <a class="sidebar_list-text" href="">Настройки</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <section class="main-content_participants">
+            <div class="page-header mb-5">
+                <div>
+                    <h1 class="h1">Участники</h1>
+                </div>
+                <div>
+                    <a href=""><img src="img/4dots.svg"></a>
+                    <a href=""><img src="img/head_menu.svg"></a>
+                </div>
+            </div>
+            <div class="participants-menu mb-5">
+                <ul class="participants-menu__list">
+                    <li class="participants-menu__item participants-menu__selected">
+                        <a href="" class="participants-menu__link">Все</a>
+                    </li>
+                    <li class="participants-menu__item">
+                        <a href="" class="participants-menu__link">Продюсеры</a>
+                    </li>
+                    <li class="participants-menu__item">
+                        <a href="" class="participants-menu__link">Режиссеры</a>
+                    </li>
+                    <li class="participants-menu__item">
+                        <a href="" class="participants-menu__link">Сценаристы</a>
+                    </li>
+                    <li class="participants-menu__item">
+                        <a href="" class="participants-menu__link">Актеры</a>
+                    </li>
+                    <li class="participants-menu__item">
+                        <a href="" class="participants-menu__link">Композиторы</a>
+                    </li>
+                    <li class="participants-menu__item">
+                        <a href="" class="participants-menu__link">Художнки</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+                <article class="card row-4 card_person mb-3">
+                    <button class="card__menu"><img src="img/project_item_menu.svg"></button>
+                    <figure class="card__img mb-4">
+                        <img src="img/wins.jpg" alt="Винс Гиллиган">             
+                    </figure>
+                    <h3 class="card__title mb-3">Винс Гиллиган</h3>
+                    <span class="card__subtitle">сценарист, режиссер, исполнительный продюсер</span>
+                </article>
+                <article class="card row-4 card_person mb-3">
+                    <button class="card__menu"><img src="img/project_item_menu.svg"></button>
+                    <figure class="card__img mb-4">
+                        <img src="img/melissa.jpg" alt="Мелисса Бернштейн">             
+                    </figure>
+                    <h3 class="card__title mb-3">Мелисса Бернштейн</h3>
+                    <span class="card__subtitle">исполнительный сопродюсер, продюсер, сопродюсер</span>
+                </article>
+                <article class="card row-4 card_person mb-3">
+                    <button class="card__menu"><img src="img/project_item_menu.svg"></button>
+                    <figure class="card__img mb-4">
+                        <img src="img/mark.jpg" alt="Марк Джонсон">             
+                    </figure>
+                    <h3 class="card__title mb-3">Марк Джонсон</h3>
+                    <span class="card__subtitle">исполнительный продюсер</span>
+                </article>
+                <article class="card row-4 card_person mb-3">
+                    <button class="card__menu"><img src="img/project_item_menu.svg"></button>
+                    <figure class="card__img mb-4">
+                        <img src="img/stewart.jpg" alt="Стюарт Лайонс">             
+                    </figure>
+                    <h3 class="card__title mb-3">Стюарт Лайонс</h3>
+                    <span class="card__subtitle">продюсер, сопродюсер</span>
+                </article>
+                <article class="card row-4 card_person mb-3">
+                    <button class="card__menu"><img src="img/project_item_menu.svg"></button>
+                    <figure class="card__img mb-4">
+                        <img src="img/sam.jpg" alt="Сэм Кэтлин">             
+                    </figure>
+                    <h3 class="card__title mb-3">Сэм Кэтлин</h3>
+                    <span class="card__subtitle">исполнительный сопродюсер, сопродюсер</span>
+                </article>
+                <article class="card row-4 card_person mb-3">
+                    <button class="card__menu"><img src="img/project_item_menu.svg"></button>
+                    <figure class="card__img mb-4">
+                        <img src="img/diane.jpg" alt="Дайан Мерсер">             
+                    </figure>
+                    <h3 class="card__title mb-3">Дайан Мерсер</h3>
+                    <span class="card__subtitle">продюсер, ассоциированный продюсер, сопродюсер</span>
+                </article>
+                <article class="card row-4 card_person mb-3">
+                    <button class="card__menu"><img src="img/project_item_menu.svg"></button>
+                    <figure class="card__img mb-4">
+                        <img src="img/peter.jpg" alt="Питер Гулд">             
+                    </figure>
+                    <h3 class="card__title mb-3">Питер Гулд</h3>
+                    <span class="card__subtitle">исполнительный сопродюсер, продюсер</span>
+                </article>
+                <article class="card row-4 card_person mb-3">
+                    <button class="card__menu"><img src="img/project_item_menu.svg"></button>
+                    <figure class="card__img mb-4">
+                        <img src="img/michelle.jpg" alt="Мишель МакЛарен">             
+                    </figure>
+                    <h3 class="card__title mb-3">Мишель МакЛарен</h3>
+                    <span class="card__subtitle">исполнительный сопродюсер</span>
+                </article>
+            </div>
+        </section>
+    </main>
+    <div class="help">
+        <img class="help__icon" src="img/question.svg">
+    </div>    
+    
+</body>
+</html>

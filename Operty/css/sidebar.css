@@ -48,3 +48,15 @@
     margin-top: -7px;
     margin-left: -49px;
 }
+.sidebar_middle-list .selected_item {
+    position: relative;
+}
+.sidebar_middle-list .selected_item:before {
+    background: url("../img/green.svg");
+    position: absolute;
+    content: "";
+    width: 5px;
+    height: 40px;
+    margin-top: -7px;
+    margin-left: -53px;
+}

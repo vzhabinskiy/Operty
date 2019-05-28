@@ -19,6 +19,7 @@
 @import url("sidebar.css");
 @import url("header.css");
 @import url("create-new.css");
+@import url("participants-menu.css");
 
 @font-face {
     font-family: 'CoFoSans';

@@ -10,6 +10,9 @@
 .main-content_sidebar {
     flex-basis: 293px;
 }
+.main-content_participants {
+    flex-basis: 1040px;
+}
 .main-content_scripts {
     flex-basis: 1040px;
 }

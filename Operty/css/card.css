@@ -2,35 +2,67 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #DFE2E4;
-}
-.card_project {
-    display: flex;
     flex-direction: column;
-    width: 240px;
-    height: 304px;
+    border: 1px solid #DFE2E4;
     border-radius: 4px;
-    margin-top: 24px;
     cursor: pointer;
     transition: all 0.2s ease-out;
 }
-.card_project:hover {
+.card:hover {
     transform: scale(1.1);
     transition: all 0.2s ease-out;
 }
-.card__menu {
+.card_project {
+    width: 240px;
+    height: 304px;
+}
+.card_person {
+    width: 244px;
+    height: 276px;
+}
+.card_person .card__img img {
+    width: 96px;
+    height: 96px;
+}
+.card_project .card__img img {
+    width: 156px;
+    height: 156px;
+}
+.card_person .card__menu {
+    position: absolute;
+    background: transparent;
+    border: none;
+    outline: none;
+    margin-top: -110px;
+    margin-left: 100px;
+    cursor: pointer;
+}
+.card_person .card__title {
+    font-weight: 500;
+    color: #304351;
+    font-size: 18px;
+}
+.card_person .card__subtitle {
+    color: #304351;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+    width: 80%;
+}
+.card_project .card__menu {
     margin-left: 180px;
     background: transparent;
     border: none;
     outline: none;
+    cursor: pointer;
 }
-.card__title {
+.card_project .card__title {
     font-weight: 500;
     margin-top: 30px;
     color: #304351;
     font-size: 16px;
 }
-.card__subtitle {
+.card_project .card__subtitle {
     margin-top: 14px;
     color: #304351;
     font-size: 14px;
@@ -43,7 +75,6 @@
     height: 236px;
     border: 1px solid #DFE2E4;
     border-radius: 4px;
-    margin-top: 24px;
     cursor: pointer;
     transition: all 0.2s ease-out;
 }
