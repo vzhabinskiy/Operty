@@ -58,12 +58,10 @@
 }
 .card_project .card__title {
     font-weight: 500;
-    margin-top: 30px;
     color: #304351;
     font-size: 16px;
 }
 .card_project .card__subtitle {
-    margin-top: 14px;
     color: #304351;
     font-size: 14px;
     font-weight: normal;
