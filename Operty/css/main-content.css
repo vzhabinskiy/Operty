@@ -5,10 +5,11 @@
     justify-content: center;
 }
 .main-content_projects {
-    flex-basis: 1032px;
+    flex-basis: 1052px;
 }
-.main-content_sidebar {
-    flex-basis: 293px;
+.flex-basis_filters,
+.sidebar_flex-basis {
+    flex-basis: 305px;
 }
 .main-content_participants {
     flex-basis: 1040px;

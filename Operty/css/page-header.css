@@ -2,3 +2,13 @@
     display: flex;
     justify-content: space-between;
 }
+
+.page-header a {
+    text-decoration: none;
+}
+.page-header__link {
+    display: inline-block;
+}
+.page-header__img {
+    display: block;
+}

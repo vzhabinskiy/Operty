@@ -1,7 +1,7 @@
 .help {
     position: fixed;
     bottom: 30px;
-    right: 0;
+    right: 30px;
 }
 .help__icon {
     border: 2px solid #21AA63;
@@ -10,10 +10,10 @@
     width: 40px;
     height: 40px;
     cursor: pointer;
-    transition: all 0.3s ease-out;
+    transition: 0.3s ease-out;
     display: block;
 }
 .help__icon:hover {
     transform: scale(1.1);
-    transition: all 0.3s ease-out;
+    transition: 0.3s ease-out;
 }

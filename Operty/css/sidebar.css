@@ -4,6 +4,11 @@
     align-items: center;
     margin-top: 8px;
 }
+.sidebar_with-logo {
+    position: absolute;
+    top: 0;
+    left: 20px;
+}
 .sidebar ul {
     list-style: none;
 }
@@ -58,5 +63,5 @@
     width: 5px;
     height: 40px;
     margin-top: -7px;
-    margin-left: -53px;
+    margin-left: -59px;
 }

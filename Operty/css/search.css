@@ -1,4 +1,7 @@
 .search {
+    position: relative;
+}
+.search__input {
     width: 393px;
     height: 48px;
     background-color: #F3F6F8;
@@ -7,19 +10,14 @@
     outline: none;
     padding-left: 62px;
 }
-.search::placeholder {
+.search__input::placeholder {
     color: #304351;
     font-size: 16px;
 }
-.search__icon {
-    position: absolute;
-    margin-left: -370px;
-    margin-top: 15px; 
-}
 .search__btn {
     position: absolute;
-    margin-top: -33px;
-    margin-left: 25px; 
+    top: 13px;
+    left: 20px;
     border: none;
     outline: none;
     background: transparent;

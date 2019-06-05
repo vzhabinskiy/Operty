@@ -1,0 +1,26 @@
+.select2-container .select2-selection--single {
+    width: 126px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #DFE2E4;
+    margin-left: -50px !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #304351 !important;
+    line-height: 28px; 
+    font-size: 14px;
+    margin-right:20px;
+}
+.select2-container--open .select2-dropdown {
+    left: -50px; 
+    width: 126px !important; 
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 26px;
+    position: absolute;
+    top: 9px;
+    right: 18px;
+    width: 20px; 
+}

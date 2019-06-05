@@ -6,51 +6,35 @@
     border: 1px solid #DFE2E4;
     border-radius: 4px;
     cursor: pointer;
-    transition: all 0.2s ease-out;
+    transition:  0.2s ease-out;
 }
 .card:hover {
     transform: scale(1.1);
-    transition: all 0.2s ease-out;
+    transition:  0.2s ease-out;
 }
 .card_project {
-    width: 240px;
+    min-width: 240px;
     height: 304px;
+    padding-top: 32px;
+    padding-bottom: 48px;
+    position: relative;
 }
 .card_person {
-    width: 244px;
+    min-width: 244px;
     height: 276px;
-}
-.card_person .card__img img {
-    width: 96px;
-    height: 96px;
+    position: relative;
 }
 .card_project .card__img img {
     width: 156px;
     height: 156px;
 }
-.card_person .card__menu {
-    position: absolute;
-    background: transparent;
-    border: none;
-    outline: none;
-    margin-top: -110px;
-    margin-left: 100px;
-    cursor: pointer;
-}
-.card_person .card__title {
-    font-weight: 500;
-    color: #304351;
-    font-size: 18px;
-}
-.card_person .card__subtitle {
-    color: #304351;
-    font-size: 14px;
-    font-weight: normal;
-    text-align: center;
-    width: 80%;
+.card_project .card__img {
+    padding-bottom: 32px;
 }
 .card_project .card__menu {
-    margin-left: 180px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
     background: transparent;
     border: none;
     outline: none;
@@ -66,10 +50,35 @@
     font-size: 14px;
     font-weight: normal;
 }
+.card_person .card__img img {
+    width: 96px;
+    height: 96px;
+}
+.card_person .card__menu {
+    position: absolute;
+    background: transparent;
+    border: none;
+    outline: none;
+    top:10px;
+    right: 10px;
+    cursor: pointer;
+}
+.card_person .card__title {
+    font-weight: 500;
+    color: #304351;
+    font-size: 18px;
+}
+.card_person .card__subtitle {
+    color: #304351;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+    width: 80%;
+}
 .card_script {
     display: flex;
     flex-direction: column;
-    width: 196px;
+    min-width: 196px;
     height: 236px;
     border: 1px solid #DFE2E4;
     border-radius: 4px;
@@ -86,7 +95,7 @@
     justify-content: center;
 }
 .card_script__text {
-    margin-top: 10px;
+    margin-top: 15px;
     font-size: 14px;
     color:#304351;
     margin-left: 20px;
@@ -100,14 +109,16 @@
     border-top: 1px solid #DFE2E4;
     height: 70px;
     width: 100%;
+    position: relative;
 }
 .card_script__text span {
     display: block;
 }
 .card_script__menu {
-    margin-left: 160px;  
+    position: absolute;  
+    bottom: 15px;
+    right: 18px;
     display: inline-block;
-    margin-top: -30px; 
     border: none;
     outline: none;
     background: transparent;

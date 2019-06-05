@@ -8,12 +8,9 @@
     <title>Participants</title>
 </head>
 <body>
-    <header class=" header mb-5">
-        <a href="#"> 
-            <img src="img/menu_logo.svg" alt="logo">
-        </a>
-        <form>
-            <input class="search" type="text" placeholder="Поиск">
+    <header class=" header mb-10 header_without-logo">
+        <form class="search">  
+            <input class="search__input" type="text" placeholder="Поиск">
             <button class="search__btn" type="submit">
                 <img src="img/search_icon.svg" alt="Иконка поиска">
             </button>
@@ -22,6 +19,8 @@
             <ul class="menu__list">
                 <li class="menu__item">
                     <a href="#" class="menu__link">Проекты</a>
+                </li>
+                <li class="menu__item">
                     <a href="#" class="menu__link">Найти исполнителей</a>
                 </li>
             </ul>
@@ -33,27 +32,28 @@
             </button>
             <div class="header__notices">
                 <a href="#" class="icon">
-                    <img class="menu__message-icon" src="img/message_icon.svg" alt="message">
+                    <img class="menu__message-icon" src="img/message_icon.svg" alt="Иконка сообщений">
                 </a>
                 <a href="#" class="icon red-round">
-                    <img class="menu__notice-icon" src="img/notice_icon.svg" alt="notice">
+                    <img class="menu__notice-icon" src="img/notice_icon.svg" alt="Иконка уведомлений">
                 </a>
             </div>
-            <style>
-            </style>
             <a href="#" class="profile">
-                <img src="img/producer.jpg" alt="logo">
+                <img src="img/producer.jpg" alt="Аватар">
             </a>
         </div>
     </header>
 
-    <main class="main-content">
-        <div class="sidebar main-content_sidebar">
+    <div class="flex">
+        <aside class="sidebar  sidebar_flex-basis">
+            <a class="sidebar_with-logo" href="/"> 
+                <img src="img/menu_logo.svg" alt="Логотип Operty">
+            </a>
             <div class="sidebar_top-list mb-4">
                 <ul>
                     <li class="mb-3">
                         <!-- <img class="sidebar_green-mark" src="img/green.svg"> -->
-                        <img class="sidebar_list-img" src="img/house-icon_grey.svg">
+                        <img class="sidebar_list-img" src="img/home.svg">
                         <a class="sidebar_list-text" href="">Главная</a>
                     </li>
                     <li class="mb-3">
@@ -64,35 +64,35 @@
             </div>
             <div class="sidebar_middle-list">
                 <h4 class="h4 mb-3 h4_uppercase">Управление</h4>
-                <ul>
-                    <li class="mb-2">
-                        <a class="sidebar_list-text" href="">Расписание</a>
-                    </li>
-                    <li class="selected_item mb-2">
-                        <a class="sidebar_current-list__item" href="">Участники</a>
-                    </li>
-                    <li class="mb-2">
-                        <a class="sidebar_list-text" href="">Статистика</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="sidebar_bottom-list">
-                <ul>
-                    <li class="mb-2">
-                        <img class="sidebar_list-img" src="img/import.svg">
-                        <a class="sidebar_list-text" href="">Импорт</a>
-                    </li>
-                    <li class="mb-2">
-                        <img class="sidebar_list-img" src="img/basket.svg">
-                        <a class="sidebar_list-text" href="">Корзина</a>
-                    </li>
-                    <li class="mb-2">
-                        <img class="sidebar_list-img" src="img/settings.svg">
-                        <a class="sidebar_list-text" href="">Настройки</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+                    <ul>
+                        <li class="mb-2">
+                            <a class="sidebar_list-text" href="">Расписание</a>
+                        </li>
+                        <li class="selected_item mb-2">
+                            <a class="sidebar_current-list__item" href="">Участники</a>
+                        </li>
+                        <li class="mb-2">
+                            <a class="sidebar_list-text" href="">Статистика</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar_bottom-list">
+                    <ul>
+                        <li class="mb-2">
+                            <img class="sidebar_list-img" src="img/import.svg">
+                            <a class="sidebar_list-text" href="">Импорт</a>
+                        </li>
+                        <li class="mb-2">
+                            <img class="sidebar_list-img" src="img/basket.svg">
+                            <a class="sidebar_list-text" href="">Корзина</a>
+                        </li>
+                        <li class="mb-2">
+                            <img class="sidebar_list-img" src="img/settings.svg">
+                            <a class="sidebar_list-text" href="">Настройки</a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>  
         <section class="main-content_participants">
             <div class="page-header mb-5">
                 <div>
@@ -195,7 +195,8 @@
                 </article>
             </div>
         </section>
-    </main>
+    
+    </div>
     <div class="help">
         <img class="help__icon" src="img/question.svg">
     </div>    

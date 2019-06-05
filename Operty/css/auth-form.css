@@ -1,6 +1,7 @@
 .auth-form {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 .auth-form__input {
     width: 372px;
@@ -12,6 +13,9 @@
     font-size: 18px;
     padding-left: 23px;
     font-weight: normal;
+}
+.auth-form__input:focus {
+    border: 0.5px solid #21AA63;
 }
 .auth-form__input:not(:last-of-type) {
     margin-bottom: 12px;

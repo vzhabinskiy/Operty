@@ -7,7 +7,6 @@
 @import url("menu.css");
 @import url("main-content.css");
 @import url("projects.css");
-@import url("footer.css");
 @import url("auth-form.css");
 @import url("help.css");
 @import url("search.css");
@@ -20,6 +19,10 @@
 @import url("header.css");
 @import url("create-new.css");
 @import url("participants-menu.css");
+@import url("filters.css");
+@import url("swiper2.css");
+@import url("flex.css");
+@import url("toggle.css");
 
 @font-face {
     font-family: 'CoFoSans';
