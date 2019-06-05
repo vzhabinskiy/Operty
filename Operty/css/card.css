@@ -83,11 +83,11 @@
     border: 1px solid #DFE2E4;
     border-radius: 4px;
     cursor: pointer;
-    transition: all 0.2s ease-out;
+    transition:  0.2s ease-out;
 }
 .card_script:hover {
     transform: scale(1.1);
-    transition: all 0.2s ease-out;
+    transition:  0.2s ease-out;
 }
 .card_script__img {
     margin-top: 20px;
