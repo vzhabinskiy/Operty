@@ -1,13 +1,12 @@
 .card {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     border: 1px solid #DFE2E4;
     border-radius: 4px;
     cursor: pointer;
     transition:  0.2s ease-out;
 }
+
 .card:hover {
     transform: scale(1.1);
     transition:  0.2s ease-out;
@@ -18,11 +17,17 @@
     padding-top: 32px;
     padding-bottom: 48px;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .card_person {
     min-width: 244px;
     height: 276px;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .card_project .card__img img {
     width: 156px;
@@ -78,6 +83,8 @@
 .card_script {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     min-width: 196px;
     height: 236px;
     border: 1px solid #DFE2E4;
@@ -123,4 +130,59 @@
     outline: none;
     background: transparent;
     cursor: pointer;
+}
+.card_executor {
+    min-width: 517px;
+    height: 236px;
+    padding-top: 24px;
+}
+.card_executor-top {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 40px;
+    position: relative;
+}
+.card_executor-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.card_executor__intro {
+    padding-left: 40px;
+}
+.card_executor__rating {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
+.card_executor__info {
+    display: block;
+    margin-right: 40px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #304351;
+}
+.card_executor__img img {
+    width: 96px;
+    height: 96px;
+}
+.card_executor__title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #304351;
+}
+.card_executor__subtitle {
+    font-size: 14px;
+    color: #304351;
+}
+.card_executor__number {
+    font-size: 18px;
+    color: #21AA63;
+    font-weight: 500;
+    margin-left: 12px;
+}
+.card_executor__data-item {
+    font-size: 14px;
+    color: #304351;
 }

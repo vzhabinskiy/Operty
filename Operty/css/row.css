@@ -10,3 +10,6 @@
 .row-5 {
     width: calc(20% - 21px);
 }
+.row-2 {
+    width: calc(50% - 12px);
+}

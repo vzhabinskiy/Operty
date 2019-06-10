@@ -1,7 +1,7 @@
 .help {
     position: fixed;
     bottom: 30px;
-    right: 30px;
+    right: 10px;
 }
 .help__icon {
     border: 2px solid #21AA63;
