@@ -77,3 +77,23 @@
     text-decoration: underline;
     color: #21AA63;
 }
+.filters-range {
+    margin-left: 15px;
+}
+.filters-range__counter {
+    display: flex;
+    justify-content: space-between;
+    width: 195px;
+}
+.filters-range__counter-start {
+    margin-top: 15px;
+    margin-left: 5px;
+    color: #304351;
+    font-size: 14px;
+}
+.filters-range__counter-end {
+    margin-top: 15px;
+    margin-right: -17px;
+    color: #304351;
+    font-size: 14px;
+}

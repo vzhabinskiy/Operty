@@ -132,7 +132,7 @@
     cursor: pointer;
 }
 .card_executor {
-    min-width: 517px;
+    min-width: 500px;
     height: 236px;
     padding-top: 24px;
 }
@@ -147,6 +147,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    padding-left: 40px;
 }
 .card_executor__intro {
     padding-left: 40px;
@@ -155,13 +156,6 @@
     position: absolute;
     top: 25px;
     right: 25px;
-}
-.card_executor__info {
-    display: block;
-    margin-right: 40px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #304351;
 }
 .card_executor__img img {
     width: 96px;
@@ -182,7 +176,19 @@
     font-weight: 500;
     margin-left: 12px;
 }
+.card_executor__data-list {
+
+}
+.card_executor__info-item {
+    padding-left: 30px;
+}
 .card_executor__data-item {
     font-size: 14px;
+    color: #304351;
+}
+.card_executor__info-item {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
     color: #304351;
 }
