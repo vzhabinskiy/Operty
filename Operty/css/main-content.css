@@ -1,21 +1,9 @@
 .main-content {
-    display: flex;
-}
-.main-content_center {
-    justify-content: center;
-}
-.main-content_projects {
     flex-basis: 1052px;
 }
 .filters_flex-basis,
 .sidebar_flex-basis {
     flex-basis: 305px;
-}
-.main-content_participants {
-    flex-basis: 1052px;
-}
-.main-content_scripts {
-    flex-basis: 1040px;
 }
 .main-content_min {
     flex-basis: 920px;

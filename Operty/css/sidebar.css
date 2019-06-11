@@ -4,7 +4,7 @@
     align-items: center;
     margin-top: 8px;
 }
-.sidebar_with-logo {
+.sidebar__with-logo {
     position: absolute;
     top: 0;
     left: 20px;
@@ -12,7 +12,7 @@
 .sidebar ul {
     list-style: none;
 }
-.sidebar_top-list {
+.sidebar__top-list {
     border-bottom: 1px solid #DFE2E4;
 }
 .sidebar_current-list__item {
@@ -35,28 +35,28 @@
     text-decoration: none;
     color: #304351;
 }
-.sidebar_middle-list {
+.sidebar__middle-list {
     margin-right: 5px;
 }
-.sidebar_bottom-list {
+.sidebar__bottom-list {
     margin-top: 350px;
 }
-.sidebar_top-list .selected_item {
+.sidebar__top-list .selected_item {
     position: relative;
 }
-.sidebar_top-list .selected_item:before {
+.sidebar__top-list .selected_item:before {
     background: url("../img/green.svg");
     position: absolute;
     content: "";
     width: 5px;
     height: 40px;
     margin-top: -7px;
-    margin-left: -49px;
+    margin-left: -55px;
 }
-.sidebar_middle-list .selected_item {
+.sidebar__middle-list .selected_item {
     position: relative;
 }
-.sidebar_middle-list .selected_item:before {
+.sidebar__middle-list .selected_item:before {
     background: url("../img/green.svg");
     position: absolute;
     content: "";
