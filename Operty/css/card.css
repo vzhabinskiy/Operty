@@ -176,8 +176,9 @@
     font-weight: 500;
     margin-left: 12px;
 }
-.card_executor__data-list {
-
+.card_executor__rating-text {
+    font-size: 14px;
+    color: #304351;
 }
 .card_executor__info-item {
     padding-left: 30px;

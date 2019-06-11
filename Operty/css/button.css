@@ -71,6 +71,23 @@
     font-weight: 500;
     font-size: 14px;
 }
+.button_executor {
+    border: none;
+    width: 186px;
+    height: 46px;
+    background-color: #21AA63;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+}
+.button_executor:hover {
+    border: 1px solid #21AA63;
+    background-color: white;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    color: #21AA63;
+}
 
 .button_border_grey {
     /* сюда стили для кнопки  "Получить расчёт по бюджету" на странице статистика */

@@ -17,3 +17,6 @@
 .main-content_scripts {
     flex-basis: 1040px;
 }
+.main-content_min {
+    flex-basis: 920px;
+}
