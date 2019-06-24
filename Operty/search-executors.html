@@ -69,9 +69,15 @@
             </div> 
             <div class="mb-4">
                 <h5 class="h5 mb-2">Пол</h5>
-                <div class="filters-gender">
+                <!-- <div class="filters-gender">
                     <button class="filters-gender__male filters-gender_selected">Мужской</button>
                     <button class="filters-gender__female">Женский</button>
+                </div> -->
+                <div>
+                    <input class="radio" id="radio-1" type="radio" name="radio" checked />
+                    <label for="radio-1"></label>
+                    <input class="radio" id="radio-2" type="radio" name="radio" />
+                    <label for="radio-2"></label>
                 </div>
             </div>
             <div class="mb-4">
@@ -82,14 +88,18 @@
                 </select>
             </div>
             <div class="filters-check mb-4">
-                <div class="filters-check__item mb-2">
+                <!-- <div class="filters-check__item mb-2">
                     <button class="filters-check__btn filters-check_selected"></button>
                     <p class="filters-check__text">Только с фото</p>
                 </div>
                 <div class="filters-check__item">
                     <button class="filters-check__btn"></button>
                     <p class="filters-check__text">Только с примерами работ</p>
-                </div>
+                </div> -->
+                <input type="checkbox" id="c1" name="check" />
+                <label for="c1" class="mb-2"><span></span>Только с фото</label>
+                <input type="checkbox" id="c2" name="check" checked/>
+                <label for="c2"><span></span>Только с примерами работ</label>
             </div>
             <button class="button button_filters mb-4">Пригласить</button>
             <a href="#" class="filters-link">Сбросить</a>
