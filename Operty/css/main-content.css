@@ -1,10 +1,36 @@
 .main-content {
-    flex-basis: 1052px;
+    flex-basis: 1020px;
 }
 .filters_flex-basis,
 .sidebar_flex-basis {
-    flex-basis: 305px;
+    flex-basis: 240px;
 }
+/* .filters_flex-basis {
+    flex-basis: 305px;
+} */
 .main-content_min {
     flex-basis: 920px;
+}
+@media screen and (max-width: 1190px) {
+    .main-content {
+        flex-basis: 900px;
+    }
+        
+}
+@media screen and (max-width: 992px){
+    .main-content {
+        flex-basis: 700px;
+        margin: auto;
+    }
+    
+}
+@media screen and (max-width: 767px){
+    .main-content {
+        flex-basis: 520px;
+    }
+}
+@media screen and (max-width: 479px){
+    .main-content {
+        flex-basis: 215px;
+    }
 }

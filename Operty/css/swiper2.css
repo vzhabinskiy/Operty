@@ -12,7 +12,7 @@
 }
 .select2-container--open .select2-dropdown .select-projects {
     left: 0px; 
-    width: 126px ; 
+    width: 126px; 
 }
 .select2-container--open .select2-dropdown .select-roles {
     left: 0px; 
@@ -38,7 +38,7 @@
 .noUi-target {
 position: relative;
 direction: ltr;
-width: 195px;
+width: 160px;
 }
 .noUi-horizontal .noUi-handle {
 width: 20px;

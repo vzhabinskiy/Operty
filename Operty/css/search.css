@@ -23,3 +23,35 @@
     background: transparent;
     cursor: pointer;
 }
+@media screen and (max-width: 1314px) {
+    .search__input {
+        width: 250px;
+    }
+    
+}
+@media screen and (max-width: 1190px) {
+    .search__input {
+        width: 175px;
+        padding-left: 50px;
+    }
+        
+}
+@media screen and (max-width: 1100px) {
+    .search__input {
+        width: 125px;
+        margin-left: -60px;    
+    }
+    .search__btn {
+        left: -40px;
+    }
+}
+@media screen and (max-width: 992px) {
+    .search__input{
+        width: 250px;
+        padding-left: 62px;
+        margin-left: 0;
+    }
+    .search__btn {
+        left: 20px;
+    }
+}

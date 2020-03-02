@@ -5,7 +5,7 @@
     transition: background-color 0.4s ease-out, color 0.4s ease-out, border 0.4s ease-out; 
 }
 .button_login {
-    padding: 15px 160px;
+    padding: 15px 58px;
     font-size: 18px;
     font-weight: 500;
     color:white;
@@ -56,7 +56,7 @@
     display: none;
 }
 .button_filters {
-    width: 204px;
+    width: 174px;
     height: 46px;
     border: 1px solid #21AA63;
     background-color: white;
@@ -97,4 +97,20 @@
 
 .button_full {
     width: 100%; 
+}
+@media (max-width: 992px){
+    .button_border {
+        width: 220px;
+        height: 55px;
+        margin-right: 0px;
+    }
+    .button__text {
+        font-size: 26px;
+    }
+    .button__icon {
+        padding-top: 4px;
+        padding-right: 12px;
+        width: 26px;
+        height: 26px;
+    } 
 }

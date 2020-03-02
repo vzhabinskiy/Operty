@@ -46,14 +46,60 @@
             </a>
         </div>
     </header>
+
+    <div class="mobile-menu_container mb-5">
+        <a href="/" class="mobile-menu_logo"> 
+            <img src="img/menu_logo.svg" alt="Логотип Operty">
+        </a>
+        <div class="mobile-menu">
+            <span class="menu-burger"></span>
+        </div>
+    </div>
+
+    <div class="menu_mob">
+        <form class="search mb-5">  
+            <input class="search__input" type="text" placeholder="Поиск">
+            <button class="search__btn" type="submit">
+                <img src="img/search_icon.svg" alt="Иконка поиска">
+            </button>
+        </form>
+        <nav class="menu mb-5">
+            <ul class="menu__list">
+                <li class="menu__item mb-5">
+                    <a href="#" class="menu__link">Проекты</a>
+                </li>
+                <li class="menu__item">
+                    <a href="#" class="menu__link">Найти исполнителей</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header__toolbar">
+            <button class="button button_border button_icon mb-5">
+                <img class="button__icon" src="img/menu_plus.svg">
+                <p class="button__text">Пригласить</p>
+            </button>
+            <div class="header__notices mb-2">
+                <a href="#" class="icon">
+                    <img class="menu__message-icon" src="img/message_icon.svg" alt="Иконка сообщений">
+                </a>
+                <a href="#" class="icon red-round">
+                    <img class="menu__notice-icon" src="img/notice_icon.svg" alt="Иконка уведомлений">
+                </a>
+            </div>
+            <a href="#" class="profile">
+                <img src="img/producer.jpg" alt="Аватар">
+            </a>
+        </div>
+    </div>
+
     <div class="flex center">
         <main class="main-content main-content_min">
             <div class="page-header mb-5">
                 <div class="page-header__left">
-                    <a href="">
+                    <a href="" class="page-header__left-icon">
                         <img src="img/back2.svg">
                     </a>
-                    <h1 class="h1 h1_left">Аарон Пол</h1>
+                    <h1 class="h1 h1_left h1_executor-card">Аарон Пол</h1>
                     <span class="page-header__info">Актер, продюсер</span>
                 </div>
                 <div class="page-header__right">
@@ -79,13 +125,13 @@
                 </div>
                 <div class="executor-intro">
                     <div class="executor-intro__top mb-10">
-                        <div class="executor-intro__data-list">
-                            <p class="executor-intro__data-item mb-4">Возраст</p>
-                            <p class="executor-intro__data-item">Место рождения</p>
+                        <div class="executor-intro__data-list mb-3">
+                            <p class="executor-intro__data-item mb-1">Возраст</p>
+                            <p class="executor-intro__data-item executor-intro__data-item-value">39 лет</p>
                         </div>
                         <div class="executor-intro__info-list">
-                            <p class="executor-intro__info-item mb-4">39 лет</p>
-                            <p class="executor-intro__info-item">Эммет, Айдахо, США</p>
+                            <p class="executor-intro__info-item mb-1">Место рождения</p>
+                            <p class="executor-intro__info-item executor-intro__info-item-value">Эммет, Айдахо, США</p>
                         </div>
                     </div>
                     <div class="executor-intro__about mb-10">
@@ -95,9 +141,9 @@
                            что станет актером. Он вступил в кружок драмы и не пропускал ни одной школьной постановки. Помимо учебы и увлечением театра Аарон успел поработать на местном радио.
                         </p>
                     </div>
-                    <div>
+                    <div class="executor-intro_portfolio">
                         <h6 class="h6 mb-2">Портфолио</h6>
-                        <figure class="executor-intro_portfolio">
+                        <figure class="executor-intro_portfolio-img">
                             <img  src="img/portfolio.jpg" alt="">
                         </figure>
                     </div>
@@ -108,5 +154,8 @@
     <div class="help">
         <img class="help__icon" src="img/question.svg">
     </div> 
+
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 </html>

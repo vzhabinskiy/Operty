@@ -19,3 +19,12 @@
 .socials_item:hover {
     background-color: rgb(230, 230, 230);
 }
+@media screen and (max-width: 479px) {
+    .socials {
+        width: 282px;
+    }
+    .socials_item {
+        width: 130px;
+    }
+    
+    }

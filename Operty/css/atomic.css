@@ -16,4 +16,9 @@
 .mb-10 {
     margin-bottom: 80px;
 }
-
+@media screen and (max-width: 479px) {
+    .mb-2_adapt {
+        margin-bottom: 16px;
+    }
+    
+}

@@ -4,6 +4,7 @@
 .participants-menu__list {
     display: flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
     list-style: none;
 }
 .participants-menu__link {
@@ -23,5 +24,10 @@
 .participants-menu__selected {
     background: #F3F6F8;
     border-radius: 4px;
+}
+@media screen and (max-width: 479px) {
+    .participants-menu {
+        display: none;
+    }
 }
 

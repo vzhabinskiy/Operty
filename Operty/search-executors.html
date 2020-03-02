@@ -10,7 +10,7 @@
     <title>Search executors</title>
 </head>
 <body>
-    <header class=" header mb-5">
+    <header class="header mb-5">
         <a href="/"> 
             <img src="img/menu_logo.svg" alt="Логотип Operty">
         </a>
@@ -50,11 +50,57 @@
             </a>
         </div>
     </header>
+
+    <div class="mobile-menu_container mb-5">
+        <a href="/" class="mobile-menu_logo"> 
+            <img src="img/menu_logo.svg" alt="Логотип Operty">
+        </a>
+        <div class="mobile-menu">
+            <span class="menu-burger"></span>
+        </div>
+    </div>
+
+    <div class="menu_mob">
+        <form class="search mb-5">  
+            <input class="search__input" type="text" placeholder="Поиск">
+            <button class="search__btn" type="submit">
+                <img src="img/search_icon.svg" alt="Иконка поиска">
+            </button>
+        </form>
+        <nav class="menu mb-5">
+            <ul class="menu__list">
+                <li class="menu__item mb-5">
+                    <a href="#" class="menu__link">Проекты</a>
+                </li>
+                <li class="menu__item">
+                    <a href="#" class="menu__link">Найти исполнителей</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header__toolbar">
+            <button class="button button_border button_icon mb-5">
+                <img class="button__icon" src="img/menu_plus.svg">
+                <p class="button__text">Пригласить</p>
+            </button>
+            <div class="header__notices mb-2">
+                <a href="#" class="icon">
+                    <img class="menu__message-icon" src="img/message_icon.svg" alt="Иконка сообщений">
+                </a>
+                <a href="#" class="icon red-round">
+                    <img class="menu__notice-icon" src="img/notice_icon.svg" alt="Иконка уведомлений">
+                </a>
+            </div>
+            <a href="#" class="profile">
+                <img src="img/producer.jpg" alt="Аватар">
+            </a>
+        </div>
+    </div>
+
     <div class="flex">
         <aside class="filters filters_flex-basis">
             <div class="mb-4">
                 <h5 class="h5 mb-2">Роли</h5>
-                <select class="select-roles" style="width: 204px">
+                <select class="select-roles" style="width: 174px">
                     <option>Актеры</option>
                     <option>Актрисы</option>
                 </select>
@@ -68,7 +114,7 @@
                 </div>      
             </div> 
             <div class="mb-4">
-                <h5 class="h5 mb-2">Пол</h5>
+                <h5 class="h5 mb-2 h5_left" >Пол</h5>
                 <!-- <div class="filters-gender">
                     <button class="filters-gender__male filters-gender_selected">Мужской</button>
                     <button class="filters-gender__female">Женский</button>
@@ -82,7 +128,7 @@
             </div>
             <div class="mb-4">
                 <h5 class="h5 mb-2">Регион</h5>
-                <select class="select-region" style="width: 204px">
+                <select class="select-region" style="width: 174px">
                     <option>Везде</option>
                     <option>США</option>
                 </select>
@@ -107,9 +153,9 @@
         <main class="main-content">
             <div class="page-header mb-5">
                 <div>
-                    <h1 class="h1">Поиск исполнителей</h1>
+                    <h1 class="h1 mb-2_adapt">Поиск исполнителей</h1>
                 </div>
-                <p class="page-header__text">Найдено 12 000 исполнителей</p>
+                <p class="page-header__text mb-2_adapt">Найдено 12 000 исполнителей</p>
                 <div class="toggle">
                     <a class="page-header__link toggle_icon toggle_icon_active" href="">
                         <svg class="page-header__img" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
@@ -148,13 +194,13 @@
                         </div>
                     </div>
                     <div class="card_executor-bottom">
-                        <div class="card_executor__data-list">
-                            <p class="card_executor__data-item mb-1">Возраст</p>
-                            <p class="card_executor__data-item">Место рождения</p>
+                        <div class="card_executor__data-list mb-1">
+                            <span class="card_executor__data-item">Возраст</span>
+                            <span class="card_executor__data-item card_executor__data-item_value">62 года</span>
                         </div>
                         <div class="card_executor__info-list">
-                            <span class="card_executor__info-item mb-1">62 года</span>
-                            <span class="card_executor__info-item">Сан Фернандо, Калифорния, США</span>
+                            <span class="card_executor__info-item">Место рождения</span>
+                            <span class="card_executor__info-item card_executor__info-item_value">Сан Фернандо, Калифорния, США</span>
                         </div>
                     </div> 
                 </article>
@@ -173,13 +219,13 @@
                         </div>
                     </div>
                     <div class="card_executor-bottom">
-                        <div class="card_executor__data-list">
-                            <p class="card_executor__data-item mb-1">Возраст</p>
-                            <p class="card_executor__data-item">Место рождения</p>
+                        <div class="card_executor__data-list mb-1">
+                            <span class="card_executor__data-item">Возраст</span>
+                            <span class="card_executor__data-item card_executor__data-item_value">50 лет</span>
                         </div>
                         <div class="card_executor__info-list">
-                            <span class="card_executor__info-item mb-1">50 лет</span>
-                            <span class="card_executor__info-item">Санта-Фе, Нью-Мексико, США</span>
+                            <span class="card_executor__info-item">Место рождения</span>
+                            <span class="card_executor__info-item card_executor__info-item_value">Санта-Фе, Нью-Мексико, США</span>
                         </div>
                     </div> 
                 </article>
@@ -198,13 +244,13 @@
                         </div>
                     </div>
                     <div class="card_executor-bottom">
-                        <div class="card_executor__data-list">
-                            <p class="card_executor__data-item mb-1">Возраст</p>
-                            <p class="card_executor__data-item">Место рождения</p>
+                        <div class="card_executor__data-list mb-1">
+                            <span class="card_executor__data-item">Возраст</span>
+                            <span class="card_executor__data-item card_executor__data-item_value">39 лет</span>
                         </div>
                         <div class="card_executor__info-list">
-                            <span class="card_executor__info-item mb-1">39 лет</span>
-                            <span class="card_executor__info-item">Эммет, Айдахо, США</span>
+                            <span class="card_executor__info-item">Место рождения</span>
+                            <span class="card_executor__info-item card_executor__info-item_value">Эммет, Айдахо, США</span>
                         </div>
                     </div> 
                 </article>
@@ -223,13 +269,13 @@
                         </div>
                     </div>
                     <div class="card_executor-bottom">
-                        <div class="card_executor__data-list">
-                            <p class="card_executor__data-item mb-1">Возраст</p>
-                            <p class="card_executor__data-item">Место рождения</p>
+                        <div class="card_executor__data-list mb-1">
+                            <span class="card_executor__data-item">Возраст</span>
+                            <span class="card_executor__data-item card_executor__data-item_value">55 лет</span>
                         </div>
                         <div class="card_executor__info-list">
-                            <span class="card_executor__info-item mb-1">55 лет</span>
-                            <span class="card_executor__info-item">Саут-Бенд, Индиана, США</span>
+                            <span class="card_executor__info-item">Место рождения</span>
+                            <span class="card_executor__info-item card_executor__info-item_value">Саут-Бенд, Индиана, США</span>
                         </div>
                     </div> 
                 </article>
@@ -248,13 +294,13 @@
                         </div>
                     </div>
                     <div class="card_executor-bottom">
-                        <div class="card_executor__data-list">
-                            <p class="card_executor__data-item mb-1">Возраст</p>
-                            <p class="card_executor__data-item">Место рождения</p>
+                        <div class="card_executor__data-list mb-1">
+                            <span class="card_executor__data-item">Возраст</span>
+                            <span class="card_executor__data-item card_executor__data-item_value">45 лет</span>
                         </div>
                         <div class="card_executor__info-list">
-                            <span class="card_executor__info-item mb-1">45 лет</span>
-                            <span class="card_executor__info-item">Бэй Сити, Мичиган, США</span>
+                            <span class="card_executor__info-item">Место рождения</span>
+                            <span class="card_executor__info-item card_executor__info-item_value">Бэй-Сити, Мичиган, США</span>
                         </div>
                     </div> 
                 </article>
@@ -273,13 +319,13 @@
                         </div>
                     </div>
                     <div class="card_executor-bottom">
-                        <div class="card_executor__data-list">
-                            <p class="card_executor__data-item mb-1">Возраст</p>
-                            <p class="card_executor__data-item">Место рождения</p>
+                        <div class="card_executor__data-list mb-1">
+                            <span class="card_executor__data-item">Возраст</span>
+                            <span class="card_executor__data-item card_executor__data-item_value">60 лет</span>
                         </div>
-                        <div class="card_executor__info-list"> 
-                            <span class="card_executor__info-item mb-1">60 лет</span>
-                            <span class="card_executor__info-item">Копенгаген, Дания</span>
+                        <div class="card_executor__info-list">
+                            <span class="card_executor__info-item">Место рождения</span>
+                            <span class="card_executor__info-item card_executor__info-item_value">Копенгаген, Дания</span>
                         </div>
                     </div> 
                 </article>
@@ -298,5 +344,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.1.0/wNumb.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/9.2.0/nouislider.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 </html>

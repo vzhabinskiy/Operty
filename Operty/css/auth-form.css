@@ -34,3 +34,9 @@
     font-weight: normal;
     cursor: pointer;
 }
+@media screen and (max-width: 479px) {
+    .auth-form__input {
+        width: 270px;
+    }
+    
+    }

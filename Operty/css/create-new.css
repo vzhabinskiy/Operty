@@ -11,11 +11,11 @@
     border-radius: 4px;
 }
 .create-new:hover {
-    transform: scale(1.1);
+    transform: scale(0.9);
     transition: all 0.2s ease-out;
 }
 .create-new_project {
-    width: 240px;
+    min-width: 240px;
     height: 304px;
 }
 .create-new_project .create-new__text {
@@ -29,6 +29,7 @@
 .create-new_script {
     width: 196px;
     height: 236px;
+    margin-right: 7px;
 }
 .create-new_script .create-new__text {
     margin-top: 50px;
@@ -37,5 +38,10 @@
 }
 .create-new_script .create-new__img {
     margin-top: 50px;
+}
+@media screen and (max-width: 479px){
+    .create-new_script {
+        margin-right: 0;
+    }
 }
 

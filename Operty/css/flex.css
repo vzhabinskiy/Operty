@@ -1,5 +1,7 @@
 .flex {
     display: flex;
+    max-width: 1357px;
+    margin: 0 auto 40px auto;
 }
 .center {
     justify-content: center;

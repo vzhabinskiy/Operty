@@ -36,3 +36,48 @@
     font-size: 18px;
     color: #304351;
 }
+@media screen and (max-width: 1314px) {
+    .page-header__text {
+        margin-right: 60px;
+    }
+    
+}
+@media screen and (max-width: 1190px) {
+    .page-header__link {
+        display: none;
+    }
+    .page-header__text {
+        margin-right: 0px;
+    }
+}
+@media screen and (max-width: 830px) {
+    .page-header__left {
+        margin-left: 40px;
+    }
+
+}
+@media screen and (max-width: 479px) {
+    .page-header {
+        flex-direction: column;
+    }
+    .page-header__left-icon, .page-header__folder-icon {
+        display: none;
+    }
+    .page-header__info {
+        margin-left: 0px;
+        text-align: center;
+    }
+    .page-header__left {
+        margin-left: 0px;
+    }
+    .page-header__right {
+        text-align: center;
+        margin-top: 16px;
+    }
+    .page-header__rating {
+        margin-left: 63px;
+    }
+    .page-header__number {
+        margin-left: 0px;
+    }
+}

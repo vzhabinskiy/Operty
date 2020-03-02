@@ -8,7 +8,10 @@
     <title>Project Card</title>
 </head>
 <body>
-    <header class="header mb-10 header_without-logo">
+    <header class="header mb-10">
+        <a href="/"> 
+            <img src="img/menu_logo.svg" alt="Логотип Operty">
+        </a>
         <form class="search">  
             <input class="search__input" type="text" placeholder="Поиск">
             <button class="search__btn" type="submit">
@@ -43,11 +46,58 @@
             </a>
         </div>
     </header>
+
+    <div class="mobile-menu_container mb-5">
+        <a href="/" class="mobile-menu_logo"> 
+            <img src="img/menu_logo.svg" alt="Логотип Operty">
+        </a>
+        <div class="mobile-menu">
+            <span class="menu-burger"></span>
+        </div>
+    </div>
+
+    <div class="menu_mob">
+        <form class="search mb-5">  
+            <input class="search__input" type="text" placeholder="Поиск">
+            <button class="search__btn" type="submit">
+                <img src="img/search_icon.svg" alt="Иконка поиска">
+            </button>
+        </form>
+        <nav class="menu mb-5">
+            <ul class="menu__list">
+                <li class="menu__item mb-5">
+                    <a href="#" class="menu__link">Проекты</a>
+                </li>
+                <li class="menu__item">
+                    <a href="#" class="menu__link">Найти исполнителей</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header__toolbar">
+            <button class="button button_border button_icon mb-5">
+                <img class="button__icon" src="img/menu_plus.svg">
+                <p class="button__text">Пригласить</p>
+            </button>
+            <div class="header__notices mb-2">
+                <a href="#" class="icon">
+                    <img class="menu__message-icon" src="img/message_icon.svg" alt="Иконка сообщений">
+                </a>
+                <a href="#" class="icon red-round">
+                    <img class="menu__notice-icon" src="img/notice_icon.svg" alt="Иконка уведомлений">
+                </a>
+            </div>
+            <a href="#" class="profile">
+                <img src="img/producer.jpg" alt="Аватар">
+            </a>
+        </div>
+    </div>
+
+
     <div class="flex">
         <aside class="sidebar sidebar_flex-basis">
-            <a class="sidebar__with-logo" href="/"> 
+            <!-- <a class="sidebar__with-logo" href="/"> 
                 <img src="img/menu_logo.svg" alt="Логотип Operty">
-            </a>
+            </a> -->
             <div class="sidebar__top-list mb-4">
                 <ul>
                     <li class="selected_item mb-3">
@@ -68,7 +118,7 @@
                         <a class="sidebar_list-text" href="">Расписание</a>
                     </li>
                     <li class="mb-2">
-                        <a class="sidebar_list-text" href="">Участники</a>
+                        <a class="sidebar_list-text" href="participants.html">Участники</a>
                     </li>
                     <li class="mb-2">
                         <a class="sidebar_list-text" href="">Статистика</a>
@@ -78,24 +128,24 @@
             <div class="sidebar__bottom-list">
                 <ul>
                     <li class="mb-2">
-                        <img class="sidebar_list-img" src="img/import.svg">
-                        <a class="sidebar_list-text" href="">Импорт</a>
+                        <img class="sidebar_list-img bottom_img" src="img/import.svg">
+                        <a class="sidebar_list-text bottom_text" href="">Импорт</a>
                     </li>
                     <li class="mb-2">
-                        <img class="sidebar_list-img" src="img/basket.svg">
-                        <a class="sidebar_list-text" href="">Корзина</a>
+                        <img class="sidebar_list-img bottom_img" src="img/basket.svg">
+                        <a class="sidebar_list-text bottom_text" href="">Корзина</a>
                     </li>
                     <li class="mb-2">
-                        <img class="sidebar_list-img" src="img/settings.svg">
-                        <a class="sidebar_list-text" href="">Настройки</a>
+                        <img class="sidebar_list-img bottom_img" src="img/settings.svg">
+                        <a class="sidebar_list-text bottom_text" href="">Настройки</a>
                     </li>
                 </ul>
             </div>
         </aside>  
         <main class="main-content">
             <div class="page-header mb-5">
-                    <div>
-                        <a href="">
+                    <div class="mb-2_adapt">
+                        <a href="" class="page-header__folder-icon">
                             <img src="img/back.svg">
                             <img src="img/folder.svg">
                         </a>
@@ -190,5 +240,7 @@
         <img class="help__icon" src="img/question.svg">
     </div>
 
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 </html>
