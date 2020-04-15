@@ -11,6 +11,9 @@
 .main-content_min {
     flex-basis: 920px;
 }
+.main-content_big {
+    flex-basis: 1160px;
+}
 @media screen and (max-width: 1190px) {
     .main-content {
         flex-basis: 900px;

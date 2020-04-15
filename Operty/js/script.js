@@ -12,7 +12,12 @@ $(".select-region").select2({
 $(".select-executors").select2({
     minimumResultsForSearch: Infinity
 });
-
+$(".select-responsible-add").select2({
+    minimumResultsForSearch: Infinity
+});
+$(".select-responsible-edit").select2({
+    minimumResultsForSearch: Infinity
+});
 let slider = document.getElementById("range-slider");
     noUiSlider.create(slider, {
         start: [9, 65],
