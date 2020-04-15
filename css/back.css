@@ -1,0 +1,28 @@
+.back {
+    margin: 0 auto 60px auto;
+    max-width: 1357px;
+}
+.back__icon {
+    position: relative;
+    top: 24px;
+    left: 24px;
+    border: 1px solid #DFE2E4;
+    border-radius: 4px;
+    width: 52px;
+    height: 39px;
+}
+.back__icon-img {
+    position: absolute;
+    left: 19px;
+    top: 11px;
+}
+.back__icon-img_home {
+    top: 9px;
+    left: 16px;
+}
+.back__text {
+    margin-left: 100px;
+    margin-top: -5px;
+    color: #304351;
+    font-size: 16px;
+}

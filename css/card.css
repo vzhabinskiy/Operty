@@ -1,0 +1,309 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #DFE2E4;
+    border-radius: 4px;
+    cursor: pointer;
+    transition:  0.2s ease-out;
+}
+
+.card:hover {
+    transform: scale(0.9);
+    transition:  0.2s ease-out;
+}
+.card_project {
+    min-width: 240px;
+    height: 304px;
+    padding-top: 32px;
+    padding-bottom: 48px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card_person {
+    min-width: 244px;
+    height: 276px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 7px;
+}
+.card_project .card__img img {
+    width: 156px;
+    height: 156px;
+}
+.card_project .card__img {
+    padding-bottom: 32px;
+}
+.card_project .card__menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.card_project .card__title {
+    font-weight: 500;
+    color: #304351;
+    font-size: 16px;
+}
+.card_project .card__subtitle {
+    color: #304351;
+    font-size: 14px;
+    font-weight: normal;
+}
+.card_person .card__img img {
+    width: 96px;
+    height: 96px;
+}
+.card_person .card__menu {
+    position: absolute;
+    background: transparent;
+    border: none;
+    outline: none;
+    top:10px;
+    right: 10px;
+    cursor: pointer;
+}
+.card_person .card__title {
+    font-weight: 500;
+    color: #304351;
+    font-size: 18px;
+}
+.card_person .card__subtitle {
+    color: #304351;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+    width: 80%;
+}
+.card_script {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 196px;
+    height: 236px;
+    border: 1px solid #DFE2E4;
+    border-radius: 4px;
+    cursor: pointer;
+    transition:  0.2s ease-out;
+    margin-right: 7px;
+}
+.card_script:hover {
+    transform: scale(0.9);
+    transition:  0.2s ease-out;
+}
+.card_script__img {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.card_script__text {
+    margin-top: 15px;
+    font-size: 14px;
+    color:#304351;
+    margin-left: 20px;
+}
+.card_script-top_part {
+    height: 166px;
+    background: rgb(250, 250, 250);
+    width: 100%;
+}
+.card_script-bottom_part {
+    border-top: 1px solid #DFE2E4;
+    height: 70px;
+    width: 100%;
+    position: relative;
+}
+.card_script__text span {
+    display: block;
+}
+.card_script__menu {
+    position: absolute;  
+    bottom: 15px;
+    right: 18px;
+    display: inline-block;
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+}
+.card_executor {
+    max-width: 500px;
+    min-height: 236px;
+    padding-top: 24px;
+}
+.card_executor-top {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 40px;
+    position: relative;
+}
+.card_executor-bottom {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-left: 40px;
+}
+.card_executor__intro {
+    padding-left: 40px;
+}
+.card_executor__rating {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
+.card_executor__img img {
+    width: 96px;
+    height: 96px;
+}
+.card_executor__title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #304351;
+}
+.card_executor__subtitle {
+    font-size: 14px;
+    color: #304351;
+}
+.card_executor__number {
+    font-size: 18px;
+    color: #21AA63;
+    font-weight: 500;
+    margin-left: 12px;
+}
+.card_executor__rating-text {
+    font-size: 14px;
+    color: #304351;
+}
+/* .card_executor__info-item {
+    padding-left: 30px;
+}
+.card_executor__data-item {
+    font-size: 14px;
+    color: #304351;
+}
+.card_executor__info-item {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #304351;
+} */
+.card_executor__data-item, .card_executor__info-item {
+    font-size: 14px;
+    color: #304351;
+}
+.card_executor__data-item_value {
+    padding-left: 80px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #304351;
+}
+.card_executor__info-item_value {
+    padding-left: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #304351;
+}
+.card_scenes {
+    height: 198px;
+    padding: 23px 15px;
+}
+.card_scenes__head {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.card_scenes__head__number-container {
+    border: 1px solid #DFE2E4;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+.card_scenes__head__title {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #304351;
+    margin-top: 3px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.card_scenes__head__number-text {
+    color: #304351;
+    font-size: 14px;
+    padding-left: 8px;
+}
+.card_scenes .card__menu {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.card_scenes__main__text {
+    font-size: 12px;
+    color: #304351;
+}
+@media screen and (max-width: 479px){
+    .card_script {
+        margin-right: 0;
+    }
+    .card_executor {
+        width: 280px !important;
+    }
+}
+@media screen and (max-width: 767px){
+    .card_scenes__head__title {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+    .card_scenes__head__number-text {
+        font-size: 12px;
+    }
+    .card_scenes__main__text {
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 1190px) {
+    .card_executor__rating-text {
+        display: inline;
+    }
+    
+    .card_executor__rating {
+        position: static;
+    }
+    .card_executor-top {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    .card_executor-bottom {
+        margin-bottom: 24px;
+    }
+    .card_executor-top, .card_executor__intro, .card_executor-bottom {
+        padding-left: 0;
+    }
+    .card_executor__img img {
+        margin-bottom: 16px;
+    }
+    .card_executor__intro {
+        margin-bottom: 8px;
+    }
+    .card_executor__data-list, .card_executor__info-list {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .card_executor__data-list {
+        margin-bottom: 16px;
+    }
+    .card_executor__data-item_value, .card_executor__info-item_value {
+        padding-left: 0;
+    }
+}
