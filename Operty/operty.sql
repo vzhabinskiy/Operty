@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 18 2020 г., 16:36
+-- Время создания: Апр 26 2020 г., 13:27
 -- Версия сервера: 5.7.20
--- Версия PHP: 7.0.26
+-- Версия PHP: 7.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -158,10 +158,10 @@ INSERT INTO `the_scripts` (`id`, `title`, `text`, `id_projects`) VALUES
 CREATE TABLE `timetables` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `executor` text NOT NULL,
+  `responsible` text NOT NULL,
   `place` varchar(255) NOT NULL,
-  `date` date NOT NULL,
-  `time` time NOT NULL,
+  `start` datetime NOT NULL,
+  `end` datetime NOT NULL,
   `description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
 
@@ -169,8 +169,8 @@ CREATE TABLE `timetables` (
 -- Дамп данных таблицы `timetables`
 --
 
-INSERT INTO `timetables` (`id`, `title`, `executor`, `place`, `date`, `time`, `description`) VALUES
-(1, 'rgregeg', 'ergergerg', 'ergergwgregregh', '2020-03-25', '09:20:00', 'esferhbtrherbt');
+INSERT INTO `timetables` (`id`, `title`, `responsible`, `place`, `start`, `end`, `description`) VALUES
+(1, 'rgregeg', 'ergergerg', 'ergergwgregregh', '2020-03-25 00:00:00', '2020-03-26 09:20:00', 'esferhbtrherbt');
 
 -- --------------------------------------------------------
 
@@ -191,7 +191,9 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `email`, `password`) VALUES
 (1, 'mnatsakanyan.armen1@gmail.com', '25032000Armen'),
 (2, 'Vanya.Zhabinsky@mail.ru', 'okko2019'),
-(3, 'ara@arar', '$2y$10$GvEw8Dp1KANHCGXM3wi84uVP7o0zGtE3U7XubPjX4AJQ51Spj8hAW');
+(4, 'dtxgdxgjd@mail.ru', '$2y$10$GerAkJTMdyQe8HQLrI4.Q.e8iybj3bwXjdxFx6PXOqix3oMBz36KK'),
+(5, 'rrtrtrtjd@mail.ru', '$2y$10$LXo9oC0u69u83gI/IHSCiesjUgcrsH5lapkgvvhbuw4oc/RVdUuSq'),
+(6, 'sdwsdwsdx@mail.ru', '$2y$10$rDaoBXpieGQKgZgbhCy3Qeg9Bkjcww/q.XnM.rXz5xCXUpyT64woi');
 
 --
 -- Индексы сохранённых таблиц
@@ -289,7 +291,7 @@ ALTER TABLE `timetables`
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
