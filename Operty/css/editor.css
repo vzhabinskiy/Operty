@@ -63,3 +63,9 @@
     color: #304351;
     font-size: 14px;
 }
+.editor-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}

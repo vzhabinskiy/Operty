@@ -5,7 +5,8 @@
     transition: background-color 0.4s ease-out, color 0.4s ease-out, border 0.4s ease-out; 
 }
 .button_login {
-    padding: 15px 58px;
+    width: 371px;
+    height: 52px;
     font-size: 18px;
     font-weight: 500;
     color:white;
@@ -95,9 +96,9 @@
     /* в этом классе будет только изменение цвета обводки (border-color: #DFE2E4;) */
 }
 
-.button_full {
+/* .button_full {
     width: 100%; 
-}
+} */
 @media (max-width: 992px){
     .button_border {
         width: 220px;
