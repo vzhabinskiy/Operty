@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 26 2020 г., 13:27
+-- Время создания: Апр 29 2020 г., 23:04
 -- Версия сервера: 5.7.20
--- Версия PHP: 7.2.0
+-- Версия PHP: 7.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,96 +25,76 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `authors`
+-- Структура таблицы `author`
 --
 
-CREATE TABLE `authors` (
+CREATE TABLE `author` (
   `id` int(11) NOT NULL,
-  `id_users` int(11) NOT NULL
+  `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
 
 --
--- Дамп данных таблицы `authors`
+-- Дамп данных таблицы `author`
 --
 
-INSERT INTO `authors` (`id`, `id_users`) VALUES
+INSERT INTO `author` (`id`, `id_user`) VALUES
 (1, 1),
 (2, 2);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `executors`
+-- Структура таблицы `participant`
 --
 
-CREATE TABLE `executors` (
+CREATE TABLE `participant` (
   `id` int(11) NOT NULL,
-  `name` text NOT NULL,
-  `profession` text NOT NULL,
-  `age` varchar(10) NOT NULL,
-  `place_of_birth` text NOT NULL,
-  `about_me` text NOT NULL,
-  `rating` double(2,1) NOT NULL,
-  `portfolio` text NOT NULL,
-  `pictures` text NOT NULL,
-  `id_projects` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf16;
-
---
--- Дамп данных таблицы `executors`
---
-
-INSERT INTO `executors` (`id`, `name`, `profession`, `age`, `place_of_birth`, `about_me`, `rating`, `portfolio`, `pictures`, `id_projects`) VALUES
-(1, 'Аарон Пол', 'Актер, Продюсер', '39 лет', 'Эммет, Айдахо, США', 'Родился 27 августа 1979 года в штате Айдахо. Отец был проповедником христиан-баптистов и Аарон с детства выступал в пьесах на разнообразных церковных праздниках. Малыша все любили, ведь он был самым младшим в семье (у Аарона четверо старших братьев и сестер). Учился будущий актер в средней школе города Бойсе и в восьмом классе решил, что станет актером. Он вступил в кружок драмы и не пропускал ни одной школьной постановки. Помимо учебы и увлечением театра Аарон успел поработать на местном радио. ', 9.1, 'img/portfolio', 'img/aaron', 1),
-(2, 'Брайан Крэнстон', 'Актёр, сценарист и режиссёр', '62 года', 'Сан-Фернандо, Калифорния, США', 'asfgfdhtrhhjytjtyjyrhetegrhergwhwerh', 9.4, 'img/bryan', 'img/bryan', 1),
-(3, 'Анна Ганн', 'Актриса', '50 лет', 'Санта-Фе, Нью-Мексико, США', 'wegwrgethtedhwreth', 8.1, 'img/anna', 'img/anna', 2),
-(4, 'Дин Норрис', 'Актер, Продюсер', '55 лет', 'Саут-Бенд, Индиана, США', 'gwegregwrhrhwh', 7.8, 'img/dean', 'img/dean', 2),
-(5, 'Бетси Брандт', 'Актриса', '45 лет', 'Бэй Сити, Мичиган, США', 'sdgwegrhbsrdeh', 8.0, 'img/betsey', 'img/betsey', NULL),
-(6, 'Джанкарло Эспозито', 'Актер, Продюсер', '60 лет', 'Копенгаген, Дания', 'ыпмкыувркрупц', 8.5, 'img/carlo', 'img/carlo', NULL);
+  `id_user` int(11) NOT NULL,
+  `id_project` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `projects`
+-- Структура таблицы `project`
 --
 
-CREATE TABLE `projects` (
+CREATE TABLE `project` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `type_of_project` text NOT NULL,
-  `id_authors` int(11) NOT NULL,
-  `id_timetable` int(11) DEFAULT NULL
+  `id_author` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
 
 --
--- Дамп данных таблицы `projects`
+-- Дамп данных таблицы `project`
 --
 
-INSERT INTO `projects` (`id`, `title`, `type_of_project`, `id_authors`, `id_timetable`) VALUES
-(1, 'Во все тяжкие', 'Сериал', 1, 1),
-(2, 'Лучше звоните Солу', 'Сериал', 2, NULL),
-(3, 'Батл Крик', 'Сериал', 1, 1),
-(4, 'Секретные материалы', 'Сериал', 2, NULL);
+INSERT INTO `project` (`id`, `title`, `type_of_project`, `id_author`) VALUES
+(1, 'Во все тяжкие', 'Сериал', 1),
+(2, 'Лучше звоните Солу', 'Сериал', 2),
+(3, 'Батл Крик', 'Сериал', 1),
+(4, 'Секретные материалы', 'Сериал', 2);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `scenes`
+-- Структура таблицы `series`
 --
 
-CREATE TABLE `scenes` (
+CREATE TABLE `series` (
   `id` int(11) NOT NULL,
   `number` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `text` text NOT NULL,
-  `id_the_scripts` int(11) NOT NULL
+  `id_the_script` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
 
 --
--- Дамп данных таблицы `scenes`
+-- Дамп данных таблицы `series`
 --
 
-INSERT INTO `scenes` (`id`, `number`, `title`, `text`, `id_the_scripts`) VALUES
+INSERT INTO `series` (`id`, `number`, `title`, `text`, `id_the_script`) VALUES
 (1, 1, 'ТИЗЕР', 'ЭКСТ. ПАСТБИЩЕ - ДЕНЬ\r\n\r\nГлубокое, синее небо.  Жирные кучевые облака.  Под ними - черно-белые\r\nкоровы, пасущиеся на холмистой равнине.  Все это напоминает один из\r\nтех пасторальных рекламных роликов ', 1),
 (2, 2, 'ИНТ. ВИННЕБАГО - ДЕНЬ', 'Внутри – ВОДИТЕЛЬ, изо всех сил сжимающий руль.  Вдавливающий \r\nпедаль газа в пол.  Он испуган, часто дышит.  Его глаза за стеклом\r\nпротивогаза широко раскрыты.\r\n\r\nДа, кстати, на водителе противогаз.', 1),
 (3, 3, 'ЭКСТ. ПАСТБИЩЕ - ПРО...', 'Виннебаго с ревом пролетает обочину и падает в глубокую канаву.\r\nСлишком глубокую.  БАМ!  Передний бампер зарывается в землю.  ВЖЖЖ!\r\nЗадние колеса крутятся в воздухе.', 1),
@@ -128,49 +108,42 @@ INSERT INTO `scenes` (`id`, `number`, `title`, `text`, `id_the_scripts`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `the_scripts`
+-- Структура таблицы `the_script`
 --
 
-CREATE TABLE `the_scripts` (
+CREATE TABLE `the_script` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `text` text NOT NULL,
-  `id_projects` int(11) NOT NULL
+  `id_project` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
 
 --
--- Дамп данных таблицы `the_scripts`
+-- Дамп данных таблицы `the_script`
 --
 
-INSERT INTO `the_scripts` (`id`, `title`, `text`, `id_projects`) VALUES
-(1, 'Во все тяжкие \r\nсезон 1', 'ТИЗЕР\r\n\r\n\r\nЭКСТ. ПАСТБИЩЕ - ДЕНЬ\r\n\r\nГлубокое, синее небо.  Жирные кучевые облака.  Под ними - черно-белые\r\nкоровы, пасущиеся на холмистой равнине.  Все это напоминает один из\r\nтех пасторальных рекламных роликов сливочного сыра.\r\n\r\nПравда, в тех роликах обычно не показывают коровье дерьмо.  Мы\r\nпоказываем.  РАКУРС на большую, круглую лепешку, сохнущую на солнце.\r\nЖужжание мух.  Тишина и покой.  Неожиданно...\r\n\r\n...ВЖЖЖ! КОЛЕСА с чавкающим звуком размазывают дерьмо.\r\n\r\nНОВЫЙ РАКУРС – НА АВТОФУРГОН-КЭМПЕР\r\n\r\nОн с ревом несется через пастбище, не разбирая дороги.  Это старый,\r\nбелый Виннебаго.  На его заднем бампере стикер общины добрых\r\nсамаритян.\r\n\r\nВиннебаго пересекает ландшафт, распугивая коров.  Его мотает из\r\nстороны в сторону.  За ним тянется шлейф из красной пыли.\r\n\r\nИНТ. ВИННЕБАГО - ДЕНЬ\r\n\r\nВнутри – ВОДИТЕЛЬ, изо всех сил сжимающий руль.  Вдавливающий \r\nпедаль газа в пол.  Он испуган, часто дышит.  Его глаза за стеклом\r\nпротивогаза широко раскрыты.\r\n\r\nДа, кстати, на водителе противогаз.  Противогаз и белые боксерские\r\nТРУСЫ.  Больше ничего.\r\n\r\nВ кресле рядом с водителем болтается пристегнутый ПАССАЖИР, также в\r\nпротивогазе.  Из его уха сочится кровь, пачкающая футболку.  Он без\r\nсознания.\r\n', 1),
-(2, 'Во все тяжкие \r\nсезон 2', 'ТИЗЕР\r\n\r\n\r\nЭКСТ. ПАСТБИЩЕ - ДЕНЬ\r\n\r\nГлубокое, синее небо.  Жирные кучевые облака.  Под ними - черно-белые\r\nкоровы, пасущиеся на холмистой равнине.  Все это напоминает один из\r\nтех пасторальных рекламных роликов сливочного сыра.\r\n\r\nПравда, в тех роликах обычно не показывают коровье дерьмо.  Мы\r\nпоказываем.  РАКУРС на большую, круглую лепешку, сохнущую на солнце.\r\nЖужжание мух.  Тишина и покой.  Неожиданно...\r\n\r\n...ВЖЖЖ! КОЛЕСА с чавкающим звуком размазывают дерьмо.\r\n\r\nНОВЫЙ РАКУРС – НА АВТОФУРГОН-КЭМПЕР\r\n\r\nОн с ревом несется через пастбище, не разбирая дороги.  Это старый,\r\nбелый Виннебаго.  На его заднем бампере стикер общины добрых\r\nсамаритян.\r\n\r\nВиннебаго пересекает ландшафт, распугивая коров.  Его мотает из\r\nстороны в сторону.  За ним тянется шлейф из красной пыли.\r\n\r\nИНТ. ВИННЕБАГО - ДЕНЬ\r\n\r\nВнутри – ВОДИТЕЛЬ, изо всех сил сжимающий руль.  Вдавливающий \r\nпедаль газа в пол.  Он испуган, часто дышит.  Его глаза за стеклом\r\nпротивогаза широко раскрыты.\r\n\r\nДа, кстати, на водителе противогаз.  Противогаз и белые боксерские\r\nТРУСЫ.  Больше ничего.\r\n\r\nВ кресле рядом с водителем болтается пристегнутый ПАССАЖИР, также в\r\nпротивогазе.  Из его уха сочится кровь, пачкающая футболку.  Он без\r\nсознания.\r\n', 1),
-(3, 'Во все тяжкие \r\nсезон 3', 'ТИЗЕР\r\n\r\n\r\nЭКСТ. ПАСТБИЩЕ - ДЕНЬ\r\n\r\nГлубокое, синее небо.  Жирные кучевые облака.  Под ними - черно-белые\r\nкоровы, пасущиеся на холмистой равнине.  Все это напоминает один из\r\nтех пасторальных рекламных роликов сливочного сыра.\r\n\r\nПравда, в тех роликах обычно не показывают коровье дерьмо.  Мы\r\nпоказываем.  РАКУРС на большую, круглую лепешку, сохнущую на солнце.\r\nЖужжание мух.  Тишина и покой.  Неожиданно...\r\n\r\n...ВЖЖЖ! КОЛЕСА с чавкающим звуком размазывают дерьмо.\r\n\r\nНОВЫЙ РАКУРС – НА АВТОФУРГОН-КЭМПЕР\r\n\r\nОн с ревом несется через пастбище, не разбирая дороги.  Это старый,\r\nбелый Виннебаго.  На его заднем бампере стикер общины добрых\r\nсамаритян.\r\n\r\nВиннебаго пересекает ландшафт, распугивая коров.  Его мотает из\r\nстороны в сторону.  За ним тянется шлейф из красной пыли.\r\n\r\nИНТ. ВИННЕБАГО - ДЕНЬ\r\n\r\nВнутри – ВОДИТЕЛЬ, изо всех сил сжимающий руль.  Вдавливающий \r\nпедаль газа в пол.  Он испуган, часто дышит.  Его глаза за стеклом\r\nпротивогаза широко раскрыты.\r\n\r\nДа, кстати, на водителе противогаз.  Противогаз и белые боксерские\r\nТРУСЫ.  Больше ничего.\r\n\r\nВ кресле рядом с водителем болтается пристегнутый ПАССАЖИР, также в\r\nпротивогазе.  Из его уха сочится кровь, пачкающая футболку.  Он без\r\nсознания.\r\n', 1),
-(4, 'Во все тяжкие \r\nсезон 4', 'ТИЗЕР\r\n\r\n\r\nЭКСТ. ПАСТБИЩЕ - ДЕНЬ\r\n\r\nГлубокое, синее небо.  Жирные кучевые облака.  Под ними - черно-белые\r\nкоровы, пасущиеся на холмистой равнине.  Все это напоминает один из\r\nтех пасторальных рекламных роликов сливочного сыра.\r\n\r\nПравда, в тех роликах обычно не показывают коровье дерьмо.  Мы\r\nпоказываем.  РАКУРС на большую, круглую лепешку, сохнущую на солнце.\r\nЖужжание мух.  Тишина и покой.  Неожиданно...\r\n\r\n...ВЖЖЖ! КОЛЕСА с чавкающим звуком размазывают дерьмо.\r\n\r\nНОВЫЙ РАКУРС – НА АВТОФУРГОН-КЭМПЕР\r\n\r\nОн с ревом несется через пастбище, не разбирая дороги.  Это старый,\r\nбелый Виннебаго.  На его заднем бампере стикер общины добрых\r\nсамаритян.\r\n\r\nВиннебаго пересекает ландшафт, распугивая коров.  Его мотает из\r\nстороны в сторону.  За ним тянется шлейф из красной пыли.\r\n\r\nИНТ. ВИННЕБАГО - ДЕНЬ\r\n\r\nВнутри – ВОДИТЕЛЬ, изо всех сил сжимающий руль.  Вдавливающий \r\nпедаль газа в пол.  Он испуган, часто дышит.  Его глаза за стеклом\r\nпротивогаза широко раскрыты.\r\n\r\nДа, кстати, на водителе противогаз.  Противогаз и белые боксерские\r\nТРУСЫ.  Больше ничего.\r\n\r\nВ кресле рядом с водителем болтается пристегнутый ПАССАЖИР, также в\r\nпротивогазе.  Из его уха сочится кровь, пачкающая футболку.  Он без\r\nсознания.\r\n', 1),
-(5, 'Во все тяжкие \r\nсезон 5', 'ТИЗЕР\r\n\r\n\r\nЭКСТ. ПАСТБИЩЕ - ДЕНЬ\r\n\r\nГлубокое, синее небо.  Жирные кучевые облака.  Под ними - черно-белые\r\nкоровы, пасущиеся на холмистой равнине.  Все это напоминает один из\r\nтех пасторальных рекламных роликов сливочного сыра.\r\n\r\nПравда, в тех роликах обычно не показывают коровье дерьмо.  Мы\r\nпоказываем.  РАКУРС на большую, круглую лепешку, сохнущую на солнце.\r\nЖужжание мух.  Тишина и покой.  Неожиданно...\r\n\r\n...ВЖЖЖ! КОЛЕСА с чавкающим звуком размазывают дерьмо.\r\n\r\nНОВЫЙ РАКУРС – НА АВТОФУРГОН-КЭМПЕР\r\n\r\nОн с ревом несется через пастбище, не разбирая дороги.  Это старый,\r\nбелый Виннебаго.  На его заднем бампере стикер общины добрых\r\nсамаритян.\r\n\r\nВиннебаго пересекает ландшафт, распугивая коров.  Его мотает из\r\nстороны в сторону.  За ним тянется шлейф из красной пыли.\r\n\r\nИНТ. ВИННЕБАГО - ДЕНЬ\r\n\r\nВнутри – ВОДИТЕЛЬ, изо всех сил сжимающий руль.  Вдавливающий \r\nпедаль газа в пол.  Он испуган, часто дышит.  Его глаза за стеклом\r\nпротивогаза широко раскрыты.\r\n\r\nДа, кстати, на водителе противогаз.  Противогаз и белые боксерские\r\nТРУСЫ.  Больше ничего.\r\n\r\nВ кресле рядом с водителем болтается пристегнутый ПАССАЖИР, также в\r\nпротивогазе.  Из его уха сочится кровь, пачкающая футболку.  Он без\r\nсознания.\r\n', 1);
+INSERT INTO `the_script` (`id`, `title`, `id_project`) VALUES
+(1, 'Cезон 1', 1),
+(2, 'Cезон 2', 1),
+(3, 'Cезон 3', 1),
+(4, 'Cезон 4', 1),
+(5, 'Cезон 5', 1);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `timetables`
+-- Структура таблицы `timetable`
 --
 
-CREATE TABLE `timetables` (
+CREATE TABLE `timetable` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `responsible` text NOT NULL,
   `place` varchar(255) NOT NULL,
   `start` datetime NOT NULL,
   `end` datetime NOT NULL,
-  `description` varchar(255) NOT NULL
+  `description` varchar(255) NOT NULL,
+  `id_project` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
-
---
--- Дамп данных таблицы `timetables`
---
-
-INSERT INTO `timetables` (`id`, `title`, `responsible`, `place`, `start`, `end`, `description`) VALUES
-(1, 'rgregeg', 'ergergerg', 'ergergwgregregh', '2020-03-25 00:00:00', '2020-03-26 09:20:00', 'esferhbtrherbt');
 
 -- --------------------------------------------------------
 
@@ -181,65 +154,71 @@ INSERT INTO `timetables` (`id`, `title`, `responsible`, `place`, `start`, `end`,
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `email` varchar(40) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `name` text NOT NULL,
+  `profession` text NOT NULL,
+  `age` varchar(10) NOT NULL,
+  `place_of_birth` text NOT NULL,
+  `about_me` text NOT NULL,
+  `rating` double(2,1) NOT NULL,
+  `portfolio` text NOT NULL,
+  `avatar` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
 
 --
 -- Дамп данных таблицы `user`
 --
 
-INSERT INTO `user` (`id`, `email`, `password`) VALUES
-(1, 'mnatsakanyan.armen1@gmail.com', '25032000Armen'),
-(2, 'Vanya.Zhabinsky@mail.ru', 'okko2019'),
-(4, 'dtxgdxgjd@mail.ru', '$2y$10$GerAkJTMdyQe8HQLrI4.Q.e8iybj3bwXjdxFx6PXOqix3oMBz36KK'),
-(5, 'rrtrtrtjd@mail.ru', '$2y$10$LXo9oC0u69u83gI/IHSCiesjUgcrsH5lapkgvvhbuw4oc/RVdUuSq'),
-(6, 'sdwsdwsdx@mail.ru', '$2y$10$rDaoBXpieGQKgZgbhCy3Qeg9Bkjcww/q.XnM.rXz5xCXUpyT64woi');
+INSERT INTO `user` (`id`, `email`, `password`, `name`, `profession`, `age`, `place_of_birth`, `about_me`, `rating`, `portfolio`, `avatar`) VALUES
+(1, 'mnatsakanyan.armen1@gmail.com', '25032000Armen', '', '', '', '', '', 0.0, '', ''),
+(2, 'Vanya.Zhabinsky@mail.ru', 'okko2019', '', '', '', '', '', 0.0, '', '');
 
 --
 -- Индексы сохранённых таблиц
 --
 
 --
--- Индексы таблицы `authors`
+-- Индексы таблицы `author`
 --
-ALTER TABLE `authors`
+ALTER TABLE `author`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_users` (`id_users`);
+  ADD KEY `id_users` (`id_user`);
 
 --
--- Индексы таблицы `executors`
+-- Индексы таблицы `participant`
 --
-ALTER TABLE `executors`
+ALTER TABLE `participant`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_projects` (`id_projects`);
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_project` (`id_project`);
 
 --
--- Индексы таблицы `projects`
+-- Индексы таблицы `project`
 --
-ALTER TABLE `projects`
+ALTER TABLE `project`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_authors` (`id_authors`),
-  ADD KEY `id_timetable` (`id_timetable`);
+  ADD KEY `id_authors` (`id_author`);
 
 --
--- Индексы таблицы `scenes`
+-- Индексы таблицы `series`
 --
-ALTER TABLE `scenes`
+ALTER TABLE `series`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_the_scripts` (`id_the_scripts`);
+  ADD KEY `id_the_scripts` (`id_the_script`);
 
 --
--- Индексы таблицы `the_scripts`
+-- Индексы таблицы `the_script`
 --
-ALTER TABLE `the_scripts`
+ALTER TABLE `the_script`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_projects` (`id_projects`);
+  ADD KEY `id_projects` (`id_project`);
 
 --
--- Индексы таблицы `timetables`
+-- Индексы таблицы `timetable`
 --
-ALTER TABLE `timetables`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `timetable`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_project` (`id_project`);
 
 --
 -- Индексы таблицы `user`
@@ -252,81 +231,87 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT для таблицы `authors`
+-- AUTO_INCREMENT для таблицы `author`
 --
-ALTER TABLE `authors`
+ALTER TABLE `author`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT для таблицы `executors`
+-- AUTO_INCREMENT для таблицы `participant`
 --
-ALTER TABLE `executors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `participant`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `projects`
+-- AUTO_INCREMENT для таблицы `project`
 --
-ALTER TABLE `projects`
+ALTER TABLE `project`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT для таблицы `scenes`
+-- AUTO_INCREMENT для таблицы `series`
 --
-ALTER TABLE `scenes`
+ALTER TABLE `series`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT для таблицы `the_scripts`
+-- AUTO_INCREMENT для таблицы `the_script`
 --
-ALTER TABLE `the_scripts`
+ALTER TABLE `the_script`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT для таблицы `timetables`
+-- AUTO_INCREMENT для таблицы `timetable`
 --
-ALTER TABLE `timetables`
+ALTER TABLE `timetable`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --
 
 --
--- Ограничения внешнего ключа таблицы `authors`
+-- Ограничения внешнего ключа таблицы `author`
 --
-ALTER TABLE `authors`
-  ADD CONSTRAINT `authors_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `user` (`id`);
+ALTER TABLE `author`
+  ADD CONSTRAINT `author_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`);
 
 --
--- Ограничения внешнего ключа таблицы `executors`
+-- Ограничения внешнего ключа таблицы `participant`
 --
-ALTER TABLE `executors`
-  ADD CONSTRAINT `executors_ibfk_1` FOREIGN KEY (`id_projects`) REFERENCES `projects` (`id`);
+ALTER TABLE `participant`
+  ADD CONSTRAINT `participant_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `participant_ibfk_2` FOREIGN KEY (`id_project`) REFERENCES `project` (`id`);
 
 --
--- Ограничения внешнего ключа таблицы `projects`
+-- Ограничения внешнего ключа таблицы `project`
 --
-ALTER TABLE `projects`
-  ADD CONSTRAINT `projects_ibfk_2` FOREIGN KEY (`id_authors`) REFERENCES `authors` (`id`),
-  ADD CONSTRAINT `projects_ibfk_4` FOREIGN KEY (`id_timetable`) REFERENCES `timetables` (`id`);
+ALTER TABLE `project`
+  ADD CONSTRAINT `project_ibfk_2` FOREIGN KEY (`id_author`) REFERENCES `author` (`id`);
 
 --
--- Ограничения внешнего ключа таблицы `scenes`
+-- Ограничения внешнего ключа таблицы `series`
 --
-ALTER TABLE `scenes`
-  ADD CONSTRAINT `scenes_ibfk_1` FOREIGN KEY (`id_the_scripts`) REFERENCES `the_scripts` (`id`);
+ALTER TABLE `series`
+  ADD CONSTRAINT `series_ibfk_1` FOREIGN KEY (`id_the_script`) REFERENCES `the_script` (`id`);
 
 --
--- Ограничения внешнего ключа таблицы `the_scripts`
+-- Ограничения внешнего ключа таблицы `the_script`
 --
-ALTER TABLE `the_scripts`
-  ADD CONSTRAINT `the_scripts_ibfk_1` FOREIGN KEY (`id_projects`) REFERENCES `projects` (`id`);
+ALTER TABLE `the_script`
+  ADD CONSTRAINT `the_script_ibfk_1` FOREIGN KEY (`id_project`) REFERENCES `project` (`id`);
+
+--
+-- Ограничения внешнего ключа таблицы `timetable`
+--
+ALTER TABLE `timetable`
+  ADD CONSTRAINT `timetable_ibfk_1` FOREIGN KEY (`id_project`) REFERENCES `project` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
