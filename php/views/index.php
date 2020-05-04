@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../../source/css/style.css">
     <title>All projects</title>
@@ -111,12 +112,15 @@
                 </div>
             </div>
             <div class="row">
-                <a class="create-new row-4 create-new_project mb-3">
+                <a class="create-new row-4 create-new_project mb-3" href="#pop-up__create-new_project">
                     <figure class="create-new__img">
                         <img src="../../source/img/big_plus.svg">             
                     </figure>
                     <p class="create-new__text">Создать проект</p>
                 </a>
+                <div id="pop-up__create-new_project" class="mfp-hide white-popup-block create-new__pop-up">
+                   Новый проект епт
+                </div>
                 <a href="project-card.php" class="card row-4 card_project mb-3">
                     <button class="card__menu"><img src="../../source/img/project_item_menu.svg"></button>
                     <figure class="card__img">
@@ -158,9 +162,11 @@
 
     <script src="../../source/js/jquery-3.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
     <script type="text/javascript" src="../../source/js/script.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2.3.3/dist/umd/popper.min.js"></script>
     <script src="../../source/js/popper.js"></script>
     <script src="../../source/js/menu.js"></script>
+    <script src="../../source/js/create-new.js"></script>
 </body>
 </html>

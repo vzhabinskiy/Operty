@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
     <link rel="stylesheet" href="../../source/css/style.css">
     <title>Project Card</title>
 </head>
@@ -184,12 +185,15 @@
                     </div>
                 </div>
                 <div class="row">
-                    <a class="create-new create-new_script mb-3">
-                    <figure class="create-new__img">
-                        <img src="../../source/img/big_plus.svg">             
-                    </figure>
-                    <p class="create-new__text">Создать сценарий</p>
+                    <a class="create-new create-new_script mb-3" href="#pop-up__create-new_script">
+                        <figure class="create-new__img">
+                            <img src="../../source/img/big_plus.svg">             
+                        </figure>
+                        <p class="create-new__text">Создать сценарий</p>
                     </a>
+                    <div id="pop-up__create-new_script" class="mfp-hide white-popup-block create-new__pop-up">
+                        Новый сценарий епт
+                    </div>
                     <a href="editor.php" class="card row-5 card_script mb-3">
                         <div class="card_script-top_part">
                         <figure class="card_script__img mb-3">
@@ -255,8 +259,10 @@
     </div>
 
     <script src="../../source/js/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2.3.3/dist/umd/popper.min.js"></script>
     <script src="../../source/js/popper.js"></script>
     <script src="../../source/js/menu.js"></script>
+    <script src="../../source/js/create-new.js"></script>
 </body>
 </html>
