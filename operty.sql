@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 29 2020 г., 23:04
+-- Время создания: Май 09 2020 г., 13:38
 -- Версия сервера: 5.7.20
 -- Версия PHP: 7.0.26
 
@@ -61,7 +61,8 @@ CREATE TABLE `participant` (
 
 CREATE TABLE `project` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
+  `img` text,
+  `name` varchar(255) NOT NULL,
   `type_of_project` text NOT NULL,
   `id_author` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
@@ -70,11 +71,11 @@ CREATE TABLE `project` (
 -- Дамп данных таблицы `project`
 --
 
-INSERT INTO `project` (`id`, `title`, `type_of_project`, `id_author`) VALUES
-(1, 'Во все тяжкие', 'Сериал', 1),
-(2, 'Лучше звоните Солу', 'Сериал', 2),
-(3, 'Батл Крик', 'Сериал', 1),
-(4, 'Секретные материалы', 'Сериал', 2);
+INSERT INTO `project` (`id`, `img`, `name`, `type_of_project`, `id_author`) VALUES
+(1, '../../source/img/breakingbad', 'Во все тяжкие', 'Сериал', 1),
+(2, '../../source/img/calltosaul', 'Лучше звоните Солу', 'Сериал', 2),
+(3, '../../source/img/battlecreek', 'Батл Крик', 'Сериал', 1),
+(4, '../../source/img/secretmaterials', 'Секретные материалы', 'Сериал', 2);
 
 -- --------------------------------------------------------
 
@@ -142,8 +143,15 @@ CREATE TABLE `timetable` (
   `start` datetime NOT NULL,
   `end` datetime NOT NULL,
   `description` varchar(255) NOT NULL,
-  `id_project` int(11) NOT NULL
+  `id_project` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+
+--
+-- Дамп данных таблицы `timetable`
+--
+
+INSERT INTO `timetable` (`id`, `title`, `responsible`, `place`, `start`, `end`, `description`, `id_project`) VALUES
+(3, 'fweq', 'Продюресы', 'afaf', '2020-05-05 06:30:00', '2020-05-05 07:00:00', 'afaf', NULL);
 
 -- --------------------------------------------------------
 
@@ -155,23 +163,23 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `email` varchar(40) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `name` text NOT NULL,
+  `full_name` text NOT NULL,
   `profession` text NOT NULL,
-  `age` varchar(10) NOT NULL,
+  `age` int(3) NOT NULL,
   `place_of_birth` text NOT NULL,
   `about_me` text NOT NULL,
-  `rating` double(2,1) NOT NULL,
-  `portfolio` text NOT NULL,
-  `avatar` text NOT NULL
+  `rating` double(2,1) DEFAULT NULL,
+  `portfolio` text,
+  `avatar` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
 
 --
 -- Дамп данных таблицы `user`
 --
 
-INSERT INTO `user` (`id`, `email`, `password`, `name`, `profession`, `age`, `place_of_birth`, `about_me`, `rating`, `portfolio`, `avatar`) VALUES
-(1, 'mnatsakanyan.armen1@gmail.com', '25032000Armen', '', '', '', '', '', 0.0, '', ''),
-(2, 'Vanya.Zhabinsky@mail.ru', 'okko2019', '', '', '', '', '', 0.0, '', '');
+INSERT INTO `user` (`id`, `email`, `password`, `full_name`, `profession`, `age`, `place_of_birth`, `about_me`, `rating`, `portfolio`, `avatar`) VALUES
+(1, 'mnatsakanyan.armen1@gmail.com', '25032000Armen', 'Армен', 'Сценарист', 25, 'Ростов на Дону', 'Родился 27 августа 1979 года в штате Айдахо. Отец был проповедником христиан-баптистов и Аарон с детства выступал в пьесах на разнообразных церковных праздниках.\r\n                           Малыша все любили, ведь он был самым младшим в семье (у Аарона четверо старших братьев и сестер). Учился будущий актер в средней школе города Бойсе и в восьмом классе решил, \r\n                           что станет актером. Он вступил в кружок драмы и не пропускал ни одной школьной постановки. Помимо учебы и увлечением театра Аарон успел поработать на местном радио.', 4.0, '../../source/img/portfolio', '../../source/img/anna'),
+(2, 'Vanya.Zhabinsky@mail.ru', 'okko2019', 'Ivan', 'Актер', 65, 'Сан Фернандо, Калифорния, США', 'Родился 27 августа 1979 года в штате Айдахо. Отец был проповедником христиан-баптистов и Аарон с детства выступал в пьесах на разнообразных церковных праздниках.\r\n                           Малыша все любили, ведь он был самым младшим в семье (у Аарона четверо старших братьев и сестер). Учился будущий актер в средней школе города Бойсе и в восьмом классе решил, \r\n                           что станет актером. Он вступил в кружок драмы и не пропускал ни одной школьной постановки. Помимо учебы и увлечением театра Аарон успел поработать на местном радио.', 6.5, '../../source/img/portfolio', '../../source/img/bryan');
 
 --
 -- Индексы сохранённых таблиц
@@ -264,7 +272,7 @@ ALTER TABLE `the_script`
 -- AUTO_INCREMENT для таблицы `timetable`
 --
 ALTER TABLE `timetable`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `user`
