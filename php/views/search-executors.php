@@ -1,5 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+require_once "../engine/Db.php";
+$db = new Db(); 
+$content = $db->selectUsers();
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -183,156 +186,36 @@
                 </select>
             </div>
             <div class="row">
+            <?php
+                foreach ($content as $key => $value) {
+                    echo '
                 <a href="executor-card.php" class="card row-2 card_executor mb-3">
                     <div class="card_executor-top mb-3">
                         <figure class="card_executor__img ">
-                            <img src="../../source/img/bryan.jpg" alt="Брайан Крэнстон">             
+                            <img src="'.$content[$key]["avatar"].'.jpg" alt="Брайан Крэнстон">             
                         </figure>
                         <div class="card_executor__intro">
-                            <h3 class="card_executor__title mb-1">Брайан Крэнстон</h3>
-                            <span class="card_executor__subtitle">Актер, сценарист и режиссер</span>
+                            <h3 class="card_executor__title mb-1">'.$content[$key]["full_name"].'</h3>
+                            <span class="card_executor__subtitle">'.$content[$key]["profession"].'</span>
                         </div>
                         <div class="card_executor__rating">
                             <p class="card_executor__rating-text mb-1">Рейтинг</p>
-                            <span class="card_executor__number">9.4</span>
+                            <span class="card_executor__number">'.$content[$key]["rating"].'</span>
                         </div>
                     </div>
                     <div class="card_executor-bottom">
                         <div class="card_executor__data-list mb-1">
                             <span class="card_executor__data-item">Возраст</span>
-                            <span class="card_executor__data-item card_executor__data-item_value">62 года</span>
+                            <span class="card_executor__data-item card_executor__data-item_value">'.$content[$key]["age"].'</span>
                         </div>
                         <div class="card_executor__info-list">
                             <span class="card_executor__info-item">Место рождения</span>
-                            <span class="card_executor__info-item card_executor__info-item_value">Сан Фернандо, Калифорния, США</span>
+                            <span class="card_executor__info-item card_executor__info-item_value">'.$content[$key]["place_of_birth"].'</span>
                         </div>
                     </div> 
-                </a>
-                <a href="executor-card.php" class="card row-2 card_executor mb-3">
-                    <div class="card_executor-top mb-3">
-                        <figure class="card_executor__img ">
-                            <img src="../../source/img/anna.jpg" alt="Анна Ганн">             
-                        </figure>
-                        <div class="card_executor__intro">
-                            <h3 class="card_executor__title mb-1">Анна Ганн</h3>
-                            <span class="card_executor__subtitle">Актриса</span>
-                        </div>
-                        <div class="card_executor__rating">
-                            <p class="card_executor__rating-text mb-1">Рейтинг</p>
-                            <span class="card_executor__number">8.1</span>
-                        </div>
-                    </div>
-                    <div class="card_executor-bottom">
-                        <div class="card_executor__data-list mb-1">
-                            <span class="card_executor__data-item">Возраст</span>
-                            <span class="card_executor__data-item card_executor__data-item_value">50 лет</span>
-                        </div>
-                        <div class="card_executor__info-list">
-                            <span class="card_executor__info-item">Место рождения</span>
-                            <span class="card_executor__info-item card_executor__info-item_value">Санта-Фе, Нью-Мексико, США</span>
-                        </div>
-                    </div> 
-                </a>
-                <a href="executor-card.php" class="card row-2 card_executor mb-3">
-                    <div class="card_executor-top mb-3">
-                        <figure class="card_executor__img ">
-                            <img src="../../source/img/aaron.jpg" alt="Аарон Пол">             
-                        </figure>
-                        <div class="card_executor__intro">
-                            <h3 class="card_executor__title mb-1">Аарон Пол</h3>
-                            <span class="card_executor__subtitle">Актер, продюсер</span>
-                        </div>
-                        <div class="card_executor__rating">
-                            <p class="card_executor__rating-text mb-1">Рейтинг</p>
-                            <span class="card_executor__number">9.1</span>
-                        </div>
-                    </div>
-                    <div class="card_executor-bottom">
-                        <div class="card_executor__data-list mb-1">
-                            <span class="card_executor__data-item">Возраст</span>
-                            <span class="card_executor__data-item card_executor__data-item_value">39 лет</span>
-                        </div>
-                        <div class="card_executor__info-list">
-                            <span class="card_executor__info-item">Место рождения</span>
-                            <span class="card_executor__info-item card_executor__info-item_value">Эммет, Айдахо, США</span>
-                        </div>
-                    </div> 
-                </a>
-                <a href="executor-card.php" class="card row-2 card_executor mb-3">
-                    <div class="card_executor-top mb-3">
-                        <figure class="card_executor__img ">
-                            <img src="../../source/img/dean.jpg" alt="Дин Норрис">             
-                        </figure>
-                        <div class="card_executor__intro">
-                            <h3 class="card_executor__title mb-1">Дин Норрис</h3>
-                            <span class="card_executor__subtitle">Актер, продюсер</span>
-                        </div>
-                        <div class="card_executor__rating">
-                            <p class="card_executor__rating-text mb-1">Рейтинг</p>
-                            <span class="card_executor__number">7.8</span>
-                        </div>
-                    </div>
-                    <div class="card_executor-bottom">
-                        <div class="card_executor__data-list mb-1">
-                            <span class="card_executor__data-item">Возраст</span>
-                            <span class="card_executor__data-item card_executor__data-item_value">55 лет</span>
-                        </div>
-                        <div class="card_executor__info-list">
-                            <span class="card_executor__info-item">Место рождения</span>
-                            <span class="card_executor__info-item card_executor__info-item_value">Саут-Бенд, Индиана, США</span>
-                        </div>
-                    </div> 
-                </a>
-                <a href="executor-card.php" class="card row-2 card_executor mb-3">
-                    <div class="card_executor-top mb-3">
-                        <figure class="card_executor__img ">
-                            <img src="../../source/img/betsey.jpg" alt="Бетси Брандт">             
-                        </figure>
-                        <div class="card_executor__intro">
-                            <h3 class="card_executor__title mb-1">Бетси Брандт</h3>
-                            <span class="card_executor__subtitle">Актриса</span>
-                        </div>
-                        <div class="card_executor__rating">
-                            <p class="card_executor__rating-text mb-1">Рейтинг</p>
-                            <span class="card_executor__number">8.0</span>
-                        </div>
-                    </div>
-                    <div class="card_executor-bottom">
-                        <div class="card_executor__data-list mb-1">
-                            <span class="card_executor__data-item">Возраст</span>
-                            <span class="card_executor__data-item card_executor__data-item_value">45 лет</span>
-                        </div>
-                        <div class="card_executor__info-list">
-                            <span class="card_executor__info-item">Место рождения</span>
-                            <span class="card_executor__info-item card_executor__info-item_value">Бэй-Сити, Мичиган, США</span>
-                        </div>
-                    </div> 
-                </a>
-                <a href="executor-card.php" class="card row-2 card_executor mb-3">
-                    <div class="card_executor-top mb-3">
-                        <figure class="card_executor__img ">
-                            <img src="../../source/img/carlo.jpg" alt="Джанкарло Эспозито">             
-                        </figure>
-                        <div class="card_executor__intro">
-                            <h3 class="card_executor__title mb-1">Джанкарло Эспозито</h3>
-                            <span class="card_executor__subtitle">Актер, продюсер</span>
-                        </div>
-                        <div class="card_executor__rating">
-                            <p class="card_executor__rating-text mb-1">Рейтинг</p>
-                            <span class="card_executor__number">8.5</span>
-                        </div>
-                    </div>
-                    <div class="card_executor-bottom">
-                        <div class="card_executor__data-list mb-1">
-                            <span class="card_executor__data-item">Возраст</span>
-                            <span class="card_executor__data-item card_executor__data-item_value">60 лет</span>
-                        </div>
-                        <div class="card_executor__info-list">
-                            <span class="card_executor__info-item">Место рождения</span>
-                            <span class="card_executor__info-item card_executor__info-item_value">Копенгаген, Дания</span>
-                        </div>
-                    </div> 
-                </a>
+                </a> ' ; 
+            }
+                ?>
             </div>
         </main>    
     </div>
@@ -352,4 +235,3 @@
     <script src="https://unpkg.com/@popperjs/core@2.3.3/dist/umd/popper.min.js"></script>
     <script src="../../source/js/popper.js"></script>
 </body>
-</html>

@@ -1,5 +1,8 @@
-<!DOCTYPE html>
-<html lang="ru">
+<?php
+require_once "../engine/Db.php";
+$db = new Db(); 
+$content = $db->selectProjects();
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,10 +49,10 @@
                 </a>
                 <div id="tooltip" role="tooltip">
                     <ul>
-                        <li class="tooltip__item"><a href="">Личный кабинет</a></li>
+                        <li class="tooltip__item"><a href="personal-card.php">Личный кабинет</a></li>
                         <li class="tooltip__item"><a href="">Выйти</a></li>
                     </ul>
-                    <div id="arrow" data-popper-arrow></div>
+                    <div id="header-popup-arrow" data-popper-arrow></div>
                 </div>
             </div>   
         </div>
@@ -119,40 +122,22 @@
                     <p class="create-new__text">Создать проект</p>
                 </a>
                 <div id="pop-up__create-new_project" class="mfp-hide white-popup-block create-new__pop-up">
-                   Новый проект епт
+                   Новый проект епт 
                 </div>
-                <a href="project-card.php" class="card row-4 card_project mb-3">
+                <?php
+                foreach ($content as $key => $value) {
+                    echo '
+                 <a href="project-card.php" class="card row-4 card_project mb-3">
                     <button class="card__menu"><img src="../../source/img/project_item_menu.svg"></button>
                     <figure class="card__img">
-                        <img src="../../source/img/breakingbad.jpg" alt="Breaking Bad">             
+                        <img src="'.$content[$key]["img"].'.jpg" alt="Breaking Bad">             
                     </figure>
-                    <h3 class="card__title mb-2">Во все тяжкие</h3>
-                    <span class="card__subtitle">Сериал</span>
+                    <h3 class="card__title mb-2">'.$content[$key]["name"].'</h3>
+                    <span class="card__subtitle">'.$content[$key]["type_of_project"].'</span>
                 </a>
-                <a href="project-card.php" class="card row-4 card_project mb-3">
-                    <button class="card__menu"><img src="../../source/img/project_item_menu.svg"></button>
-                    <figure class="card__img">
-                        <img src="../../source/img/calltosaul.jpg" alt="Call To Saul">             
-                    </figure>
-                    <h3 class="card__title mb-2">Лучше звоните Солу</h3>
-                    <span class="card__subtitle">Сериал</span>
-                </a>
-                <a href="project-card.php" class="card row-4 card_project mb-3">
-                    <button class="card__menu"><img src="../../source/img/project_item_menu.svg"></button>
-                    <figure class="card__img">
-                        <img src="../../source/img/battlecreek.jpg" alt="Battle Creek">             
-                    </figure>
-                    <h3 class="card__title mb-2">Батл Крик</h3>
-                    <span class="card__subtitle">Сериал</span>
-                </a>
-                <a href="project-card.php" class="card row-4 card_project mb-3">
-                    <button class="card__menu"><img src="../../source/img/project_item_menu.svg"></button>
-                    <figure class="card__img">
-                        <img src="../../source/img/secretmaterials.jpg" alt="Secret Materials">             
-                    </figure>
-                    <h3 class="card__title mb-2">Секретные материалы</h3>
-                    <span class="card__subtitle">Сериал</span>
-                </a>
+                ';
+                }
+                ?>
             </div>
         </main>
     </div>    
@@ -169,4 +154,3 @@
     <script src="../../source/js/menu.js"></script>
     <script src="../../source/js/create-new.js"></script>
 </body>
-</html>

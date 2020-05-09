@@ -8,7 +8,7 @@ foreach ($_POST as $key => $value){
 }
 $db = new Db();
 if (!empty($user['email'])){
-    $response = $db->getEmail($user['email']);
+    $response = $db->getPasswordByEmail($user['email']);
     if ($response['status']) {
         if (password_verify($user['password'], $response['data']['password'])) {
             // echo 'you are logged in successfully, '.$response['data']['email'];

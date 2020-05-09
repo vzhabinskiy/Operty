@@ -1,5 +1,8 @@
-<!DOCTYPE html>
-<html lang="ru">
+<?php
+require_once "../engine/Db.php";
+$db = new Db(); 
+$content = $db->selectScripts();
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -194,6 +197,9 @@
                     <div id="pop-up__create-new_script" class="mfp-hide white-popup-block create-new__pop-up">
                         Новый сценарий епт
                     </div>
+                    <?php
+                foreach ($content as $key => $value) {
+                    echo '
                     <a href="editor.php" class="card row-5 card_script mb-3">
                         <div class="card_script-top_part">
                         <figure class="card_script__img mb-3">
@@ -201,54 +207,13 @@
                         </figure>
                         </div>
                         <div class="card_script-bottom_part">
-                            <p class="card_script__text">Во все тяжкие <span>сезон 1</span></p>
+                            <p class="card_script__text">'.$content[$key]["name"].' <span>'.$content[$key]["title"].'</span></p>
                             <button class="card_script__menu"><img src="../../source/img/project_item_menu.svg"></button>
+                            
                         </div>
-                    </a>
-                    <a href="editor.php" class="card row-5 card_script mb-3">
-                        <div class="card_script-top_part">
-                        <figure class="card_script__img mb-3">
-                            <img src="../../source/img/script2.svg" alt="script">             
-                        </figure>
-                        </div>
-                        <div class="card_script-bottom_part">
-                            <p class="card_script__text">Во все тяжкие <span>сезон 2</span></p>
-                            <button class="card_script__menu"><img src="../../source/img/project_item_menu.svg"></button>
-                        </div>
-                    </a>
-                    <a href="editor.php" class="card row-5 card_script mb-3">
-                        <div class="card_script-top_part">
-                        <figure class="card_script__img mb-3">
-                            <img src="../../source/img/script3.svg" alt="script">             
-                        </figure>
-                        </div>
-                        <div class="card_script-bottom_part">
-                            <p class="card_script__text">Во все тяжкие <span>сезон 3</span></p>
-                            <button class="card_script__menu"><img src="../../source/img/project_item_menu.svg"></button>
-                        </div>
-                    </a>
-                    <a href="editor.php" class="card row-5 card_script mb-3">
-                        <div class="card_script-top_part">
-                        <figure class="card_script__img mb-3">
-                            <img src="../../source/img/script4.svg" alt="script">             
-                        </figure>
-                        </div>
-                        <div class="card_script-bottom_part">
-                            <p class="card_script__text">Во все тяжкие <span>сезон 4</span></p>
-                            <button class="card_script__menu"><img src="../../source/img/project_item_menu.svg"></button>
-                        </div>
-                    </a>
-                    <a href="editor.php" class="card row-5 card_script mb-3">
-                        <div class="card_script-top_part">
-                        <figure class="card_script__img mb-3">
-                            <img src="../../source/img/script5.svg" alt="script">             
-                        </figure>
-                        </div>
-                        <div class="card_script-bottom_part">
-                            <p class="card_script__text">Во все тяжкие <span>сезон 5</span></p>
-                            <button class="card_script__menu"><img src="../../source/img/project_item_menu.svg"></button>
-                        </div>
-                    </a>
+                    </a> ';
+                    }
+                    ?>
             </div>
         </main>
     </div>    
