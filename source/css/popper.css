@@ -1,4 +1,4 @@
-#tooltip {
+ #tooltip {
     display: none;
     background: white;
     color: white;
@@ -12,15 +12,16 @@
 #tooltip[data-show] {
     display: block;
   }
-#arrow,
-#arrow::before {
+  
+#header-popup-arrow,
+#header-popup-arrow::before {
   position: absolute;
   width: 8px;
   height: 8px;
   z-index: -1;
 }
 
-#arrow::before {
+#header-popup-arrow::before {
   content: '';
   transform: rotate(45deg);
   background: white;
@@ -29,19 +30,19 @@
   left: -1px;
   top: -1px;
 }
-#tooltip[data-popper-placement^='top'] > #arrow {
+#tooltip[data-popper-placement^='top'] > #header-popup-arrow {
     bottom: -4px;
   }
   
-  #tooltip[data-popper-placement^='bottom'] > #arrow {
+  #tooltip[data-popper-placement^='bottom'] > #header-popup-arrow {
     top: -4px;
   }
   
-  #tooltip[data-popper-placement^='left'] > #arrow {
+  #tooltip[data-popper-placement^='left'] > #header-popup-arrow {
     right: -4px;
   }
   
-  #tooltip[data-popper-placement^='right'] > #arrow {
+  #tooltip[data-popper-placement^='right'] > #header-popup-arrow {
     left: -4px;
   }
 
@@ -50,6 +51,7 @@
     text-decoration: none;
     font-weight: normal;
     font-size: 16px;
-}
+} 
 
  
+

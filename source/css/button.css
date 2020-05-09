@@ -89,12 +89,36 @@
     font-size: 14px;
     color: #21AA63;
 }
-
-.button_border_grey {
-    /* сюда стили для кнопки  "Получить расчёт по бюджету" на странице статистика */
-    /* к этой кнопке можно применить модификаторы .button_border и .button_border_grey */
-    /* в этом классе будет только изменение цвета обводки (border-color: #DFE2E4;) */
+.button-editor {
+    border: none;
+    width: 150px;
+    height: 39px;
+    background-color: #21AA63;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: 20px;
+    cursor: pointer;
 }
+.button-editor:hover {
+    border: 1px solid #21AA63;
+    background-color: white;
+    font-weight: 500;
+    font-size: 14px;
+    color: #21AA63;
+}
+.button-editor.night {
+    background-color: transparent;
+    color: #DEDEDE;
+    border: 1px solid #DEDEDE;
+}
+.button-editor.night:hover {
+    background-color: #DEDEDE;
+    color: #262C31;
+}
+
+
+
 
 /* .button_full {
     width: 100%; 

@@ -1,0 +1,28 @@
+.profile-editor {
+    display: flex;
+    flex-direction: column;
+}
+.profile-editor__row {
+    display: flex;
+    align-items: center;
+}
+.profile-editor__label {
+    margin-right: 20px;
+    color: #304351;
+    font-size: 18px;
+    float: left;
+    text-align: right;
+    width: 350px;
+}
+.profile-editor__value input {
+    border: 1px solid #DFE2E4;
+    border-radius: 4px;
+    width: 350px;
+    height: 40px;
+}
+.profile-editor__value_info {
+    height: 70px;
+    border: 1px solid #DFE2E4;
+    border-radius: 4px;
+    width: 350px;
+}

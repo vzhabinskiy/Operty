@@ -9,7 +9,7 @@ let popperInstance = null;
             {
               name: 'offset',
               options: {
-                offset: [0, 3],
+                offset: [0, 6],
               },
             },
           ],
@@ -37,9 +37,12 @@ const showEvents = ['mouseenter', 'focus'];
 const hideEvents = ['mouseleave', 'blur'];
 
     showEvents.forEach(event => {
-        profile_wrapper.addEventListener(event, show);
+      profile_wrapper.addEventListener(event, show);
     });
 
     hideEvents.forEach(event => {
-        profile_wrapper.addEventListener(event, hide);
+      profile_wrapper.addEventListener(event, hide);
     });
+
+
+

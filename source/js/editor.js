@@ -1,13 +1,14 @@
 tinymce.init({
     selector: '#text',
-  //   skin: 'oxide-dark',
-  //   content_css: 'dark',
+    // skin: 'oxide-dark',
+    // content_css: 'dark',
     statusbar: false,
-    plugins : "code",
+    language: "ru",
     width: 700,
-    min_height: 500
+    min_height: 500,
+    plugins: "autoresize",
   });
-
+  
   $(document).ready(function () {
     $("#add-script").on("submit", function (event) {
         event.preventDefault();
