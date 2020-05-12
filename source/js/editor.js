@@ -1,14 +1,14 @@
+// инициализация tinymce
 tinymce.init({
     selector: '#text',
-    // skin: 'oxide-dark',
-    // content_css: 'dark',
     statusbar: false,
     language: "ru",
     width: 700,
     min_height: 500,
     plugins: "autoresize",
   });
-  
+
+// отправка запроса бэк с данными редактора
   $(document).ready(function () {
     $("#add-script").on("submit", function (event) {
         event.preventDefault();
@@ -29,6 +29,7 @@ tinymce.init({
         })
     });
 });
+
 
 $(document).ready(function(){
   $('body').on('click', '#button-close', function(){

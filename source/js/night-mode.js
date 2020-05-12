@@ -22,9 +22,12 @@ $(document).ready(function(){
         $('.editor-area__title').toggleClass('night')
         $('.editor-header__home__icon').toggleClass('night')
         $('.button-editor').toggleClass('night')
-        $('p').toggleClass('night')
-        
-        
+        $('.editor-popper').toggleClass('night')
+        $('#editor-popup-arrow').toggleClass('night')
+        $('.editor-popper__night-mode__text').toggleClass('night')
+        $('.h5__sidebar-series').toggleClass('night')
+        $('.sidebar-series__item__number').toggleClass('night')
+        $('.sidebar-series__item__title').toggleClass('night')
     })
 })
 

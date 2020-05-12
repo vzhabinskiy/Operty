@@ -1,3 +1,4 @@
+// инициализация popper и скрипт для выпадающего меню на иконке 
 const button = document.querySelector('#profile_wrapper');
 const tooltip = document.querySelector('#tooltip');
 
