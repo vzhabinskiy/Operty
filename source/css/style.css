@@ -29,8 +29,9 @@
 @import url("date.css");
 @import url("calendar.css");
 @import url("popper.css");
-@import url("create-new__pop-up.css");
 @import url("profile-editor.css");
+@import url("add-project-popup.css");
+@import url("add-script-popup.css");
 
 @font-face {
     font-family: 'CoFoSans';

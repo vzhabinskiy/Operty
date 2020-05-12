@@ -6,3 +6,10 @@
     height: 100vh;
     margin-top: 20px;
 }
+.page-registr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+}

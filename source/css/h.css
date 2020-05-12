@@ -39,6 +39,15 @@
 .h5_left {
     margin-left: 15px;
 }
+.h5__sidebar-series {
+    font-size: 20px;
+    color: #304351;
+    border-bottom: 1px solid rgb(185, 185, 185);
+    padding-bottom: 16px;
+}
+.h5__sidebar-series.night {
+    color: #DEDEDE;
+}
 @media screen and (max-width: 479px) {
     .h1_all-projects {
         margin-bottom: 20px;
