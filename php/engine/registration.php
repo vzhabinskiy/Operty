@@ -16,9 +16,10 @@ foreach($user as $key => &$value) {
     }
 }
 if (!empty($user['email']) && !empty($user['password'])){
-    $response = $db->registration($user['full_name'], $user['age'], $user['place_of_birth'], $user['about_me'], $user['profession'],
-    $user['email'], $user['password']); 
+    $response = $db->registration($user['full_name'], $user['age'],$user['id_gender'], $user['id_profession'], $user['place_of_birth'], $user['about_me'],
+    $user['email'], $user['password']);
     if ($response['status']) {
+        $_SESSION['user_id'] = $response['id'];
         // echo 'you are successfully registered ';
         header("Location: ../views/index.php");    
     } else {

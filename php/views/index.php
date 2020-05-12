@@ -2,6 +2,7 @@
 require_once "../engine/Db.php";
 $db = new Db(); 
 $content = $db->selectProjects();
+var_dump($_SESSION['user_id']);
 ?>
 <head>
     <meta charset="UTF-8">
@@ -50,7 +51,7 @@ $content = $db->selectProjects();
                 <div id="tooltip" role="tooltip">
                     <ul>
                         <li class="tooltip__item"><a href="personal-card.php">Личный кабинет</a></li>
-                        <li class="tooltip__item"><a href="">Выйти</a></li>
+                        <li class="tooltip__item"><a href="../engine/logout.php">Выйти</a></li>
                     </ul>
                     <div id="header-popup-arrow" data-popper-arrow></div>
                 </div>
@@ -121,19 +122,37 @@ $content = $db->selectProjects();
                     </figure>
                     <p class="create-new__text">Создать проект</p>
                 </a>
-                <div id="pop-up__create-new_project" class="mfp-hide white-popup-block create-new__pop-up">
-                   Новый проект епт 
+                <div id="pop-up__create-new_project" class="mfp-hide white-popup-block add-project-popup">
+                   <div class="add-project-popup__list">
+                        <div class="add-project-popup__item-picture mb-3">
+                            <img src="../../source/img/default-project.svg" id="image-project" class="add-project-popup__image mb-1"/>
+                            <input type="file" id="input-file" class="input-file"/>
+                            <p class="add-project-popup__info">Рекомендуемый размер фото 166x166 px</p>
+                       </div>
+                       <div class="add-project-popup__item mb-3">
+                            <img class="add-project-popup__blue-round-img" src="../../source/img/blue-round.svg">
+                            <input id="title" maxlength="30" class="add-project-popup__item__input-name" name="name" type="text" placeholder="Название проекта">
+                       </div>
+                       <div class="add-project-popup__item mb-3">
+                            <img class="add-project-popup__movie-icon" src="../../source/img/movie_icon.svg">
+                            <select class="select-responsible-add" style="width: 220px; height:40px" id="responsible" name="responsible">
+                                <option value="">Сериал</option>
+                                <option value="">Фильм</option>
+                            </select>
+                       </div>
+                       <button class="button__add-project">Сохранить</button>
+                   </div> 
                 </div>
                 <?php
                 foreach ($content as $key => $value) {
                     echo '
                  <a href="project-card.php" class="card row-4 card_project mb-3">
-                    <button class="card__menu"><img src="../../source/img/project_item_menu.svg"></button>
+                 <button class="card__menu"><img src="../../source/img/project_item_menu.svg"></button>
                     <figure class="card__img">
                         <img src="'.$content[$key]["img"].'.jpg" alt="Breaking Bad">             
                     </figure>
                     <h3 class="card__title mb-2">'.$content[$key]["name"].'</h3>
-                    <span class="card__subtitle">'.$content[$key]["type_of_project"].'</span>
+                    <span class="card__subtitle">'.$content[$key]["type"].'</span>
                 </a>
                 ';
                 }
@@ -153,4 +172,6 @@ $content = $db->selectProjects();
     <script src="../../source/js/popper.js"></script>
     <script src="../../source/js/menu.js"></script>
     <script src="../../source/js/create-new.js"></script>
+    <script src="../../source/js/images-upload.js"></script>
+    <script src="../../source/jquery-fileinput/jquery.fileinput.js"></script>
 </body>

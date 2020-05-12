@@ -11,6 +11,9 @@ if (!empty($user['email'])){
     $response = $db->getPasswordByEmail($user['email']);
     if ($response['status']) {
         if (password_verify($user['password'], $response['data']['password'])) {
+           
+            $_SESSION['user_id'] = $response['data']['id'];
+            
             // echo 'you are logged in successfully, '.$response['data']['email'];
             header("Location: ../views/index.php");
         } else {

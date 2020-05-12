@@ -27,8 +27,8 @@ session_start();
                 <a href="#" class="editor-popper-button_dots">   
                 </a>
                 <div class="editor-popper editor-popper-js">
-                    <div class="editor-popper__night">
-                        <p style="color:black;">Ночной режим</p>
+                    <div class="editor-popper__night-mode">
+                        <p class="editor-popper__night-mode__text">Ночной режим</p>
                         <div class="toggle-night"></div>
                     </div> 
                     <div id="editor-popup-arrow" data-popper-arrow></div>
@@ -36,13 +36,32 @@ session_start();
             </div>
         </div>
     </div>
-
+    <div class="flex">
+        <div class="sidebar-series"> 
+            <h5 class="h5__sidebar-series mb-2">Серии</h5>
+            <div class="sidebar-series__list">
+                <div class="sidebar-series__item sidebar-series__item-selected mb-1">
+                    <p class="sidebar-series__item__number">1.</p>
+                    <p class="sidebar-series__item__title">Серия</p>
+                </div>
+                <div class="sidebar-series__item mb-1">
+                    <p class="sidebar-series__item__number">2.</p>
+                    <p class="sidebar-series__item__title">Серия</p>
+                </div>
+                <div class="sidebar-series__item mb-1">
+                    <p class="sidebar-series__item__number">3.</p>
+                    <p class="sidebar-series__item__title">Серия</p>
+                </div>
+            </div>
+        </div>
+    
     <?php
     if(isset($_SESSION['msg'])) {
     echo $_SESSION['msg'];
     unset($_SESSION['msg']);
     }
     ?>
+    <main class="main-content">
     <div class="editor-area mb-10">
           <form id="add-script" method="POST" enctype="multipart/form-data">
           <div class="editor-area__list mb-3">
@@ -60,6 +79,8 @@ session_start();
             </textarea>
             <button type="submit" class="button-editor"  id="RegEvent" name="RegEvent" value="RegEvent">Сохранить</button>
           </form>
+    </div>
+    </main>
     </div>
 
     <!-- <div class="editor__bottom">
@@ -81,6 +102,6 @@ session_start();
     <!-- <script src="../../source/js/popper.js"></script> -->
     <script src="../../source/js/night-mode.js"></script>
     <script src="../../source/js/popup-menu-editor.js"></script>
-    
+    <script src="../../source/js/toggle.js"></script>
 </body>
 </html>

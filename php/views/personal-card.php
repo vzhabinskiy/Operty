@@ -45,7 +45,7 @@
                 <div id="tooltip" role="tooltip">
                     <ul>
                         <li class="tooltip__item"><a href="">Личный кабинет</a></li>
-                        <li class="tooltip__item"><a href="">Выйти</a></li>
+                        <li class="tooltip__item"><a href="../engine/logout.php">Выйти</a></li>
                     </ul>
                     <div id="header-popup-arrow" data-popper-arrow></div>
                 </div>

@@ -50,9 +50,9 @@ $content = $db->selectUsers();
                 <div id="tooltip" role="tooltip">
                     <ul>
                         <li class="tooltip__item"><a href="">Личный кабинет</a></li>
-                        <li class="tooltip__item"><a href="">Выйти</a></li>
+                        <li class="tooltip__item"><a href="../engine/logout.php">Выйти</a></li>
                     </ul>
-                    <div id="arrow" data-popper-arrow></div>
+                    <div id="header-popup-arrow" data-popper-arrow></div>
                 </div>
             </div>
         </div>
@@ -196,7 +196,7 @@ $content = $db->selectUsers();
                         </figure>
                         <div class="card_executor__intro">
                             <h3 class="card_executor__title mb-1">'.$content[$key]["full_name"].'</h3>
-                            <span class="card_executor__subtitle">'.$content[$key]["profession"].'</span>
+                            <span class="card_executor__subtitle">'.$content[$key]["type"].'</span>
                         </div>
                         <div class="card_executor__rating">
                             <p class="card_executor__rating-text mb-1">Рейтинг</p>

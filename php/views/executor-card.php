@@ -48,9 +48,9 @@ $content = $db->selectCard();
                 <div id="tooltip" role="tooltip">
                     <ul>
                         <li class="tooltip__item"><a href="">Личный кабинет</a></li>
-                        <li class="tooltip__item"><a href="">Выйти</a></li>
+                        <li class="tooltip__item"><a href="../engine/logout.php">Выйти</a></li>
                     </ul>
-                    <div id="arrow" data-popper-arrow></div>
+                    <div id="header-popup-arrow" data-popper-arrow></div>
                 </div>
             </div>   
         </div>
@@ -112,7 +112,7 @@ $content = $db->selectCard();
                         <img src="../../source/img/back2.svg">
                     </a>
                     <h1 class="h1 h1_left h1_executor-card">'.$content[$key]["full_name"].'</h1>
-                    <span class="page-header__info">'.$content[$key]["profession"].'</span>
+                    <span class="page-header__info">'.$content[$key]["type"].'</span>
                 </div>
                 <div class="page-header__right">
                     <p class="page-header__rating mb-1">Рейтинг</p>

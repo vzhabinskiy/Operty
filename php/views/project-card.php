@@ -49,9 +49,9 @@ $content = $db->selectScripts();
                 <div id="tooltip" role="tooltip">
                     <ul>
                         <li class="tooltip__item"><a href="">Личный кабинет</a></li>
-                        <li class="tooltip__item"><a href="">Выйти</a></li>
+                        <li class="tooltip__item"><a href="../engine/logout.php">Выйти</a></li>
                     </ul>
-                    <div id="arrow" data-popper-arrow></div>
+                    <div id="header-popup-arrow" data-popper-arrow></div>
                 </div>
             </div>    
         </div>
@@ -194,8 +194,14 @@ $content = $db->selectScripts();
                         </figure>
                         <p class="create-new__text">Создать сценарий</p>
                     </a>
-                    <div id="pop-up__create-new_script" class="mfp-hide white-popup-block create-new__pop-up">
-                        Новый сценарий епт
+                    <div id="pop-up__create-new_script" class="mfp-hide white-popup-block add-script-popup">
+                        <div>
+                            <div class="mb-3">
+                                <img class="add-script-popup__blue-round-img" src="../../source/img/blue-round.svg">
+                                <input id="title" maxlength="30" class="add-script-popup__item__input-title" name="title" type="text" placeholder="Название сценария">
+                            </div>
+                            <button class="button__add-script">Сохранить</button>
+                        </div>
                     </div>
                     <?php
                 foreach ($content as $key => $value) {
@@ -217,8 +223,6 @@ $content = $db->selectScripts();
             </div>
         </main>
     </div>    
-    
-
     <div class="help">
         <img class="help__icon" src="../../source/img/question.svg">
     </div>
