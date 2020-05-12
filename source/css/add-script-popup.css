@@ -1,0 +1,26 @@
+.add-script-popup {
+    background-color: #fff;
+    width: 320px;
+    height: 200px;
+    padding: 30px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add-script-popup__item__input-title {
+    width: 260px;
+    height: 40px;
+    padding-left: 35px;
+    line-height: 25px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 2px solid #21AA63;
+    color: #304351;
+    font-size: 20px;
+}
+.add-script-popup__blue-round-img {
+    position: absolute;
+    top: 55px;
+}

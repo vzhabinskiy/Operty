@@ -116,7 +116,60 @@
     background-color: #DEDEDE;
     color: #262C31;
 }
-
+.button__add-picture {
+    width: 166px;
+    height: 39px;
+    border: 1px solid #21AA63;
+    background-color: white;
+    font-weight: 500;
+    font-size: 14px;
+    color: #21AA63;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: 0.4s;
+}
+.button__add-picture:hover {
+    background-color: #21AA63;
+    color: white;
+    border:none;
+    transition: 0.4s;
+}
+.button__add-project {
+    width:260px;
+    height: 40px;
+    background-color: #21AA63;
+    color: white;
+    border:none;
+    border-radius: 3px;
+    transition: 0.4s;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+}
+.button__add-project:hover {
+    border: 1px solid #21AA63;
+    background-color: white;
+    color: #21AA63;
+    transition: 0.4s;
+}
+.button__add-script {
+    width:260px;
+    height: 40px;
+    background-color: #21AA63;
+    color: white;
+    border:none;
+    border-radius: 3px;
+    transition: 0.4s;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+}
+.button__add-script:hover {
+    border: 1px solid #21AA63;
+    background-color: white;
+    color: #21AA63;
+    transition: 0.4s;
+}
 
 
 

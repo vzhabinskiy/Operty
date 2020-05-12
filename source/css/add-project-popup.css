@@ -1,0 +1,52 @@
+.add-project-popup {
+    background-color: #fff;
+    width: 320px;
+    height: 500px;
+    padding: 30px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add-project-popup__item__input-name {
+    width: 260px;
+    height: 40px;
+    padding-left: 35px;
+    line-height: 25px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 2px solid #21AA63;
+    color: #304351;
+    font-size: 20px;
+}
+.add-project-popup__blue-round-img {
+    position: absolute;
+    bottom: 174px;
+}
+.add-project-popup__movie-icon {
+    width: 20px;
+    height: 20px;
+}
+.add-project-popup__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 260px;
+    align-items: center;
+}
+.add-project-popup__item-picture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.add-project-popup__info {
+    font-size: 12px;
+    color: rgb(150, 150, 150);
+    margin-top: 8px;
+}
+.add-project-popup__image {
+    width: 166px;
+    height: 166px;
+}

@@ -21,7 +21,7 @@
     margin-bottom: 12px;
 }
 .auth-form__input::placeholder {
-    color: #304351;
+    color: #9c9c9c;
     font-size: 18px;
     font-weight: normal;
 }
@@ -57,9 +57,36 @@
     color: #21AA63;
 }
 .auth-form__textarea::placeholder {
-    color: #304351;
+    color: #9c9c9c;
     font-size: 18px;
     font-weight: normal;
+}
+.auth-form__gender {
+    display: flex;
+    width: 362px;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+}
+.auth-form__profession {
+    display: flex;
+    width: 362px;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+}
+.auth-form__head {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #304351;
+    
+}
+.auth-form__profession {
+    font-size: 18px;
+    color: #304351;
+}
+.auth-form__gender__switch {
+    margin-right: -15px;
 }
 @media screen and (max-width: 479px) {
     .auth-form__input {
