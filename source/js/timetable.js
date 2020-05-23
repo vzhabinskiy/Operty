@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
+    let calendarEl = document.getElementById('calendar');
 
-    var calendar = new FullCalendar.Calendar(calendarEl, {
+    let calendar = new FullCalendar.Calendar(calendarEl, {
         plugins: [ 'interaction', 'dayGrid', 'timeGrid' ],
         defaultView: 'dayGridMonth',
         defaultView: 'timeGridWeek',
@@ -47,13 +47,12 @@ document.addEventListener('DOMContentLoaded', function() {
             $('.details-popup #end').val(info.event.end.toLocaleString());
           }
     });
-
     calendar.render();
 });
 
 // отправка запроса на бэк с данными формы на создание события 
 $(document).ready(function () {
-    $("#add-event-form").on("submit", function (event) {
+    $("#add-event-form").on("submit", function(event) {
         event.preventDefault();
         $.ajax({
             method:"POST",
@@ -61,27 +60,17 @@ $(document).ready(function () {
             data: new FormData(this),
             contentType: false,
             processData: false,
-            success: function(retorn) {
-                if (retorn ['sit']) {
-                    // $("#msg-reg").html(retorn ['msg']);
+            success: function(response) {
+                if (response ['db']) {
                     location.reload();
-                    // calendar.fullCalendar('refetchEvents');
                 } else {
-                    $("#msg-reg").html(retorn ['msg']);
+                    $("#msg-reg").html(response['msg']);
                 }
 
             }
         })
     });
-    $('.button-edit').on("click", function() {
-        $('.event-detail').toggle();
-        $('.edit-form').toggle();
-    });
 
-    $('.button-cancel').on("click", function() {
-        $('.edit-form').toggle();
-        $('.event-detail').toggle();
-    });
 // отправка запроса на бэк с данными формы на редактирование события
     $("#edit-event-form").on("submit", function (event) {
         event.preventDefault();
@@ -91,13 +80,11 @@ $(document).ready(function () {
             data: new FormData(this),
             contentType: false,
             processData: false,
-            success: function(ret) {
-                if (ret ['sit']) {
-                    // $("#msg-reg").html(retorn ['msg']);
+            success: function(response) {
+                if (response ['db']) {
                     location.reload();
-                    // calendar.fullCalendar('refetchEvents');
                 } else {
-                    $("#msg-edit").html(ret ['msg']);
+                    $("#msg-edit").html(response ['msg']);
                 }
 
             }
@@ -108,48 +95,22 @@ $(document).ready(function () {
 // подключение поп-апа для создания события
 $(document).ready(function() {
 	$('.popup-with-add-form').magnificPopup({
-		type: 'inline',
-		preloader: false,
-		focus: '#name',
-		// When elemened is focused, some mobile browsers in some cases zoom in
-		// It looks not nice, so we disable it:
-		callbacks: {
-			beforeOpen: function() {
-				if($(window).width() < 700) {
-					this.st.focus = false;
-				} else {
-					this.st.focus = '#name';
-				}
-			}
-		}
 	});
 });
 // подключение поп-апа для деталей события
 $(document).ready(function() {
 	$('.popup-with-details').magnificPopup({
-		type: 'inline',
-		preloader: false,
-		focus: '#name',
-
-		// When elemened is focused, some mobile browsers in some cases zoom in
-		// It looks not nice, so we disable it:
-		callbacks: {
-			beforeOpen: function() {
-				if($(window).width() < 700) {
-					this.st.focus = false;
-				} else {
-					this.st.focus = '#name';
-				}
-			}
-		}
 	});
 });
+$('.button-edit').on("click", function() {
+    $('.event-detail').toggle();
+    $('.edit-form').toggle();
+});
+$('.button-cancel').on("click", function() {
+    $('.edit-form').toggle();
+    $('.event-detail').toggle();
+});
 
-$(document).ready(function(){
-    $('body').on('click', '#button-close', function(){
-      $('#success-close').hide();
-    });
-  });
 
 
 
