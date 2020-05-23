@@ -170,7 +170,25 @@
     color: #21AA63;
     transition: 0.4s;
 }
-
+.button__profile-editor {
+    width:260px;
+    height: 40px;
+    background-color: #21AA63;
+    color: white;
+    border:none;
+    border-radius: 3px;
+    transition: 0.4s;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    margin: auto;
+}
+.button__profile-editor:hover {
+    border: 1px solid #21AA63;
+    background-color: white;
+    color: #21AA63;
+    transition: 0.4s;
+}
 
 
 /* .button_full {

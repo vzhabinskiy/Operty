@@ -19,6 +19,7 @@
     align-items: center;
     font-weight: normal;
     font-size: 16px;
+    margin-right: 40px;
 }
 .header__toolbar .red-round {
     position: relative;
