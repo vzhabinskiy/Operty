@@ -7,7 +7,6 @@
 <body class="" style="max-width:800px; margin: 0 auto;">
 
 
-    <!--CONT-->
     <h1 style="text-align:center">СОГЛАСИЕ <br/>на обработку персональных данных</h1>
     
     <p>Пользователь, оставляя обращение, заявку на сайте http://<strong><em>(адрес сайта)</em></strong> 

@@ -1,5 +1,9 @@
 <?php 
 session_start();
+if(isset($_SESSION['msg'])) {
+    echo $_SESSION['msg'];
+    unset($_SESSION['msg']);
+    }
 ?>
 <head>
     <meta charset="UTF-8">
@@ -31,3 +35,7 @@ session_start();
     </div>
 </form>
 
+    <script src="../../source/js/jquery-3.1.1.min.js"></script>
+    <script src="../../source/js/closeEvent.js"></script>
+
+</body>

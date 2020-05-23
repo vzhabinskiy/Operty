@@ -1,7 +1,9 @@
 <?php
 require_once "../engine/Db.php";
-$db = new Db(); 
-$content = $db->selectScripts();
+$db = new Db();
+$projectId = $_GET['id_project'];
+$content = $db->selectScripts($projectId);
+$avatar = $db->selectAvatar();
 ?>
 <head>
     <meta charset="UTF-8">
@@ -43,12 +45,18 @@ $content = $db->selectScripts();
                 </a>
             </div>
             <div id="profile_wrapper">
-                <a id="button" aria-describedby="tooltip" href="#" class="profile">
-                    <img src="../../source/img/producer.jpg" alt="Аватар">
-                </a>
+            <?php
+                foreach ($avatar as $key => $value) {
+                    echo '
+                <a id="button" aria-describedby="tooltip" href="#" class="profile"> 
+                <img src="'.$value["avatar"].'.jpg" alt="Аватар">
+            </a>
+        ' ; 
+            }
+                ?>
                 <div id="tooltip" role="tooltip">
                     <ul>
-                        <li class="tooltip__item"><a href="">Личный кабинет</a></li>
+                        <li class="tooltip__item"><a href="personal-card.php">Личный кабинет</a></li>
                         <li class="tooltip__item"><a href="../engine/logout.php">Выйти</a></li>
                     </ul>
                     <div id="header-popup-arrow" data-popper-arrow></div>
@@ -96,32 +104,34 @@ $content = $db->selectScripts();
                     <img class="menu__notice-icon" src="../../source/img/notice_icon.svg" alt="Иконка уведомлений">
                 </a>
             </div>
+            <?php
+                foreach ($avatar as $key => $value) {
+                    echo '
             <a href="#" class="profile">
-                <img src="../../source/img/producer.jpg" alt="Аватар">
+                <img src="'.$value["img"].'.jpg" alt="Аватар">
             </a>
+        ' ; 
+            }
+            ?>
         </div>
     </div>
 
 
     <div class="flex">
         <aside class="sidebar sidebar_flex-basis">
-            <!-- <a class="sidebar__with-logo" href="/"> 
-                <img src="img/menu_logo.svg" alt="Логотип Operty">
-            </a> -->
             <div class="sidebar__top-list mb-4">
                 <ul>
                     <li class="selected_item mb-3">
-                        <!-- <img class="sidebar_green-mark" src="img/green.svg"> -->
                         <img class="sidebar_list-img" src="../../source/img/home.svg">
-                        <a class="sidebar_current-list__item" href="project-card.php">Сценарии</a>
+                        <a class="sidebar_current-list__item" href="project-card.php?id_project=<?=$content[0]["id"]?>">Сценарии</a>
                     </li>
                     <li class="mb-3 sidebar__top-list__item">
                         <img class="sidebar_list-img" src="../../source/img/timetable.svg">
-                        <a class="sidebar_list-text" href="timetable.php">Расписание</a>
+                        <a class="sidebar_list-text" href="timetable.php?id_project=<?=$content[0]["id"]?>">Расписание</a>
                     </li>
                     <li class="mb-3 sidebar__top-list__item">
                         <img class="sidebar_list-img" src="../../source/img/participants_icon.svg">
-                        <a class="sidebar_list-text" href="participants.php">Участники</a>
+                        <a class="sidebar_list-text" href="participants.php?id_project=<?=$content[0]["id"]?>">Участники</a> 
                     </li>
                     <li class="mb-3 sidebar__top-list__item">
                         <img class="sidebar_list-img" src="../../source/img/statistics_icon.svg">
@@ -167,7 +177,7 @@ $content = $db->selectScripts();
                             <img src="../../source/img/back.svg">
                             <img src="../../source/img/folder.svg">
                         </a>
-                        <h1 class="h1 h1_left">Во все тяжкие</h1>
+                        <h1 class="h1 h1_left"><?=$content[0]["name"]?></h1>
                     </div>
                     <div class="toggle">
                         <a class="page-header__link toggle_icon toggle_icon_active" href="">
@@ -188,7 +198,7 @@ $content = $db->selectScripts();
                     </div>
                 </div>
                 <div class="row">
-                    <a class="create-new create-new_script mb-3" href="#pop-up__create-new_script">
+                    <a class="create-new create-new_script row-5 mb-3" href="#pop-up__create-new_script">
                         <figure class="create-new__img">
                             <img src="../../source/img/big_plus.svg">             
                         </figure>
@@ -206,14 +216,14 @@ $content = $db->selectScripts();
                     <?php
                 foreach ($content as $key => $value) {
                     echo '
-                    <a href="editor.php" class="card row-5 card_script mb-3">
+                    <a href="editor.php?id_project='.$content[0]["id"].'" class="card row-5 card_script mb-3">
                         <div class="card_script-top_part">
                         <figure class="card_script__img mb-3">
                             <img src="../../source/img/script1.svg" alt="script">             
                         </figure>
                         </div>
                         <div class="card_script-bottom_part">
-                            <p class="card_script__text">'.$content[$key]["name"].' <span>'.$content[$key]["title"].'</span></p>
+                            <p class="card_script__text">'.$value["name"].' <span>'.$value["title"].'</span></p>
                             <button class="card_script__menu"><img src="../../source/img/project_item_menu.svg"></button>
                             
                         </div>
@@ -230,8 +240,8 @@ $content = $db->selectScripts();
     <script src="../../source/js/jquery-3.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2.3.3/dist/umd/popper.min.js"></script>
-    <script src="../../source/js/popper.js"></script>
+    <script src="../../source/js/popupMenuHeader.js"></script>
     <script src="../../source/js/menu.js"></script>
-    <script src="../../source/js/create-new.js"></script>
+    <script src="../../source/js/popupCreateNew.js"></script>
 </body>
 </html>

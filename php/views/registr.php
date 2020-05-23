@@ -2,6 +2,10 @@
 require_once "../engine/Db.php";
 $db = new Db(); 
 $content = $db->selectProfession();
+if(isset($_SESSION['msg'])) {
+    echo $_SESSION['msg'];
+    unset($_SESSION['msg']);
+    }
 ?>
     <head>
     <meta charset="UTF-8">
@@ -34,7 +38,7 @@ $content = $db->selectProfession();
                <?php
                foreach ($content as $key => $value) {
                     echo '
-                    <option value="'.$content[$key]["id"].'">'.$content[$key]["type"].'</option> ';
+                    <option value="'.$value["id"].'">'.$value["type"].'</option> ';
                }
                  ?>
                 </select> 
@@ -51,5 +55,7 @@ $content = $db->selectProfession();
 </form>
 <script src="../../source/js/jquery-3.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
-<script type="text/javascript" src="../../source/js/script.js"></script>
+<script type="text/javascript" src="../../source/js/select.js"></script>
+<script src="../../source/js/jquery-3.1.1.min.js"></script>
+<script src="../../source/js/closeEvent.js"></script>
 </body>

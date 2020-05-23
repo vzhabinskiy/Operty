@@ -20,10 +20,11 @@ if (!empty($user['email']) && !empty($user['password'])){
     $user['email'], $user['password']);
     if ($response['status']) {
         $_SESSION['user_id'] = $response['id'];
-        // echo 'you are successfully registered ';
         header("Location: ../views/index.php");    
-    } else {
-        echo 'not registered.'.$response['errorInfo'];
+    } else { 
+        $_SESSION['msg'] = '<div id="success-close"><p style ="margin-left:585px;">I failed to registr. This email already exists</p>
+        <button id="button-close"><img class="button-delete-img" src="../../source/img/delete.png"></button></div>';
+        header("Location: ../views/registr.php");
     }
 } else {
     die('Enter all data');

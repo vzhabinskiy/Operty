@@ -16,7 +16,6 @@ class Db{
         $status = $sth->execute(Array($fullName, $age, $gender, $profession, $placeOfBirth, $aboutMe, $email, $password));
         if (!$status) {
             $this->response['status'] = false;
-            $this->response['errorInfo'] = 'error of insert into database';
             return;
         }
 
@@ -33,28 +32,37 @@ class Db{
             $this->response['data'] = $data;
         } else {
             $this->response['status'] = false;
-            $this->response['errorInfo'] = 'error of select from database';
+            $this->response['errorInfo'] = 'This user does not exist';
         }
         return $this->response;
     }
 
     public function selectProjects(){
-        $stmt = $this->connect->query("SELECT  project.img, project.name , type_of_project.type from `project` JOIN `type_of_project` ON project.id_type_of_project = type_of_project.id");   
+        $stmt = $this->connect->query("SELECT project.id, project.img, project.name , type_of_project.type from `project` 
+            JOIN `type_of_project` ON project.id_type_of_project = type_of_project.id 
+            JOIN `author` ON project.id_author = author.id 
+            JOIN `user` ON author.id_user = user.id where user.id = ".$_SESSION['user_id']."");   
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
-    public function selectScripts(){
-        $stmt = $this->connect->query("SELECT project.name, the_script.title FROM `the_script` JOIN `project` ON the_script.id_project= project.id");   
+    public function selectScripts($project){
+        $stmt = $this->connect->query("SELECT project.id, the_script.id_project, project.name, the_script.title FROM the_script 
+           RIGHT JOIN project ON the_script.id_project = project.id
+           RIGHT JOIN author ON project.id_author = author.id 
+           RIGHT JOIN user ON author.id_user = user.id where project.id = $project and user.id = ".$_SESSION['user_id']."");
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
+    
     public function selectUsers(){
-        $stmt = $this->connect->query("SELECT  user.avatar, user.full_name, profession.type, user.rating, user.age, user.place_of_birth from `user` JOIN `profession` ON user.id_profession = profession.id");   
+        $stmt = $this->connect->query("SELECT user.id,  user.avatar, user.full_name, profession.type, user.rating, user.age, user.place_of_birth from `user` 
+            JOIN `profession` ON user.id_profession = profession.id");   
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
-    public function selectCard(){
-        $stmt = $this->connect->query("SELECT  user.full_name, profession.type, user.age, user.place_of_birth, user.about_me, user.rating, user.portfolio, user.avatar from `user` JOIN `profession` ON user.id_profession = profession.id WHERE user.id = 1");   
+    public function selectCard($id){
+        $stmt = $this->connect->query("SELECT  user.full_name, profession.type, user.age, user.place_of_birth, user.about_me, user.rating, user.portfolio, user.avatar from `user` 
+            JOIN `profession` ON user.id_profession = profession.id WHERE user.id = $id");   
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
@@ -63,4 +71,17 @@ class Db{
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
-}
+    public function selectParticipants($project){
+        $stmt = $this->connect->query("SELECT project.name, profession.type, user.avatar, user.full_name, project.id  FROM participant
+           RIGHT JOIN user ON participant.id_user = user.id JOIN profession ON user.id_profession = profession.id 
+           RIGHT JOIN project ON participant.id_project = project.id where project.id = $project");
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
+     public function selectAvatar(){
+         $stmt = $this->connect->query("SELECT user.avatar FROM `user` where user.id = ".$_SESSION['user_id']."");
+         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+         return $data;
+    }
+        }
+

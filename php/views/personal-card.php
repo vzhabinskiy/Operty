@@ -1,3 +1,8 @@
+<?php
+require_once "../engine/Db.php";
+$db = new Db(); 
+$avatar = $db->selectAvatar();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,12 +44,17 @@
                 </a>
             </div>
             <div id="profile_wrapper">
-                <a id="button" aria-describedby="tooltip" href="#" class="profile">
-                    <img src="../../source/img/producer.jpg" alt="Аватар">
-                </a>
+            <?php
+                foreach ($avatar as $key => $value) {
+                    echo '
+                <a id="button" aria-describedby="tooltip" href="#" class="profile"> 
+                <img src="'.$value["avatar"].'.jpg" alt="Аватар">
+            </a>
+        ' ; 
+            }
+                ?>
                 <div id="tooltip" role="tooltip">
                     <ul>
-                        <li class="tooltip__item"><a href="">Личный кабинет</a></li>
                         <li class="tooltip__item"><a href="../engine/logout.php">Выйти</a></li>
                     </ul>
                     <div id="header-popup-arrow" data-popper-arrow></div>
@@ -92,9 +102,15 @@
                     <img class="menu__notice-icon" src="../../source/img/notice_icon.svg" alt="Иконка уведомлений">
                 </a>
             </div>
+            <?php
+                foreach ($avatar as $key => $value) {
+                    echo '
             <a href="#" class="profile">
-                <img src="../../source/img/producer.jpg" alt="Аватар">
+                <img src="'.$value["img"].'.jpg" alt="Аватар">
             </a>
+        ' ; 
+            }
+            ?>
         </div>
     </div>
 
@@ -162,8 +178,8 @@
     </div> 
 
     <script src="../../source/js/jquery-3.1.1.min.js"></script>
-    <script src="../../source/js/menu.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2.3.3/dist/umd/popper.min.js"></script>
-    <script src="../../source/js/popper.js"></script>
+    <script src="../../source/js/menu.js"></script>
+    <script src="../../source/js/popupMenuHeader.js"></script>
 </body>
 </html>

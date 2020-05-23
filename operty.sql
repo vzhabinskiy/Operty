@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 12 2020 г., 17:40
+-- Время создания: Май 19 2020 г., 02:20
 -- Версия сервера: 5.7.20
 -- Версия PHP: 7.0.26
 
@@ -39,7 +39,8 @@ CREATE TABLE `author` (
 
 INSERT INTO `author` (`id`, `id_user`) VALUES
 (1, 1),
-(2, 2);
+(2, 2),
+(3, 3);
 
 -- --------------------------------------------------------
 
@@ -71,6 +72,18 @@ CREATE TABLE `participant` (
   `id_user` int(11) NOT NULL,
   `id_project` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `participant`
+--
+
+INSERT INTO `participant` (`id`, `id_user`, `id_project`) VALUES
+(1, 4, 1),
+(2, 5, 2),
+(3, 6, 3),
+(4, 7, 4),
+(5, 8, 1),
+(6, 9, 2);
 
 -- --------------------------------------------------------
 
@@ -116,8 +129,8 @@ CREATE TABLE `project` (
 INSERT INTO `project` (`id`, `img`, `name`, `id_type_of_project`, `id_author`) VALUES
 (1, '../../source/img/breakingbad', 'Во все тяжкие', 2, 1),
 (2, '../../source/img/calltosaul', 'Лучше звоните Солу', 2, 2),
-(3, '../../source/img/battlecreek', 'Батл Крик', 2, 1),
-(4, '../../source/img/secretmaterials', 'Секретные материалы', 1, 2);
+(3, '../../source/img/battlecreek', 'Батл Крик', 2, 3),
+(4, '../../source/img/secretmaterials', 'Секретные материалы', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -166,10 +179,10 @@ CREATE TABLE `the_script` (
 
 INSERT INTO `the_script` (`id`, `title`, `id_project`) VALUES
 (1, 'Cезон 1', 1),
-(2, 'Cезон 2', 1),
-(3, 'Cезон 3', 1),
-(4, 'Cезон 4', 1),
-(5, 'Cезон 5', 1);
+(2, 'Cезон 2', 2),
+(3, 'Cезон 3', 3),
+(4, 'Cезон 4', 4),
+(5, 'Cезон 5', 2);
 
 -- --------------------------------------------------------
 
@@ -187,6 +200,13 @@ CREATE TABLE `timetable` (
   `description` varchar(255) NOT NULL,
   `id_project` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+
+--
+-- Дамп данных таблицы `timetable`
+--
+
+INSERT INTO `timetable` (`id`, `title`, `responsible`, `place`, `start`, `end`, `description`, `id_project`) VALUES
+(5, '', '', '', '2020-05-19 07:30:00', '2020-05-19 08:00:00', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -233,8 +253,15 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `email`, `password`, `full_name`, `age`, `place_of_birth`, `about_me`, `rating`, `portfolio`, `avatar`, `id_profession`, `id_gender`) VALUES
-(1, 'mnatsakanyan.armen1@gmail.com', '25032000Armen', 'Армен', 25, 'Ростов на Дону', 'Родился 27 августа 1979 года в штате Айдахо. Отец был проповедником христиан-баптистов и Аарон с детства выступал в пьесах на разнообразных церковных праздниках.\r\n                           Малыша все любили, ведь он был самым младшим в семье (у Аарона четверо старших братьев и сестер). Учился будущий актер в средней школе города Бойсе и в восьмом классе решил, \r\n                           что станет актером. Он вступил в кружок драмы и не пропускал ни одной школьной постановки. Помимо учебы и увлечением театра Аарон успел поработать на местном радио.', 4.0, '../../source/img/portfolio', '../../source/img/anna', 1, 1),
-(2, 'Vanya.Zhabinsky@mail.ru', 'okko2019', 'Ivan', 35, 'Сан Фернандо, Калифорния, США', 'Родился 27 августа 1979 года в штате Айдахо. Отец был проповедником христиан-баптистов и Аарон с детства выступал в пьесах на разнообразных церковных праздниках.\r\n                           Малыша все любили, ведь он был самым младшим в семье (у Аарона четверо старших братьев и сестер). Учился будущий актер в средней школе города Бойсе и в восьмом классе решил, \r\n                           что станет актером. Он вступил в кружок драмы и не пропускал ни одной школьной постановки. Помимо учебы и увлечением театра Аарон успел поработать на местном радио.', 6.5, '../../source/img/portfolio', '../../source/img/bryan', 2, 2);
+(1, 'mnatsakanyan.armen1@gmail.com', '$2y$10$TcbbUh5mrNtokCPrMYzxd.k/lbJjPO1F1gNaNZw7Kv9e/gOSxVX56', 'Armen Mnatsakanyan', 20, 'Rostov-on-Don', 'Явлюясь владельцем компании ООО &quot;Радуга&quot;', NULL, '../../source/img/portfolio', '../../source/img/armen', 1, 1),
+(2, 'vzhabinskiy@yandex.ru', '$2y$10$TVTUVtePX/ByKy1raFDbzukfsivxrE4cZ.6RTjkDgYAappjXBfAPG', 'Ivan Zhabinskiy', 20, 'Rostov-on-Don', 'Люблю свою профессию', NULL, '../../source/img/portfolio', '../../source/img/ivan', 2, 1),
+(3, 'vasyliev.konstantin@gmail.com', '$2y$10$roNLa/JlBymOk9Yv98oC1O93AZ5wcP4fbZtieE6VYGr0Cb1NN44ha', 'Konstantin Vasyliev', 20, 'Rostov-on-Don', 'Ди Каприо отдыхает', NULL, '../../source/img/portfolio', '../../source/img/kostya', 4, 1),
+(4, 'maksim.kiyko@yandex.ru', '$2y$10$dhYxJ4ppG7I9fjw/tdAmJuVgb9YShudGpvAvEj.qYLj5hPx64yRw6', 'Maksim Kiyko', 20, 'Rostov-on-Don', 'Я рыжий и лучший', NULL, '../../source/img/portfolio', '../../source/img/maksim', 6, 1),
+(5, 'Vadim.Gridinskiy@mail.ru', '$2y$10$3/47SQ8qbCQGIlgP74Xv4uj//ybitkvAAM2PZUXW1aQApdyx50fRS', 'Vadim Gridinskiy', 21, 'Stavropol Krai , Mineral Waters', 'Люблю жену и сына', NULL, '../../source/img/portfolio', '../../source/img/vadim', 5, 1),
+(6, 'kupin-anton@yandex.ru', '$2y$10$BBWm9BZMzEu3wqXmtsce2u1nlCaeSJpHfee6dWs8QVvOkS0lPhlCu', 'Anton Kupin', 22, 'Rostov-on-Don', 'I work for the &quot;Umbrella IT&quot; company', NULL, '../../source/img/portfolio', '../../source/img/anton', 1, 1),
+(7, 'aram.muszhina@gmail.com', '$2y$10$GbnuMvGTfYV.c2qdXuRvq.GoPBeMCvvdFRlVeCN42kLvm4DfEaLRe', 'Aram Grigoryan', 20, 'Rostov-on-Don', 'Самый лучший из Армян', NULL, '../../source/img/portfolio', '../../source/img/aram', 2, 1),
+(8, 'MuradGadzhikurbanov2000@gmail.com', '$2y$10$0sOjt3QJAPmSh3RguH.yWerKVTjJL5pU5YKRPClvYDb3NUkTqEg96', 'Murad Gadzhikurbanov', 20, 'Dagestan , Makhachkala', 'not a typical Dagestani', NULL, '../../source/img/portfolio', '../../source/img/murad', 3, 1),
+(9, 'edward@1999egorov.yandex.ru', '$2y$10$MAJZfj/QxCCdFMUIl3jwIe8WfSi7vtmIX.stdDcJJoQdHFnH2Vak6', 'Edward Egorov', 21, 'Rostov Oblast , Bataysk', 'American soldier ', NULL, '../../source/img/portfolio', '../../source/img/edward', 4, 1);
 
 --
 -- Индексы сохранённых таблиц
@@ -318,7 +345,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT для таблицы `author`
 --
 ALTER TABLE `author`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `gender`
@@ -330,7 +357,7 @@ ALTER TABLE `gender`
 -- AUTO_INCREMENT для таблицы `participant`
 --
 ALTER TABLE `participant`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `profession`
@@ -342,7 +369,7 @@ ALTER TABLE `profession`
 -- AUTO_INCREMENT для таблицы `project`
 --
 ALTER TABLE `project`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `series`
@@ -360,7 +387,7 @@ ALTER TABLE `the_script`
 -- AUTO_INCREMENT для таблицы `timetable`
 --
 ALTER TABLE `timetable`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `type_of_project`
@@ -372,7 +399,7 @@ ALTER TABLE `type_of_project`
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

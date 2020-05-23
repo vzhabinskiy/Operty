@@ -1,7 +1,9 @@
 <?php
 require_once "../engine/Db.php";
 $db = new Db(); 
-$content = $db->selectCard();
+$userId = $_GET['id_user'];
+$content = $db->selectCard($userId);
+$avatar = $db->selectAvatar();
 ?>
 <head>
     <meta charset="UTF-8">
@@ -42,12 +44,18 @@ $content = $db->selectCard();
                 </a>
             </div>
             <div id="profile_wrapper">
-                <a id="button" aria-describedby="tooltip" href="#" class="profile">
-                    <img src="../../source/img/producer.jpg" alt="Аватар">
-                </a>
+            <?php
+                foreach ($avatar as $key => $value) {
+                    echo '
+                <a id="button" aria-describedby="tooltip" href="#" class="profile"> 
+                <img src="'.$value["avatar"].'.jpg" alt="Аватар">
+            </a>
+        ' ; 
+            }
+                ?>
                 <div id="tooltip" role="tooltip">
                     <ul>
-                        <li class="tooltip__item"><a href="">Личный кабинет</a></li>
+                        <li class="tooltip__item"><a href="personal-card.php">Личный кабинет</a></li>
                         <li class="tooltip__item"><a href="../engine/logout.php">Выйти</a></li>
                     </ul>
                     <div id="header-popup-arrow" data-popper-arrow></div>
@@ -95,9 +103,15 @@ $content = $db->selectCard();
                     <img class="menu__notice-icon" src="../../source/img/notice_icon.svg" alt="Иконка уведомлений">
                 </a>
             </div>
+            <?php
+                foreach ($avatar as $key => $value) {
+                    echo '
             <a href="#" class="profile">
-                <img src="../../source/img/producer.jpg" alt="Аватар">
+                <img src="'.$value["img"].'.jpg" alt="Аватар">
             </a>
+        ' ; 
+            }
+            ?>
         </div>
     </div>
 
@@ -111,18 +125,18 @@ $content = $db->selectCard();
                     <a href="search-executors.php" class="page-header__left-icon">
                         <img src="../../source/img/back2.svg">
                     </a>
-                    <h1 class="h1 h1_left h1_executor-card">'.$content[$key]["full_name"].'</h1>
-                    <span class="page-header__info">'.$content[$key]["type"].'</span>
+                    <h1 class="h1 h1_left h1_executor-card">'.$value["full_name"].'</h1>
+                    <span class="page-header__info">'.$value["type"].'</span>
                 </div>
                 <div class="page-header__right">
                     <p class="page-header__rating mb-1">Рейтинг</p>
-                    <span class="page-header__number">'.$content[$key]["rating"].'</span>
+                    <span class="page-header__number">'.$value["rating"].'</span>
                 </div>
             </div>
             <div class="executor">
                 <div class="executor-avatar">
                     <figure class="executor-avatar__main mb-4">
-                        <img  src="'.$content[$key]["avatar"].'.jpg" alt="">
+                        <img  src="'.$value["avatar"].'.jpg" alt="">
                     </figure>
                     <button class="button button_executor mb-4">Написать сообщение</button>
                     <div class="executor-avatar__photo">
@@ -139,22 +153,22 @@ $content = $db->selectCard();
                     <div class="executor-intro__top mb-10">
                         <div class="executor-intro__data-list mb-3">
                             <p class="executor-intro__data-item mb-1">Возраст</p>
-                            <p class="executor-intro__data-item executor-intro__data-item-value">'.$content[$key]["age"].'</p>
+                            <p class="executor-intro__data-item executor-intro__data-item-value">'.$value["age"].'</p>
                         </div>
                         <div class="executor-intro__info-list">
                             <p class="executor-intro__info-item mb-1">Место рождения</p>
-                            <p class="executor-intro__info-item executor-intro__info-item-value">'.$content[$key]["place_of_birth"].'</p>
+                            <p class="executor-intro__info-item executor-intro__info-item-value">'.$value["place_of_birth"].'</p>
                         </div>
                     </div>
                     <div class="executor-intro__about mb-10">
                         <h6 class="h6 mb-2">О себе</h6>
-                        <p class="executor-intro__description">'.$content[$key]["about_me"].'
+                        <p class="executor-intro__description">'.$value["about_me"].'
                         </p>
                     </div>
                     <div class="executor-intro_portfolio">
                         <h6 class="h6 mb-2">Портфолио</h6>
                         <figure class="executor-intro_portfolio-img">
-                            <img  src="'.$content[$key]["portfolio"].'.jpg" alt="">
+                            <img  src="'.$value["portfolio"].'.jpg" alt="">
                         </figure>
                     </div>
                 </div>
@@ -168,8 +182,8 @@ $content = $db->selectCard();
     </div> 
 
     <script src="../../source/js/jquery-3.1.1.min.js"></script>
-    <script src="../../source/js/menu.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2.3.3/dist/umd/popper.min.js"></script>
-    <script src="../../source/js/popper.js"></script>
+    <script src="../../source/js/menu.js"></script>
+    <script src="../../source/js/popupMenuHeader.js"></script>
 </body>
 </html>

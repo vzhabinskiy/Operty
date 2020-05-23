@@ -17,7 +17,4 @@ if (!empty($id)) {
         $_SESSION['msg'] = '<div> Ошибка при удалении события!</div>';
         header("Location: ../views/timetable.php");
     }
-} else {
-    $_SESSION['msg'] = '<div> Ошибка при удалении события!</div>';
-    header("Location: ../views/timetable.php");
 }

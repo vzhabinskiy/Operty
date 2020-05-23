@@ -23,17 +23,16 @@ $update_event->bindParam(':description', $data['description']);
 $update_event->bindParam(':id', $data['id']);
 
 
-// $reg = true;
 if ($update_event->execute()) {
-    $ret = ['sit' => true, 'msg' => '<div> Событие отредактировано успешно '.$data['title'].'!</div>'];
+    $response = ['db' => true, 'msg' => '<div> Событие отредактировано успешно '.$data['title'].'!</div>'];
     $_SESSION['msg'] = '<div id="success-close"> Мероприятие "'.$data['title'].'" успешно отредактировано! 
     <button id="button-close"><img class="button-delete-img" src="../../source/img/delete.png"></button></div>';
 } else {
-    $ret = ['sit' => true, 'msg' => '<div> Ошибка '.$data['title'].'!</div>'];
+    $response = ['db' => true, 'msg' => '<div> Ошибка '.$data['title'].'!</div>'];
     $_SESSION['msg'] = '<div> Событие неотредактировано '.$data['title'].'!</div>';
 }
 
 header('Content-Type: application/json');
-echo json_encode($ret);
+echo json_encode($response);
 
 

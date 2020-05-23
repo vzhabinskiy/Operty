@@ -14,14 +14,15 @@ if (!empty($user['email'])){
            
             $_SESSION['user_id'] = $response['data']['id'];
             
-            // echo 'you are logged in successfully, '.$response['data']['email'];
             header("Location: ../views/index.php");
         } else {
-            die('Wrong username or password');
+            $_SESSION['msg'] = '<div id="success-close"><p style ="margin-left:617px;">Wrong username or password</p>
+            <button id="button-close"><img class="button-delete-img" src="../../source/img/delete.png"></button></div>';
+            header("Location: ../views/login.php");
         }
     } else {
-        echo 'I failed to join.'.$response['errorInfo'];
+        $_SESSION['msg'] = '<div id="success-close"><p style ="margin-left:645px;">'.$response['errorInfo'].'</p>
+        <button id="button-close"><img class="button-delete-img" src="../../source/img/delete.png"></button></div>';
+        header("Location: ../views/login.php");
     }
-} else {
-    die('Wrong username or password');
 }

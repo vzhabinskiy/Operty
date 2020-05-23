@@ -1,5 +1,8 @@
 <?php
-session_start();
+require_once "../engine/Db.php";
+$db = new Db();
+$projectId = $_GET['id_project'];
+$content = $db->selectParticipants($projectId);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,12 +16,8 @@ session_start();
 <body>
     <div class="editor-header">
         <div class="editor-header__home">
-            <a href="project-card.php" class="editor-header__home__icon">
-                <!-- <div class="editor-header__home__icon">
-                    <img src="../../source/img/home2.svg" class="editor-header__home__icon__img">
-                </div> -->
-            </a>
-            <a href="project-card.php"><p class="editor-header__home__text">Во все тяжкие | 1 сезон</p></a>
+            <a href="project-card.php?id_project=<?=$content[0]["id"]?>" class="editor-header__home__icon"></a>
+            <a href="project-card.php?id_project=<?=$content[0]["id"]?>"><p class="editor-header__home__text"><?=$content[0]["name"]?></p></a>
         </div>
         <div class="editor-header__icons">
             <div class="editor-header__icons__list">
@@ -83,25 +82,15 @@ session_start();
     </main>
     </div>
 
-    <!-- <div class="editor__bottom">
-        <a href="">
-            <div class="editor__bottom__icon">
-                <img src="../../source/img/screen_play.svg" class="editor__bottom__icon__img">
-            </div>
-        </a>
-        <p class="editor-bottom__text">0:24 | 1:03</p>
-    </div> -->
-
     <div class="help">
         <img class="help__icon" src="../../source/img/question.svg">
     </div>
 
     <script src="../../source/js/jquery-3.1.1.min.js"></script>
-    <script src="../../source/js/editor.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <!-- <script src="../../source/js/popper.js"></script> -->
-    <script src="../../source/js/night-mode.js"></script>
-    <script src="../../source/js/popup-menu-editor.js"></script>
-    <script src="../../source/js/toggle.js"></script>
+    <script src="../../source/js/editor.js"></script>
+    <script src="../../source/js/nightMode.js"></script>
+    <script src="../../source/js/dropMenu.js"></script>
+    <script src="../../source/js/closeEvent.js"></script>
 </body>
 </html>

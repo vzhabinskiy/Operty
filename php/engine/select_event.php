@@ -5,8 +5,8 @@ $data = array();
 $query = "SELECT id, title, responsible, place, start, end, description  FROM timetable ORDER BY id";
 $statement = $connect->prepare($query);
 $statement->execute();
-$result = $statement->fetchAll();
-foreach($result as $row)
+$response = $statement->fetchAll();
+foreach($response as $row)
 {
     $data[] = array(
         'id' => $row["id"],

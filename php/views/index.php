@@ -2,7 +2,7 @@
 require_once "../engine/Db.php";
 $db = new Db(); 
 $content = $db->selectProjects();
-var_dump($_SESSION['user_id']);
+$avatar = $db->selectAvatar();
 ?>
 <head>
     <meta charset="UTF-8">
@@ -45,9 +45,15 @@ var_dump($_SESSION['user_id']);
                 </a>
             </div>
             <div id="profile_wrapper">
-                <a id="button" aria-describedby="tooltip" href="#" class="profile">
-                    <img src="../../source/img/producer.jpg" alt="Аватар">
-                </a>
+            <?php
+                foreach ($avatar as $key => $value) {
+                    echo '
+                <a id="button" aria-describedby="tooltip" href="#" class="profile"> 
+                <img src="'.$value["avatar"].'.jpg" alt="Аватар">
+            </a>
+        ' ; 
+            }
+                ?>
                 <div id="tooltip" role="tooltip">
                     <ul>
                         <li class="tooltip__item"><a href="personal-card.php">Личный кабинет</a></li>
@@ -98,9 +104,15 @@ var_dump($_SESSION['user_id']);
                     <img class="menu__notice-icon" src="../../source/img/notice_icon.svg" alt="Иконка уведомлений">
                 </a>
             </div>
+            <?php
+                foreach ($avatar as $key => $value) {
+                    echo '
             <a href="#" class="profile">
-                <img src="../../source/img/producer.jpg" alt="Аватар">
+                <img src="'.$value["img"].'.jpg" alt="Аватар">
             </a>
+        ' ; 
+            }
+            ?>
         </div>
     </div>
 
@@ -123,9 +135,10 @@ var_dump($_SESSION['user_id']);
                     <p class="create-new__text">Создать проект</p>
                 </a>
                 <div id="pop-up__create-new_project" class="mfp-hide white-popup-block add-project-popup">
+                <form action="" method="post">
                    <div class="add-project-popup__list">
                         <div class="add-project-popup__item-picture mb-3">
-                            <img src="../../source/img/default-project.svg" id="image-project" class="add-project-popup__image mb-1"/>
+                            <img src="../../source/img/default-project.svg" id="image-project" class="add-project-popup__image mb-1" name = img/>
                             <input type="file" id="input-file" class="input-file"/>
                             <p class="add-project-popup__info">Рекомендуемый размер фото 166x166 px</p>
                        </div>
@@ -135,31 +148,32 @@ var_dump($_SESSION['user_id']);
                        </div>
                        <div class="add-project-popup__item mb-3">
                             <img class="add-project-popup__movie-icon" src="../../source/img/movie_icon.svg">
-                            <select class="select-responsible-add" style="width: 220px; height:40px" id="responsible" name="responsible">
-                                <option value="">Сериал</option>
-                                <option value="">Фильм</option>
+                            <select class="select-responsible-add" style="width: 220px; height:40px" id="responsible" name="type">
+                                <option value="1">Сериал</option>
+                                <option value="2">Фильм</option>
                             </select>
                        </div>
-                       <button class="button__add-project">Сохранить</button>
-                   </div> 
+                       <button class="button__add-project" type="submit">Сохранить</button>
+                   </div>
+                   </form> 
                 </div>
                 <?php
                 foreach ($content as $key => $value) {
                     echo '
-                 <a href="project-card.php" class="card row-4 card_project mb-3">
+                    <a href="project-card.php?id_project='.$value["id"].'" class="card row-4 card_project mb-3">
                  <button class="card__menu"><img src="../../source/img/project_item_menu.svg"></button>
                     <figure class="card__img">
-                        <img src="'.$content[$key]["img"].'.jpg" alt="Breaking Bad">             
+                        <img src="'.$value["img"].'.jpg" alt="Breaking Bad">             
                     </figure>
-                    <h3 class="card__title mb-2">'.$content[$key]["name"].'</h3>
-                    <span class="card__subtitle">'.$content[$key]["type"].'</span>
+                    <h3 class="card__title mb-2">'.$value["name"].'</h3>
+                    <span class="card__subtitle">'.$value["type"].'</span>
                 </a>
                 ';
                 }
                 ?>
             </div>
         </main>
-    </div>    
+    </div>
     <div class="help">
         <img class="help__icon" src="../../source/img/question.svg">
     </div>
@@ -167,11 +181,13 @@ var_dump($_SESSION['user_id']);
     <script src="../../source/js/jquery-3.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-    <script type="text/javascript" src="../../source/js/script.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2.3.3/dist/umd/popper.min.js"></script>
-    <script src="../../source/js/popper.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
+    <script src="../../source/js/select.js"></script>
+    <script src="../../source/js/popupMenuHeader.js"></script>
     <script src="../../source/js/menu.js"></script>
-    <script src="../../source/js/create-new.js"></script>
-    <script src="../../source/js/images-upload.js"></script>
+    <script src="../../source/js/popupCreateNew.js"></script>
+    <script src="../../source/js/imagesUpload.js"></script>
+    <script src="../../source/js/dropMenu.js"></script>
     <script src="../../source/jquery-fileinput/jquery.fileinput.js"></script>
 </body>

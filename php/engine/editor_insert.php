@@ -12,12 +12,12 @@ $insert_event->bindParam(':title', $data['title']);
 $insert_event->bindParam(':text', $data['text']);
 
 if ($insert_event->execute()) {
-    $ret = ['sit' => true, 'msg' => '<div> Событие создано успешно '.$data['text'].'!</div>'];
+    $response = ['db' => true, 'msg' => '<div> Событие создано успешно '.$data['text'].'!</div>'];
     $_SESSION['msg'] = '<div id="success-close"> Мероприятие "'.$data['text'].'" успешно создано! 
     <button id="button-close"><img class="button-delete-img" src="img/delete.png"></button></div>';
 } else {
-    $ret = ['sit' => true, 'msg' => '<div> Ошибка '.$data['text'].'!</div>'];
+    $response = ['db' => true, 'msg' => '<div> Ошибка '.$data['text'].'!</div>'];
 }
 
 header('Content-Type: application/json');
-echo json_encode($ret);
+echo json_encode($response);

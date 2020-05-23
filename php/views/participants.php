@@ -1,5 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+require_once "../engine/Db.php";
+$db = new Db();
+$projectId = $_GET['id_project'];
+$content = $db->selectParticipants($projectId);
+$avatar = $db->selectAvatar();
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,12 +44,18 @@
                 </a>
             </div>
             <div id="profile_wrapper">
-                <a id="button" aria-describedby="tooltip" href="#" class="profile">
-                    <img src="../../source/img/producer.jpg" alt="Аватар">
-                </a>
+            <?php
+                foreach ($avatar as $key => $value) {
+                    echo '
+                <a id="button" aria-describedby="tooltip" href="#" class="profile"> 
+                <img src="'.$value["avatar"].'.jpg" alt="Аватар">
+            </a>
+        ' ; 
+            }
+                ?>
                 <div id="tooltip" role="tooltip">
                     <ul>
-                        <li class="tooltip__item"><a href="">Личный кабинет</a></li>
+                        <li class="tooltip__item"><a href="personal-card.php">Личный кабинет</a></li>
                         <li class="tooltip__item"><a href="../engine/logout.php">Выйти</a></li>
                     </ul>
                     <div id="header-popup-arrow" data-popper-arrow></div>
@@ -92,9 +103,15 @@
                     <img class="menu__notice-icon" src="../../source/img/notice_icon.svg" alt="Иконка уведомлений">
                 </a>
             </div>
+            <?php
+                foreach ($avatar as $key => $value) {
+                    echo '
             <a href="#" class="profile">
-                <img src="../../source/img/producer.jpg" alt="Аватар">
+                <img src="'.$value["img"].'.jpg" alt="Аватар">
             </a>
+        ' ; 
+            }
+            ?>
         </div>
     </div>
 
@@ -108,15 +125,15 @@
                     <li class=" mb-3 sidebar__top-list__item">
                         <!-- <img class="sidebar_green-mark" src="img/green.svg"> -->
                         <img class="sidebar_list-img" src="../../source/img/home2.svg">
-                        <a class="sidebar_list-text" href="project-card.php">Сценарии</a>
+                        <a class="sidebar_list-text" href="project-card.php?id_project=<?=$content[0]["id"]?>">Сценарии</a>
                     </li>
                     <li class="mb-3 sidebar__top-list__item">
                         <img class="sidebar_list-img" src="../../source/img/timetable.svg">
-                        <a class="sidebar_list-text" href="timetable.php">Расписание</a>
+                        <a class="sidebar_list-text" href="timetable.php?id_project=<?=$content[0]["id"]?>">Расписание</a>
                     </li>
                     <li class="mb-3 selected_item">
                         <img class="sidebar_list-img" src="../../source/img/participants_icon_green.svg">
-                        <a class="sidebar_current-list__item" href="participants.php">Участники</a>
+                        <a class="sidebar_list-text" href="participants.php?id_project=<?=$content[0]["id"]?>">Участники</a>
                     </li>
                     <li class="mb-3 sidebar__top-list__item">
                         <img class="sidebar_list-img" src="../../source/img/statistics_icon.svg">
@@ -204,70 +221,20 @@
                 </ul>
             </div>
             <div class="row">
+            <?php
+                foreach ($content as $key => $value) {
+                    echo '
                 <article class="card row-4 card_person mb-3">
                     <button class="card__menu"><img src="../../source/img/project_item_menu.svg"></button>
                     <figure class="card__img mb-4">
-                        <img src="../../source/img/wins.jpg" alt="Винс Гиллиган">             
+                        <img src="'.$value["avatar"].'.jpg" alt="Винс Гиллиган">             
                     </figure>
-                    <h3 class="card__title mb-3">Винс Гиллиган</h3>
-                    <span class="card__subtitle">сценарист, режиссер, исполнительный продюсер</span>
+                    <h3 class="card__title mb-3">'.$value["full_name"].'</h3>
+                    <span class="card__subtitle">'.$value["type"].'</span>
                 </article>
-                <article class="card row-4 card_person mb-3">
-                    <button class="card__menu"><img src="../../source/img/project_item_menu.svg"></button>
-                    <figure class="card__img mb-4">
-                        <img src="../../source/img/melissa.jpg" alt="Мелисса Бернштейн">             
-                    </figure>
-                    <h3 class="card__title mb-3">Мелисса Бернштейн</h3>
-                    <span class="card__subtitle">исполнительный сопродюсер, продюсер, сопродюсер</span>
-                </article>
-                <article class="card row-4 card_person mb-3">
-                    <button class="card__menu"><img src="../../source/img/project_item_menu.svg"></button>
-                    <figure class="card__img mb-4">
-                        <img src="../../source/img/mark.jpg" alt="Марк Джонсон">             
-                    </figure>
-                    <h3 class="card__title mb-3">Марк Джонсон</h3>
-                    <span class="card__subtitle">исполнительный продюсер</span>
-                </article>
-                <article class="card row-4 card_person mb-3">
-                    <button class="card__menu"><img src="../../source/img/project_item_menu.svg"></button>
-                    <figure class="card__img mb-4">
-                        <img src="../../source/img/stewart.jpg" alt="Стюарт Лайонс">             
-                    </figure>
-                    <h3 class="card__title mb-3">Стюарт Лайонс</h3>
-                    <span class="card__subtitle">продюсер, сопродюсер</span>
-                </article>
-                <article class="card row-4 card_person mb-3">
-                    <button class="card__menu"><img src="../../source/img/project_item_menu.svg"></button>
-                    <figure class="card__img mb-4">
-                        <img src="../../source/img/sam.jpg" alt="Сэм Кэтлин">             
-                    </figure>
-                    <h3 class="card__title mb-3">Сэм Кэтлин</h3>
-                    <span class="card__subtitle">исполнительный сопродюсер, сопродюсер</span>
-                </article>
-                <article class="card row-4 card_person mb-3">
-                    <button class="card__menu"><img src="../../source/img/project_item_menu.svg"></button>
-                    <figure class="card__img mb-4">
-                        <img src="../../source/img/diane.jpg" alt="Дайан Мерсер">             
-                    </figure>
-                    <h3 class="card__title mb-3">Дайан Мерсер</h3>
-                    <span class="card__subtitle">продюсер, ассоциированный продюсер, сопродюсер</span>
-                </article>
-                <article class="card row-4 card_person mb-3">
-                    <button class="card__menu"><img src="../../source/img/project_item_menu.svg"></button>
-                    <figure class="card__img mb-4">
-                        <img src="../../source/img/peter.jpg" alt="Питер Гулд">             
-                    </figure>
-                    <h3 class="card__title mb-3">Питер Гулд</h3>
-                    <span class="card__subtitle">исполнительный сопродюсер, продюсер</span>
-                </article>
-                <article class="card row-4 card_person mb-3">
-                    <button class="card__menu"><img src="../../source/img/project_item_menu.svg"></button>
-                    <figure class="card__img mb-4">
-                        <img src="../../source/img/michelle.jpg" alt="Мишель МакЛарен">             
-                    </figure>
-                    <h3 class="card__title mb-3">Мишель МакЛарен</h3>
-                    <span class="card__subtitle">исполнительный сопродюсер</span>
-                </article>
+                    ';
+                }
+                ?>
             </div>
         </main>
     
@@ -277,9 +244,9 @@
     </div>    
 
     <script src="../../source/js/jquery-3.1.1.min.js"></script>
-    <script src="../../source/js/menu.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2.3.3/dist/umd/popper.min.js"></script>
-    <script src="../../source/js/popper.js"></script>
+    <script src="../../source/js/menu.js"></script>
+    <script src="../../source/js/popupMenuHeader.js"></script>
     
 </body>
 </html>
