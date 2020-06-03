@@ -181,19 +181,6 @@
     font-size: 14px;
     color: #304351;
 }
-/* .card_executor__info-item {
-    padding-left: 30px;
-}
-.card_executor__data-item {
-    font-size: 14px;
-    color: #304351;
-}
-.card_executor__info-item {
-    display: block;
-    font-size: 14px;
-    font-weight: 500;
-    color: #304351;
-} */
 .card_executor__data-item, .card_executor__info-item {
     font-size: 14px;
     color: #304351;

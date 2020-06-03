@@ -78,6 +78,7 @@
     font-size: 20px;
 }
 .add-event-popup-item_input-description {
+    overflow-y: scroll;
     width: 540px;
     height: 113px;
     padding-left: 20px;
@@ -147,6 +148,10 @@
     color: #304351;
     font-size: 18px;
     font-weight: normal;
+}
+.event-detail-item__value_description{
+    height: 100px;
+    overflow-y: scroll;
 }
 .button-edit {
     width: 541px;

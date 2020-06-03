@@ -1,0 +1,15 @@
+.consent__body {
+    max-width:800px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 25px;
+}
+.consent__title {
+    text-align: center;
+    font-size: 28px;
+    margin-top: 20px;
+}
+body.consent__body li {
+    list-style: none;
+    margin-left: 20px;
+} 

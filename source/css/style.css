@@ -32,6 +32,7 @@
 @import url("profile-editor.css");
 @import url("add-project-popup.css");
 @import url("add-script-popup.css");
+@import url("consent.css");
 
 @font-face {
     font-family: 'CoFoSans';
@@ -85,8 +86,25 @@ body {
     font-family: 'CoFoSans';
     
 }
-
-
+::-webkit-scrollbar-thumb {
+    background: #21AA63;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+::-webkit-scrollbar-thumb:hover {
+    background:  rgb(27, 131, 77);
+}
+::-webkit-scrollbar {
+    border-radius: 10px;
+    width: 7px;
+    height: 7px;
+    background-color: #e6e6e6;
+}
+body::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: #e6e6e6;
+}   
 
 
 

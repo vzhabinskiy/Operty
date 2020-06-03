@@ -140,6 +140,18 @@
 .tox-tbtn.night:hover {
     background-color: rgb(105, 105, 105) !important;
 }
+/* .tox-collection__group.night {
+    background-color: #262C31 !important;
+}
+.tox-collection__item-label.night {
+    color: white !important;
+} 
+.tox .tox-collection__item-icon svg {
+    filter: invert(100%);
+} 
+.mce-content-body {
+    color: yellow !important;
+} */
 .editor-header__home__text.night {
     color: #DEDEDE;
 } 
