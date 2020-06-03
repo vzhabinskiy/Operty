@@ -1,8 +1,8 @@
 // выпадающее меню в редакторе
-$(document).ready(function() {
-    let popover = $('.editor-popper-js');
+$(function() {
+    var popover = $('.editor-popper-js');
     popover.hide();
-    $(".editor-popper-button_dots").on('click', function(e) {
+    $('.editor-popper-button_dots').on('click', function(e) {
       var target = $(e.target);
       if (!$(this).hasClass('active')) { 
         $(this).addClass('active'); 

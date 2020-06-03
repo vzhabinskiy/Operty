@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    let calendarEl = document.getElementById('calendar');
+    var calendarEl = document.getElementById('calendar');
 
-    let calendar = new FullCalendar.Calendar(calendarEl, {
+    var calendar = new FullCalendar.Calendar(calendarEl, {
         plugins: [ 'interaction', 'dayGrid', 'timeGrid' ],
         defaultView: 'dayGridMonth',
         defaultView: 'timeGridWeek',
@@ -52,9 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // отправка запроса на бэк с данными формы на создание события 
 $(document).ready(function () {
-    $("#add-event-form").on("submit", function(event) {
+    $("#add-event-form").on("submit", function (event) {
         event.preventDefault();
-        $.ajax({
+        $.ajax({ 
             method:"POST",
             url: "../../php/engine/insert_event.php",
             data: new FormData(this),
@@ -64,13 +64,21 @@ $(document).ready(function () {
                 if (response ['db']) {
                     location.reload();
                 } else {
-                    $("#msg-reg").html(response['msg']);
+                    $("#msg-reg").html(response ['msg']);
                 }
 
             }
         })
     });
+    $('.button-edit').on("click", function() {
+        $('.event-detail').toggle();
+        $('.edit-form').toggle();
+    });
 
+    $('.button-cancel').on("click", function() {
+        $('.edit-form').toggle();
+        $('.event-detail').toggle();
+    });
 // отправка запроса на бэк с данными формы на редактирование события
     $("#edit-event-form").on("submit", function (event) {
         event.preventDefault();
@@ -95,22 +103,42 @@ $(document).ready(function () {
 // подключение поп-апа для создания события
 $(document).ready(function() {
 	$('.popup-with-add-form').magnificPopup({
+		type: 'inline',
+		preloader: false,
+		focus: '#name',
+		// When elemened is focused, some mobile browsers in some cases zoom in
+		// It looks not nice, so we disable it:
+		callbacks: {
+			beforeOpen: function() {
+				if($(window).width() < 700) {
+					this.st.focus = false;
+				} else {
+					this.st.focus = '#name';
+				}
+			}
+		}
 	});
 });
 // подключение поп-апа для деталей события
 $(document).ready(function() {
 	$('.popup-with-details').magnificPopup({
+		type: 'inline',
+		preloader: false,
+		focus: '#name',
+
+		// When elemened is focused, some mobile browsers in some cases zoom in
+		// It looks not nice, so we disable it:
+		callbacks: {
+			beforeOpen: function() {
+				if($(window).width() < 700) {
+					this.st.focus = false;
+				} else {
+					this.st.focus = '#name';
+				}
+			}
+		}
 	});
 });
-$('.button-edit').on("click", function() {
-    $('.event-detail').toggle();
-    $('.edit-form').toggle();
-});
-$('.button-cancel').on("click", function() {
-    $('.edit-form').toggle();
-    $('.event-detail').toggle();
-});
-
 
 
 

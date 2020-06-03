@@ -10,7 +10,7 @@ tinymce.init({
 
 // отправка запроса бэк с данными редактора
   $(document).ready(function () {
-    $("#add-script").on("submit", function(event) {
+    $("#add-script").on("submit", function (event) {
         event.preventDefault();
         $.ajax({
             method:"POST",
@@ -24,8 +24,16 @@ tinymce.init({
                 } else {
                     $("#msg-reg").html(response ['msg']);
                 }
+
             }
         })
     });
+});
+
+
+$(document).ready(function(){
+  $('body').on('click', '#button-close', function(){
+    $('#success-close').hide();
+  });
 });
 

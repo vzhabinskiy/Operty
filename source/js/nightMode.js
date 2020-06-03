@@ -28,6 +28,7 @@ $(document).ready(function(){
         $('.h5__sidebar-series').toggleClass('night')
         $('.sidebar-series__item__number').toggleClass('night')
         $('.sidebar-series__item__title').toggleClass('night')
+        $('.tox-collection__item-label').toggleClass('night')
     })
 })
 
