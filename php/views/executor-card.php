@@ -2,8 +2,8 @@
 require_once "../engine/Db.php";
 $db = new Db(); 
 $userId = $_GET['id_user'];
-$content = $db->selectCard($userId);
-$avatar = $db->selectAvatar();
+$content = $db->selectCards($userId);
+$avatar = $db->selectAvatars();
 ?>
 <head>
     <meta charset="UTF-8">
@@ -127,10 +127,6 @@ $avatar = $db->selectAvatar();
                     </a>
                     <h1 class="h1 h1_left h1_executor-card">'.$value["full_name"].'</h1>
                     <span class="page-header__info">'.$value["type"].'</span>
-                </div>
-                <div class="page-header__right">
-                    <p class="page-header__rating mb-1">Рейтинг</p>
-                    <span class="page-header__number">'.$value["rating"].'</span>
                 </div>
             </div>
             <div class="executor">

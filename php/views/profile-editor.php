@@ -1,8 +1,9 @@
 <?php 
 require_once "../engine/Db.php";
 $db = new Db(); 
-$content = $db->selectProfession();
-$avatar = $db->selectAvatar();
+$content = $db->selectProfessions();
+$avatar = $db->selectAvatars();
+$currentUser = $db->selectCurrentUser();
 ?>
 <head>
     <meta charset="UTF-8">
@@ -115,54 +116,64 @@ $avatar = $db->selectAvatar();
     </div>
     <div class="flex center">
         <main class="main-content main-content_min">
-           <div class="profile-editor">
-           <h1 class="h1 h1_center mb-4">Редактирование профиля</h1>
-               <div class="profile-editor__row mb-2">
-                   <div class="profile-editor__label">Имя</div>
-                   <div class="profile-editor__value profile-editor__value_name">
-                       <input type="text" value="">
-                   </div>
-               </div>
-               <div class="profile-editor__row mb-2">
-                   <div class="profile-editor__label">Возраст</div>
-                   <div class="profile-editor__value profile-editor__value_age">
-                       <input type="text" value="">
-                   </div>
-               </div>
-               <div class="profile-editor__row mb-4">
-                   <div class="profile-editor__label profile-editor__label_gender">Пол</div>
-                <div class="profile-editor__switch ">
-                    <input class="radio" id="radio-1" type="radio" value ="1" name="id_gender" checked />
-                    <label for="radio-1"></label>
-                    <input class="radio" id="radio-2" type="radio" value ="2" name="id_gender" />
-                    <label for="radio-2"></label>
+            <?php
+                if(isset($_SESSION['msg'])) {
+                echo $_SESSION['msg'];
+                unset($_SESSION['msg']);
+                }
+            ?>
+           <form id="edit-profile" method="POST" enctype="multipart/form-data">
+                <div class="profile-editor">
+                <h1 class="h1 h1_center mb-4">Редактирование профиля</h1>
+                <span id="msg-edit"></span>
+                <input type="hidden" name="id" id="id" value="<?=$currentUser[0]["id"]?>">
+                    <div class="profile-editor__row mb-2">
+                        <div class="profile-editor__label">Имя</div>
+                        <div class="profile-editor__value profile-editor__value_name">
+                                <input name="full_name" id="full_name" type="text" value="<?=$currentUser[0]["full_name"]?>">
+                        </div>
+                    </div>
+                    <div class="profile-editor__row mb-2">
+                        <div class="profile-editor__label">Возраст</div>
+                        <div class="profile-editor__value profile-editor__value_age">
+                                <input name="age" id="age" type="text" value="<?=$currentUser[0]["age"]?>"> 
+                        </div>
+                    </div>
+                    <div class="profile-editor__row mb-4">
+                        <div class="profile-editor__label profile-editor__label_gender">Пол</div>
+                        <div class="profile-editor__switch ">
+                            <input class="radio" id="radio-1" type="radio" value ="1" name="id_gender" checked />
+                            <label for="radio-1"></label>
+                            <input class="radio" id="radio-2" type="radio" value ="2" name="id_gender" />
+                            <label for="radio-2"></label>
+                        </div>
+                    </div>
+                    <div class="profile-editor__row mb-3">
+                        <div class="profile-editor__label">Профессия</div>
+                        <select class="select-responsible-add" style="width: 160px; height:40px" id="id_profession" name="id_profession">
+                                <?php
+                                foreach ($content as $key => $value) {
+                                    echo '
+                                    <option value="'.$content[$key]["id"].'">'.$content[$key]["type"].'</option> ';
+                                }
+                                ?>
+                            </select> 
+                    </div>
+                    <div class="profile-editor__row mb-2">
+                        <div class="profile-editor__label">Место рождения</div>
+                        <div class="profile-editor__value profile-editor__value_birth">
+                                <input name="place_of_birth" id="place_of_birth" type="text" value="<?=$currentUser[0]["place_of_birth"]?>">
+                        </div>
+                    </div>
+                    <div class="profile-editor__row mb-2">
+                        <div class="profile-editor__label">О себе</div>
+                        <div class="">
+                            <textarea name="about_me" id="about_me" class="profile-editor__value_info" type="text" ><?=$currentUser[0]["about_me"]?></textarea>
+                            </div>
+                    </div>
+                    <button type="submit" class="button__profile-editor">Сохранить</button>
                 </div>
-               </div>
-               <div class="profile-editor__row mb-3">
-                   <div class="profile-editor__label">Профессия</div>
-                   <select class="select-responsible-add" style="width: 160px; height:40px" id="responsible" name="id_profession">
-                        <?php
-                        foreach ($content as $key => $value) {
-                            echo '
-                            <option value="'.$content[$key]["id"].'">'.$content[$key]["type"].'</option> ';
-                        }
-                        ?>
-                    </select> 
-               </div>
-               <div class="profile-editor__row mb-2">
-                   <div class="profile-editor__label">Место рождения</div>
-                   <div class="profile-editor__value profile-editor__value_birth">
-                       <input type="text" value="">
-                   </div>
-               </div>
-               <div class="profile-editor__row mb-2">
-                   <div class="profile-editor__label">О себе</div>
-                   <div class="">
-                       <textarea class="profile-editor__value_info" type="text" value=""></textarea>
-                   </div>
-               </div>
-               <button class="button__profile-editor">Сохранить</button>
-           </div>
+           </form>
         </main>
     </div>
     <div class="help">
@@ -173,5 +184,7 @@ $avatar = $db->selectAvatar();
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
 <script src="https://unpkg.com/@popperjs/core@2.3.3/dist/umd/popper.min.js"></script>
 <script src="../../source/js/select.js"></script>
+<script src="../../source/js/profileUpdateRequest.js"></script>
 <script src="../../source/js/popupMenuHeader.js"></script>
+<script src="../../source/js/buttonClose.js"></script>
 </body>

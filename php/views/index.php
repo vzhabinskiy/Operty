@@ -2,7 +2,7 @@
 require_once "../engine/Db.php";
 $db = new Db(); 
 $content = $db->selectProjects();
-$avatar = $db->selectAvatar();
+$avatar = $db->selectAvatars();
 ?>
 <head>
     <meta charset="UTF-8">

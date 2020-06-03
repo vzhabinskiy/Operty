@@ -1,7 +1,7 @@
 <?php 
 require_once "../engine/Db.php";
 $db = new Db(); 
-$content = $db->selectProfession();
+$content = $db->selectProfessions();
 if(isset($_SESSION['msg'])) {
     echo $_SESSION['msg'];
     unset($_SESSION['msg']);
@@ -21,8 +21,8 @@ if(isset($_SESSION['msg'])) {
             <img class="logo__img" src="../../source/img/logo.svg" alt="logo">
         </div>
         <form class="auth-form mb-4">
-            <input class="auth-form__input mb-4" type="" name="full_name" placeholder="Имя и фамилия" required>
-            <input class="auth-form__input mb-4" type="" name="age" placeholder="Возраст" required>
+            <input class="auth-form__input mb-4" type="" name="full_name" pattern="[A-Za-zА-Яа-яЁё ]{1,30}" placeholder="Имя и фамилия" required>
+            <input class="auth-form__input mb-4" type="" name="age" pattern="[0-9]{1,3}" placeholder="Возраст" required>
             <div class="auth-form__gender mb-4">
                 <p class="auth-form__head">Выберите пол:</p>
                 <div class="auth-form__gender__switch">
@@ -43,11 +43,11 @@ if(isset($_SESSION['msg'])) {
                  ?>
                 </select> 
             </div>
-            <input class="auth-form__input mb-4" type="" name="place_of_birth" placeholder="Место рождения" required>
-            <textarea class="auth-form__textarea mb-2" type="" name="about_me" placeholder="О себе" required></textarea>
+            <input class="auth-form__input mb-4" type="" name="place_of_birth" pattern=".{1,50}" placeholder="Место рождения" required>
+            <textarea class="auth-form__textarea mb-2" type="" name="about_me"  placeholder="О себе" required></textarea>
             <!-- <input class="auth-form__input mb-4" type="" name="profession" placeholder="Профессия" required> -->
             <input class="auth-form__input mb-4" type="email" name="email" placeholder="Email" required>
-            <input class="auth-form__input mb-4" type="password" name="password" placeholder="Пароль" required>
+            <input class="auth-form__input mb-4" type="password" name="password"  pattern=".{4,255}" placeholder="Пароль" required>
             <button class="button button_login  mb-3" type="submit"> Зарегистрироваться</button>
             <p class="auth-form__consent">Нажимая на кнопку, Вы принимаете <a href="consent.php">Согласие</a> на обработку персональных данных.</p>
         </form>
@@ -57,5 +57,5 @@ if(isset($_SESSION['msg'])) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
 <script type="text/javascript" src="../../source/js/select.js"></script>
 <script src="../../source/js/jquery-3.1.1.min.js"></script>
-<script src="../../source/js/closeEvent.js"></script>
+<script src="../../source/js/timetable.js"></script>
 </body>

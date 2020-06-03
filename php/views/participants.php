@@ -3,7 +3,7 @@ require_once "../engine/Db.php";
 $db = new Db();
 $projectId = $_GET['id_project'];
 $content = $db->selectParticipants($projectId);
-$avatar = $db->selectAvatar();
+$avatar = $db->selectAvatars();
 ?>
 <head>
     <meta charset="UTF-8">
@@ -138,36 +138,6 @@ $avatar = $db->selectAvatar();
                     <li class="mb-3 sidebar__top-list__item">
                         <img class="sidebar_list-img" src="../../source/img/statistics_icon.svg">
                         <a class="sidebar_list-text" href="">Статистика</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- <div class="sidebar__middle-list">
-                <h4 class="h4 mb-3 h4_uppercase">Управление</h4>
-                <ul>
-                    <li class="mb-2">
-                        <a class="sidebar_list-text" href="">Расписание</a>
-                    </li>
-                    <li class="mb-2">
-                        <a class="sidebar_list-text" href="participants.html">Участники</a>
-                    </li>
-                    <li class="mb-2">
-                        <a class="sidebar_list-text" href="">Статистика</a>
-                    </li>
-                </ul>
-            </div> -->
-            <div class="sidebar__bottom-list">
-                <ul>
-                    <li class="mb-2">
-                        <img class="sidebar_list-img" src="../../source/img/import.svg">
-                        <a class="sidebar_list-text" href="">Экспорт</a>
-                    </li>
-                    <li class="mb-2">
-                        <img class="sidebar_list-img" src="../../source/img/basket.svg">
-                        <a class="sidebar_list-text" href="">Корзина</a>
-                    </li>
-                    <li class="mb-2">
-                        <img class="sidebar_list-img" src="../../source/img/settings.svg">
-                        <a class="sidebar_list-text" href="">Настройки</a>
                     </li>
                 </ul>
             </div>

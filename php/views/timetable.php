@@ -1,9 +1,12 @@
 <?php
 require_once "../engine/Db.php";
 $db = new Db();
-$projectId = $_GET['id_project'];
-$content = $db->selectParticipants($projectId);
-$avatar = $db->selectAvatar();
+if (isset($_GET['id_project'])) {
+    $projectId = $_GET['id_project'];
+    $content = $db->selectParticipants($projectId);
+}
+$avatar = $db->selectAvatars();
+$project_id = $db->selectProjects();
 ?>
 <head>
     <meta charset="UTF-8">
@@ -144,22 +147,6 @@ $avatar = $db->selectAvatar();
                     </li>
                 </ul>
             </div>
-            <div class="sidebar__bottom-list">
-                <ul>
-                    <li class="mb-2">
-                        <img class="sidebar_list-img" src="../../source/img/import.svg">
-                        <a class="sidebar_list-text" href="">Импорт</a>
-                    </li>
-                    <li class="mb-2">
-                        <img class="sidebar_list-img" src="../../source/img/basket.svg">
-                        <a class="sidebar_list-text" href="">Корзина</a>
-                    </li>
-                    <li class="mb-2">
-                        <img class="sidebar_list-img" src="../../source/img/settings.svg">
-                        <a class="sidebar_list-text" href="">Настройки</a>
-                    </li>
-                </ul>
-            </div>
         </aside>
         <main class="main-content">
             <div class="page-header mb-2">
@@ -213,6 +200,12 @@ $avatar = $db->selectAvatar();
                             <label for="description"></label>
                             <input id="description" class="add-event-popup-item_input-description" name="description" placeholder="Добавьте описание">
                         </li>
+                        <?php
+               foreach ($project_id as $key => $value) {
+                    echo '
+                        <input type="hidden" name="id_project" id="id_project" value="'.$value["id"].'">';
+                    }
+                    ?>
                         <button type="submit" class="add-event-button" id="RegEvent" name="RegEvent" value="RegEvent">Сохранить</button>
                     </ul>
             </form>
@@ -240,7 +233,7 @@ $avatar = $db->selectAvatar();
                     </div>
                     <div class="event-detail-item mb-2">
                         <div class="event-detail-item__key">Описание</div>
-                        <div class="event-detail-item__value" id="description"></div>
+                        <div class="event-detail-item__value event-detail-item__value_description" id="description"></div>
                     </div>
                     <button class="button-edit mb-2">Редактировать</button>
                     <a href="" id="button-delete" ><button class="button-delete">Удалить</button></a>
@@ -306,6 +299,6 @@ $avatar = $db->selectAvatar();
     <script src="../../source/js/timetable.js"></script>
     <script src="../../source/js/select.js"></script>
     <script src="../../source/js/popupMenuHeader.js"></script>
-    <script src="../../source/js/closeEvent.js"></script>
+    <script src="../../source/js/buttonClose.js"></script>
 </body>
 </html>

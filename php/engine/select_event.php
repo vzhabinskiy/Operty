@@ -1,11 +1,14 @@
 <?php
-$connect = new PDO('mysql:host=localhost;dbname=operty', 'root', '');
+require_once './Db.php';
+
+$db = new Db();
 
 $data = array();
-$query = "SELECT id, title, responsible, place, start, end, description  FROM timetable ORDER BY id";
-$statement = $connect->prepare($query);
-$statement->execute();
-$response = $statement->fetchAll();
+
+$query = "SELECT timetable.id, timetable.title, timetable.responsible, timetable.place, timetable.start, timetable.end, timetable.description  FROM timetable 
+    JOIN projects ON timetable.id_project = projects.id
+    JOIN users ON projects.id_user = users.id WHERE users.id = ".$_SESSION['user_id']." ORDER BY id ";
+$response = $db->selectAll($query);
 foreach($response as $row)
 {
     $data[] = array(

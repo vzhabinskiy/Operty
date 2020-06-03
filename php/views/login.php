@@ -36,6 +36,6 @@ if(isset($_SESSION['msg'])) {
 </form>
 
     <script src="../../source/js/jquery-3.1.1.min.js"></script>
-    <script src="../../source/js/closeEvent.js"></script>
+    <script src="../../source/js/timetable.js"></script>
 
 </body>

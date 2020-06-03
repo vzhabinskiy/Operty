@@ -2,7 +2,7 @@
 require_once "../engine/Db.php";
 $db = new Db(); 
 $content = $db->selectUsers();
-$avatar = $db->selectAvatar();
+$avatar = $db->selectAvatars();
 ?>
 <head>
     <meta charset="UTF-8">
@@ -210,10 +210,6 @@ $avatar = $db->selectAvatar();
                         <div class="card_executor__intro">
                             <h3 class="card_executor__title mb-1">'.$value["full_name"].'</h3>
                             <span class="card_executor__subtitle">'.$value["type"].'</span>
-                        </div>
-                        <div class="card_executor__rating">
-                            <p class="card_executor__rating-text mb-1">Рейтинг</p>
-                            <span class="card_executor__number">'.$value["rating"].'</span>
                         </div>
                     </div>
                     <div class="card_executor-bottom">

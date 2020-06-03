@@ -1,7 +1,8 @@
 <?php
 require_once "../engine/Db.php";
 $db = new Db(); 
-$avatar = $db->selectAvatar();
+$avatar = $db->selectAvatars();
+$content = $db->selectCurrentUser();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -121,18 +122,17 @@ $avatar = $db->selectAvatar();
                     <!-- <a href="search-executors.php" class="page-header__left-icon">
                         <img src="../../source/img/back2.svg">
                     </a> -->
-                    <h1 class="h1 h1_left_2 h1_executor-card">Аарон Пол</h1>
-                    <span class="page-header__info">Актер, продюсер</span>
-                </div>
-                <div class="page-header__right">
-                    <p class="page-header__rating mb-1">Рейтинг</p>
-                    <span class="page-header__number">9.1</span>
+                    <?php
+         foreach ($content as $key => $value) {
+            echo '
+                    <h1 class="h1 h1_left_2 h1_executor-card">'.$value["full_name"].'</h1>
+                    <span class="page-header__info">'.$value["type"].'</span>
                 </div>
             </div>
             <div class="executor">
                 <div class="executor-avatar">
                     <figure class="executor-avatar__main mb-4">
-                        <img  src="../../source/img/aaron_card.jpg" alt="">
+                        <img  src="'.$value["avatar"].'.jpg" alt="">
                     </figure>
                     <a href="profile-editor.php"><button class="button button_executor mb-4">Редактировать</button></a>
                     <div class="executor-avatar__photo">
@@ -149,28 +149,27 @@ $avatar = $db->selectAvatar();
                     <div class="executor-intro__top mb-10">
                         <div class="executor-intro__data-list mb-3">
                             <p class="executor-intro__data-item mb-1">Возраст</p>
-                            <p class="executor-intro__data-item executor-intro__data-item-value">39 лет</p>
+                            <p class="executor-intro__data-item executor-intro__data-item-value">'.$value["age"].'</p>
                         </div>
                         <div class="executor-intro__info-list">
                             <p class="executor-intro__info-item mb-1">Место рождения</p>
-                            <p class="executor-intro__info-item executor-intro__info-item-value">Эммет, Айдахо, США</p>
+                            <p class="executor-intro__info-item executor-intro__info-item-value">'.$value["place_of_birth"].'</p>
                         </div>
                     </div>
                     <div class="executor-intro__about mb-10">
                         <h6 class="h6 mb-2">О себе</h6>
-                        <p class="executor-intro__description">Родился 27 августа 1979 года в штате Айдахо. Отец был проповедником христиан-баптистов и Аарон с детства выступал в пьесах на разнообразных церковных праздниках.
-                           Малыша все любили, ведь он был самым младшим в семье (у Аарона четверо старших братьев и сестер). Учился будущий актер в средней школе города Бойсе и в восьмом классе решил, 
-                           что станет актером. Он вступил в кружок драмы и не пропускал ни одной школьной постановки. Помимо учебы и увлечением театра Аарон успел поработать на местном радио.
-                        </p>
+                        <p class="executor-intro__description">'.$value["about_me"].'</p>
                     </div>
                     <div class="executor-intro_portfolio">
                         <h6 class="h6 mb-2">Портфолио</h6>
                         <figure class="executor-intro_portfolio-img">
-                            <img  src="../../source/img/portfolio.jpg" alt="">
+                            <img  src="'.$value["portfolio"].'" alt="">
                         </figure>
                     </div>
                 </div>
-            </div>
+            </div> ';
+         }
+            ?>
         </main>
     </div>
     <div class="help">

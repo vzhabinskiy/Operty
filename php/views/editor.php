@@ -91,6 +91,6 @@ $content = $db->selectParticipants($projectId);
     <script src="../../source/js/editor.js"></script>
     <script src="../../source/js/nightMode.js"></script>
     <script src="../../source/js/dropMenu.js"></script>
-    <script src="../../source/js/closeEvent.js"></script>
+    <script src="../../source/js/buttonClose.js"></script>
 </body>
 </html>

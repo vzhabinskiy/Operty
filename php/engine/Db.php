@@ -12,7 +12,7 @@ class Db{
             return;
         }
 
-        $sth = $this->connect->prepare("INSERT INTO user (full_name, age, id_gender, id_profession, place_of_birth, about_me, email, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $sth = $this->connect->prepare("INSERT INTO users (full_name, age, id_gender, id_profession, place_of_birth, about_me, email, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $status = $sth->execute(Array($fullName, $age, $gender, $profession, $placeOfBirth, $aboutMe, $email, $password));
         if (!$status) {
             $this->response['status'] = false;
@@ -25,7 +25,7 @@ class Db{
 
     }
     public function getPasswordByEmail($email){
-        $sth = $this->connect->prepare("SELECT password, id FROM user WHERE email = ?");
+        $sth = $this->connect->prepare("SELECT password, id FROM users WHERE email = ?");
         $sth->execute(Array($email));
         if ($data = $sth->fetch()){
             $this->response['status'] = true;
@@ -38,50 +38,77 @@ class Db{
     }
 
     public function selectProjects(){
-        $stmt = $this->connect->query("SELECT project.id, project.img, project.name , type_of_project.type from `project` 
-            JOIN `type_of_project` ON project.id_type_of_project = type_of_project.id 
-            JOIN `author` ON project.id_author = author.id 
-            JOIN `user` ON author.id_user = user.id where user.id = ".$_SESSION['user_id']."");   
+        $stmt = $this->connect->query("SELECT projects.id, projects.img, projects.name , types_of_projects.type FROM `projects` 
+            JOIN `types_of_projects` ON projects.id_type_of_project = types_of_projects.id  
+            JOIN `users` ON projects.id_user = users.id WHERE users.id = ".$_SESSION['user_id']."");   
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
     public function selectScripts($project){
-        $stmt = $this->connect->query("SELECT project.id, the_script.id_project, project.name, the_script.title FROM the_script 
-           RIGHT JOIN project ON the_script.id_project = project.id
-           RIGHT JOIN author ON project.id_author = author.id 
-           RIGHT JOIN user ON author.id_user = user.id where project.id = $project and user.id = ".$_SESSION['user_id']."");
+        $stmt = $this->connect->query("SELECT projects.id, the_scripts.id_project, projects.name, the_scripts.title FROM `the_scripts` 
+           RIGHT JOIN `projects` ON the_scripts.id_project = projects.id 
+           RIGHT JOIN `users` ON projects.id_user = users.id WHERE projects.id = $project and users.id = ".$_SESSION['user_id']."");
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
     
     public function selectUsers(){
-        $stmt = $this->connect->query("SELECT user.id,  user.avatar, user.full_name, profession.type, user.rating, user.age, user.place_of_birth from `user` 
-            JOIN `profession` ON user.id_profession = profession.id");   
+        $stmt = $this->connect->query("SELECT users.id,  users.avatar, users.full_name, professions.type, users.age, users.place_of_birth from `users` 
+            JOIN `professions` ON users.id_profession = professions.id");   
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
-    public function selectCard($id){
-        $stmt = $this->connect->query("SELECT  user.full_name, profession.type, user.age, user.place_of_birth, user.about_me, user.rating, user.portfolio, user.avatar from `user` 
-            JOIN `profession` ON user.id_profession = profession.id WHERE user.id = $id");   
+    public function selectCards($id){
+        $stmt = $this->connect->query("SELECT  users.full_name, professions.type, users.age, users.place_of_birth, users.about_me, users.portfolio, users.avatar from `users` 
+            JOIN `professions` ON users.id_profession = professions.id WHERE users.id = $id");   
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
-    public function selectProfession(){
-        $stmt = $this->connect->query("SELECT * from profession ");   
+    public function selectProfessions(){
+        $stmt = $this->connect->query("SELECT * from `professions` ");   
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
+    // public function selectCurrentUserProfession(){
+    //     $stmt = $this->connect->query("SELECT * from `professions` 
+    //         RIGHT JOIN  `users` ON professions.id = users.id_profession  ");   
+    //     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //     return $data;
+    // }
     public function selectParticipants($project){
-        $stmt = $this->connect->query("SELECT project.name, profession.type, user.avatar, user.full_name, project.id  FROM participant
-           RIGHT JOIN user ON participant.id_user = user.id JOIN profession ON user.id_profession = profession.id 
-           RIGHT JOIN project ON participant.id_project = project.id where project.id = $project");
+        $stmt = $this->connect->query("SELECT projects.name, professions.type, users.avatar, users.full_name, projects.id  FROM `participants`
+           RIGHT JOIN `users` ON participants.id_user = users.id JOIN `professions` ON users.id_profession = professions.id 
+           RIGHT JOIN `projects` ON participants.id_project = projects.id WHERE projects.id = $project");
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
-     public function selectAvatar(){
-         $stmt = $this->connect->query("SELECT user.avatar FROM `user` where user.id = ".$_SESSION['user_id']."");
-         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    public function selectAvatars(){
+        $stmt = $this->connect->query("SELECT users.avatar FROM `users` WHERE users.id = ".$_SESSION['user_id']."");
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
+    public function selectCurrentUser(){
+        $stmt = $this->connect->query("SELECT users.id, users.full_name, professions.type, users.age, users.id_gender, users.place_of_birth, users.about_me, users.portfolio, users.avatar from `users` 
+        JOIN `professions` ON users.id_profession = professions.id WHERE users.id =  ".$_SESSION['user_id']."");
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
          return $data;
     }
-        }
+    
+    public function insert($query, $data){
+        $prepareStatement = $this->connect->prepare($query);
+        return $prepareStatement->execute($data);
+    }
+    public function delete($table, $id){
+        $prepareStatement = $this->connect->prepare("DELETE FROM $table WHERE id= ?");
+        return $prepareStatement->execute(Array($id));
+    }
+    public function update($query, $data){
+        $prepareStatement = $this->connect->prepare($query);
+        return $prepareStatement->execute($data);
+    }
+    public function selectAll($query){
+        $statement = $this->connect->query($query);
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
 
