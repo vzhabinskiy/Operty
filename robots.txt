@@ -1,2 +1,7 @@
 User-agent: *
-Disallow: /php/engine
+Disallow: /php/engine/*
+User-agent: Googlebot
+Allow: *.css
+Allow: *.js
+
+	
