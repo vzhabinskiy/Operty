@@ -1,5 +1,6 @@
-$(document).ready(function(){
-    $('body').on('click', '#button-close', function(){
-      $('#success-close').hide();
-    });
+$(document).ready(function () {
+  $('#button-close').click(function () {
+    $('#success-close').hide();
   });
+});
+

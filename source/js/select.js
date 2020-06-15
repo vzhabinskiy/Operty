@@ -1,6 +1,12 @@
 $(".select-projects").select2({
     minimumResultsForSearch: Infinity
 });
+$(".select-participants").select2({
+    minimumResultsForSearch: Infinity
+});
+$(".select-user-projects").select2({
+    minimumResultsForSearch: Infinity
+});
 
 $(".select-roles").select2({
     minimumResultsForSearch: Infinity
@@ -15,6 +21,6 @@ $(".select-executors").select2({
 $(".select-responsible-add").select2({
     minimumResultsForSearch: Infinity
 });
-$(".select-responsible-edit").select2({
+$(".select-edit").select2({
     minimumResultsForSearch: Infinity
 });

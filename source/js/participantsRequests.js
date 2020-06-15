@@ -1,9 +1,9 @@
 $(document).ready(function () {
-    $("#edit-profile").on("submit", function (event) {
+    $("#insert-participant").on("submit", function (event) {
         event.preventDefault();
         $.ajax({
             method: "POST",
-            url: "../../php/engine/update_profile.php",
+            url: "../../php/engine/insert_participants.php",
             data: new FormData(this),
             contentType: false,
             processData: false,
