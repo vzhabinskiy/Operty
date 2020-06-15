@@ -49,4 +49,6 @@
 .add-project-popup__image {
     width: 166px;
     height: 166px;
+    border-radius: 100px;
+    object-fit: cover;
 }

@@ -13,6 +13,10 @@
     background-color: #21AA63;
     border: 1px solid transparent;
 }
+.button_login_mob {
+    width: 220px;
+    height: 40px;
+}
 .button_login:hover {
     background-color: white;
     color: #21AA63;
@@ -26,7 +30,7 @@
     height: 40px;
     border: 1px solid #21AA63;
     background-color: white;
-    margin-right: 20px;
+    margin-right: 65px;
 }
 .button__icon {
     position: absolute;
@@ -189,11 +193,100 @@
     color: #21AA63;
     transition: 0.4s;
 }
-
-
-/* .button_full {
-    width: 100%; 
-} */
+.button__update-img {
+    width:260px;
+    height: 40px;
+    border: 1px solid #21AA63;
+    background-color: white;
+    color: #21AA63;
+    border-radius: 3px;
+    transition: 0.4s;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    /* margin-left: 330px; */
+    margin-bottom: 16px;
+}
+.button__update-img:hover {
+    border: 1px solid #21AA63;
+    background-color: #21AA63;
+    color: white;
+    transition: 0.4s;
+}
+.button-edit-series {
+    border: none;
+    width: 150px;
+    height: 39px;
+    background: #FFA718;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.button-edit-series:hover {
+    border: 1px solid #FFA718;
+    background: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    color: #FFA718;
+}
+.button-delete-series {
+    background: rgb(253, 34, 26);
+    border: none;
+    width: 150px;
+    height: 39px;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.button-delete-series:hover {
+    border: 1px solid rgb(253, 34, 26);
+    background: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    color: rgb(253, 34, 26);
+}
+.button__add-participant {
+    width: 240px;
+    height: 45px;
+    font-size: 18px;
+    font-weight: 500;
+    color:white;
+    background-color: #21AA63;
+    border: 1px solid transparent;
+    transition:  background-color 0.4s ease-out, color 0.4s ease-out, border 0.4s ease-out;
+    border-radius: 3px;
+}
+.button__add-participant:hover {
+    background-color: white;
+    color: #21AA63;
+    border: 1px solid #21AA63;
+    transition:  background-color 0.4s ease-out, color 0.4s ease-out, border 0.4s ease-out;
+    font-weight: 500;
+    cursor: pointer;
+}
+.button__notfound {
+    width: 180px;
+    height: 45px;
+    font-size: 18px;
+    font-weight: 500;
+    color:white;
+    background-color: #21AA63;
+    border: 1px solid transparent;
+    transition:  background-color 0.4s ease-out, color 0.4s ease-out, border 0.4s ease-out;
+    border-radius:20px;
+}
+.button__notfound:hover {
+    background-color: white;
+    color: #21AA63;
+    border: 1px solid #21AA63;
+    transition:  background-color 0.4s ease-out, color 0.4s ease-out, border 0.4s ease-out;
+    font-weight: 500;
+    cursor: pointer;
+}
 @media (max-width: 992px){
     .button_border {
         width: 220px;
@@ -209,4 +302,9 @@
         width: 26px;
         height: 26px;
     } 
+}
+@media (max-width: 479px){
+    .button_login {
+        width: 270px;
+    }
 }

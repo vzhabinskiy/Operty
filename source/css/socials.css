@@ -16,6 +16,10 @@
     align-items: center;
     cursor: pointer;
 }
+.socials-item__img {
+    width: 32px;
+    height: 32px;
+}
 .socials_item:hover {
     background-color: rgb(230, 230, 230);
 }

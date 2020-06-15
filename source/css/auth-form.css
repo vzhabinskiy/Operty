@@ -92,5 +92,17 @@
     .auth-form__input {
         width: 270px;
     }
-    
+    .auth-form__gender, .auth-form__profession {
+        flex-direction: column;
+        height: 80px;
     }
+    .auth-form__gender {
+        margin-top: -20px;
+    }
+    .auth-form__head, .auth-form__profession {
+        margin-bottom: 8px;
+    }
+    .auth-form__textarea {
+        width: 270px;
+    }
+}

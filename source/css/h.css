@@ -21,6 +21,9 @@
     font-size: 22px;
     color: #304351;
 }
+.h3_mob {
+    font-size: 18px;
+}
 .h4 {
     font-weight: 500;
     font-size: 14px;
@@ -39,9 +42,9 @@
     font-weight: 500;
     color: #304351;
 }
-.h5_left {
+/* .h5_left {
     margin-left: 15px;
-}
+} */
 .h5__sidebar-series {
     font-size: 20px;
     color: #304351;
@@ -50,6 +53,11 @@
 }
 .h5__sidebar-series.night {
     color: #DEDEDE;
+}
+@media screen and (max-width: 992px) {
+    .h1_all-projects {
+        margin-bottom: 20px;
+    }
 }
 @media screen and (max-width: 479px) {
     .h1_all-projects {
@@ -62,18 +70,13 @@
         font-size: 24px;
         display: block;
     }
-    
+    .h1_executor-card {
+        margin-left: 0;
+        text-align: center;;
+    }
 }
 @media screen and (max-width: 830px) {
     .h1_executor-card {
         font-size: 28px;
     }
-
-}
-@media screen and (max-width: 479px) {
-    .h1_executor-card {
-        margin-left: 0;
-        text-align: center;;
-    }
-
 }

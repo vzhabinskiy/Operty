@@ -14,11 +14,28 @@
 .main-content_big {
     flex-basis: 1160px;
 }
+@media screen and (max-width: 1314px) {
+    .main-content_project-card {
+        flex-basis: 900px;
+    }
+        
+}
 @media screen and (max-width: 1190px) {
     .main-content {
         flex-basis: 900px;
     }
+    .main-content_project-card {
+        flex-basis: 710px;
+        margin: auto;
+    }
         
+}
+@media screen and (max-width: 999px){
+    .main-content_project-card {
+        flex-basis: 700px;
+        margin: auto;
+    }
+    
 }
 @media screen and (max-width: 992px){
     .main-content {

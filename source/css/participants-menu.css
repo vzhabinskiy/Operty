@@ -21,13 +21,43 @@
 .participants-menu__item {
     padding: 7px 25px;
 }
+.participants-menu__item-mob {
+    list-style: none;
+}
 .participants-menu__selected {
     background: #F3F6F8;
     border-radius: 4px;
 }
-@media screen and (max-width: 479px) {
+.participants-menu-mob {
+    display: none;
+}
+.participants-menu__adapt {
+    display: none;
+}
+@media screen and (max-width: 999px) {
+    .participants-menu__head {
+        display: block;
+        font-size: 20px;
+        color:#304351;
+    }
+    .participants-menu__adapt {
+        display: block;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        width: 250px;
+    }
+    .participants-menu__adapt > img {
+        width: 20px;
+        height: 20px;
+        /* margin-left: 25px; */
+    }
     .participants-menu {
         display: none;
     }
+}
+@media screen and (max-width: 479px) {
+
 }
 

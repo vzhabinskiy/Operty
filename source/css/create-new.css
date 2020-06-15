@@ -27,7 +27,7 @@
     margin-top: 50px;
 }
 .create-new_script {
-    width: 196px;
+    min-width: 196px;
     height: 236px;
 }
 .create-new_script .create-new__text {

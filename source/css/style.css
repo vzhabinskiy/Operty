@@ -33,6 +33,11 @@
 @import url("add-project-popup.css");
 @import url("add-script-popup.css");
 @import url("consent.css");
+@import url("delete-project-popup.css");
+@import url("series.css");
+@import url("invite-popup.css");
+@import url("manual.css");
+@import url("404.css");
 
 @font-face {
     font-family: 'CoFoSans';
@@ -84,7 +89,6 @@
 
 body {
     font-family: 'CoFoSans';
-    
 }
 ::-webkit-scrollbar-thumb {
     background: #21AA63;

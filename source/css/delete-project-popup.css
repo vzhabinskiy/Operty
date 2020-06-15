@@ -1,0 +1,47 @@
+.delete-project-popup {
+    background-color: #fff;
+    width: 400px;
+    height: 175px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.delete-project-popup__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.delete-project-popup__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.delete-project-popup__text {
+    color: #304351;
+    font-size: 24px;
+    text-align: center;
+}
+.delete-project-popup__button {
+    width: 300px;
+    height: 40px;
+    background: rgb(253, 34, 26);
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    border:none;
+    text-decoration: none;
+    transition:  background-color 0.4s ease-out, color 0.4s ease-out, border 0.4s ease-out;
+}
+.delete-project-popup__button:hover {
+    background-color: white;
+    color: rgb(253, 34, 26);
+    border: 1px solid rgb(253, 34, 26);
+    transition:  background-color 0.4s ease-out, color 0.4s ease-out, border 0.4s ease-out;
+    font-weight: 500;
+    cursor: pointer;
+}

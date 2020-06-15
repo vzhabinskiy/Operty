@@ -121,13 +121,13 @@
 }
 @media screen and (max-width: 479px) {
     .executor-intro__description {
-        width: 300px;
+        width: 200px;
     }
-    .executor-intro_portfolio-img {
-        width: 300px;
+    .executor-intro__about, .executor-intro_portfolio {
+        width: 70%;
     }
-    .executor-intro_portfolio-img img {
+    /* .executor-intro_portfolio-img img {
         width: 100%;
         height: 100%;
-    }
+    } */
 }

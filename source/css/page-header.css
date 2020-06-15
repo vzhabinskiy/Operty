@@ -15,7 +15,7 @@
 .page-header__text {
     font-size: 16px;
     color: #304351;
-    margin-right: 120px;
+    /* margin-right: 120px; */
     text-decoration: none;
 }
 .page-header__info {
@@ -35,12 +35,6 @@
     font-size: 18px;
     color: #304351;
 }
-@media screen and (max-width: 1314px) {
-    .page-header__text {
-        margin-right: 60px;
-    }
-    
-}
 @media screen and (max-width: 1190px) {
     .page-header__link {
         display: none;
@@ -53,22 +47,34 @@
     .page-header__left {
         margin-left: 40px;
     }
-
+}
+@media screen and (max-width: 767px) {
+    .page-header__left {
+        margin: auto;
+    }
+}
+@media screen and (max-width: 992px) {
+    .page-header_adapt {
+        flex-direction: column;
+    }
+    /* .page-header__left {
+        margin-left: 0px;
+    } */
 }
 @media screen and (max-width: 479px) {
     .page-header {
         flex-direction: column;
     }
-    .page-header__left-icon, .page-header__folder-icon {
+    .page-header__left-icon {
         display: none;
     }
     .page-header__info {
         margin-left: 0px;
         text-align: center;
     }
-    .page-header__left {
-        margin-left: 0px;
-    }
+    /* .page-header__left {
+        margin-left: 110px;
+    } */
     .page-header__right {
         text-align: center;
         margin-top: 16px;

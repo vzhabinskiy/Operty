@@ -1,0 +1,63 @@
+.invite-popup {
+    background-color: #fff;
+    width: 500px;
+    height: 250px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.invite-popup__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.invite-popup__email {
+    width: 372px;
+    height: 52px;
+    border-radius: 4px;
+    border: 0.5px solid rgb(216, 216, 216);
+    color: #304351;
+    font-size: 18px;
+    padding-left: 23px;
+    font-weight: normal;
+}
+.invite-popup__email::placeholder {
+    color: #9c9c9c;
+    font-size: 18px;
+    font-weight: normal;
+}
+.invite-popup__email:focus {
+    border: 0.5px solid #21AA63;
+}
+.invite-popup_mob {
+    width: 270px;
+    height: 270px;
+}
+.invite-popup__email_mob {
+    width: 220px;
+    height: 40px;
+}
+
+/* попап для приглашения участника в проект */
+
+.invite-participant-popup {
+    background-color: #fff;
+    width: 500px;
+    height: 300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.invite-participant-popup_list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.invite-participant-popup_text {
+    font-size: 18px;
+}

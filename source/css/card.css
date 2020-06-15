@@ -21,7 +21,7 @@
     align-items: center;
 }
 .card_person {
-    min-width: 244px;
+    min-width: 240px;
     height: 276px;
     position: relative;
     display: flex;
@@ -32,6 +32,8 @@
 .card_project .card__img img {
     width: 156px;
     height: 156px;
+    object-fit: cover;
+    border-radius: 100px;
 }
 .card_project .card__img {
     padding-bottom: 32px;
@@ -58,6 +60,8 @@
 .card_person .card__img img {
     width: 96px;
     height: 96px;
+    object-fit: cover;
+    border-radius: 100px; 
 }
 .card_person .card__menu {
     position: absolute;
@@ -161,6 +165,8 @@
 .card_executor__img img {
     width: 96px;
     height: 96px;
+    border-radius: 100px;
+    object-fit: cover;
 }
 .card_executor__title {
     font-size: 18px;
@@ -197,45 +203,6 @@
     font-weight: 500;
     color: #304351;
 }
-.card_scenes {
-    height: 198px;
-    padding: 23px 15px;
-}
-.card_scenes__head {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-}
-.card_scenes__head__number-container {
-    border: 1px solid #DFE2E4;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-}
-.card_scenes__head__title {
-    font-size: 14px;
-    text-transform: uppercase;
-    color: #304351;
-    margin-top: 3px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.card_scenes__head__number-text {
-    color: #304351;
-    font-size: 14px;
-    padding-left: 8px;
-}
-.card_scenes .card__menu {
-    background: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-}
-.card_scenes__main__text {
-    font-size: 12px;
-    color: #304351;
-}
 @media screen and (max-width: 479px){
     .card_script {
         margin-right: 0;
@@ -244,25 +211,9 @@
         width: 280px !important;
     }
 }
-@media screen and (max-width: 767px){
-    .card_scenes__head__title {
-        font-size: 12px;
-        margin-top: 5px;
-    }
-    .card_scenes__head__number-text {
-        font-size: 12px;
-    }
-    .card_scenes__main__text {
-        font-size: 10px;
-    }
-}
-@media screen and (max-width: 1190px) {
+@media screen and (max-width: 1314px) {
     .card_executor__rating-text {
         display: inline;
-    }
-    
-    .card_executor__rating {
-        position: static;
     }
     .card_executor-top {
         flex-direction: column;

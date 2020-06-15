@@ -30,3 +30,16 @@
 body.night {
     background: #262C31;
 }
+.toggle-night__mob {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.toggle-night__head {
+    color: #304351;
+    font-size: 20px;
+}
+.toggle-night__head.night {
+    color: white;
+}
