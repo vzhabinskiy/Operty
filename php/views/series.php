@@ -3,11 +3,12 @@ require_once "../engine/Db.php";
 $db = new Db();
 $projectId = $_GET['id_project'];
 $scriptId = $_GET['id_script'];
+$seriesId = $_GET['id_series'];
+$project = $db->selectProject($projectId);
 $content = $db->selectScript($projectId, $scriptId);
 $series = $db->selectSeries($scriptId);
-$project = $db->selectProject($projectId);
+$oneSeries = $db->selectOneSeries($projectId, $scriptId, $seriesId);
 $_SESSION['id_project'] = $_GET['id_project'];
-$_SESSION['id_script'] = $_GET['id_script'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +58,7 @@ $_SESSION['id_script'] = $_GET['id_script'];
 
     <div class="menu_mob">
         <div class="menu_mob__wrapper">
-            <div class="menu_mob__top">
+            <div class="menu_mob__bottom">
                 <h5 class="h5__sidebar-series mb-2">Серии</h5>
                 <?php foreach ($series as $key => $value) : ?>
                     <a href="series.php?id_project=<?= $project[0]["id"] ?>&id_script=<?= $value["script_id"] ?>&id_series=<?= $value["id"] ?>" class="sidebar-series__item mb-3">
@@ -66,28 +67,32 @@ $_SESSION['id_script'] = $_GET['id_script'];
                     </a>
                 <?php endforeach; ?>
             </div>
+        <?php if ($project[0]['author'] == true) : ?>
             <div class="menu_mob__middle">
                 <ul class="menu_mob__middle__list">
-            <?php if ($project[0]['author'] == true) : ?>
+                    <li class="menu_mob__middle__item ">
+                        <a class="menu_mob__middle__new-series" href="editor.php?id_project=<?= $content[0]["id"] ?>&id_script=<?= $content[0]["script_id"] ?>">Новая серия</a>
+                        <img src="../../source/img/plus_mob.svg" class="menu_mob__bottom__icon" alt="">
+                    </li>
                     <li class="menu_mob__middle__item ">
                         <a class="menu_mob__middle__edit" id="edit-script-popup-mob" href="#pop-up__edit_script-mob">Редактировать</a>
-                        <img src="../../source/img/edit.svg" class="menu_mob__bottom__icon" alt="Редактировать">
+                        <img src="../../source/img/edit.svg" class="menu_mob__bottom__icon" alt="">
                     </li>
-                    <li id="pop-up__edit_script-mob" class="mfp-hide white-popup-block add-script-popup">
+                    <div id="pop-up__edit_script-mob" class="mfp-hide white-popup-block add-script-popup">
                         <form id="update-script-mob" method="POST" enctype="multipart/form-data">
                             <div class="mb-3">
-                                <img class="add-script-popup__blue-round-img" src="../../source/img/blue-round.svg" alt="иконка круга">
+                                <img class="add-script-popup__blue-round-img" src="../../source/img/blue-round.svg">
                                 <input value="<?= $content[0]["title"] ?>" id="title" maxlength="30" class="add-script-popup__item__input-title" name="title" type="text" placeholder="Название сценария">
                             </div>
                             <input type="hidden" name="id" id="id" value="<?= $content[0]["script_id"] ?>">
                             <button class="button__add-script" type="submit">Сохранить</button>
                         </form>
-                    </li>
+                    </div>
                     <li class="menu_mob__middle__item ">
                         <a class="menu_mob__middle__delete" id="delete-script-popup-mob" href="#pop-up__delete_script-mob">Удалить</a>
-                        <img src="../../source/img/delete.svg" class="menu_mob__bottom__icon" alt="Удалить">
+                        <img src="../../source/img/delete.svg" class="menu_mob__bottom__icon" alt="">
                     </li>
-                    <li id="pop-up__delete_script-mob" class="mfp-hide white-popup-block delete-project-popup">
+                    <div id="pop-up__delete_script-mob" class="mfp-hide white-popup-block delete-project-popup">
                         <div class="delete-project-popup__list">
                             <div class="delete-project-popup__item mb-3">
                                 <p class="delete-project-popup__text">Удалить сценарий "<?= $content[0]["title"] ?>"?</p>
@@ -96,9 +101,9 @@ $_SESSION['id_script'] = $_GET['id_script'];
                                 <a href="../engine/delete_script.php?id=<?= $content[0]["script_id"] ?>" id="delete-project"><button class="delete-project-popup__button">Удалить сценарий</button></a>
                             </div>
                         </div>
-                    </li>
-             <?php endif; ?>
+                    </div>
                 </ul>
+            <?php endif; ?>
             </div>
             <div class="toggle-night__mob">
                 <p class="toggle-night__head mb-1">Ночной режим</p>
@@ -117,17 +122,21 @@ $_SESSION['id_script'] = $_GET['id_script'];
                     </a>
                 <?php endforeach; ?>
             </div>
+        <?php if ($project[0]['author'] == true) : ?>
             <div class="sidebar-series__bottom-line mb-2"></div>
             <div class="sidebar-series__edit">
-        <?php if ($project[0]['author'] == true) : ?>
                 <div class="sidebar-series__item mb-3">
-                    <img src="../../source/img/edit.svg" class="sidebar_list-img" alt="Редактировать">
+                    <img src="../../source/img/plus_mob.svg" class="sidebar_list-img" alt="">
+                    <a class="sidebar_list-text" href="editor.php?id_project=<?= $content[0]["id"] ?>&id_script=<?= $content[0]["script_id"] ?>">Новая серия</a>
+                </div>
+                <div class="sidebar-series__item mb-3">
+                    <img src="../../source/img/edit.svg" class="sidebar_list-img" alt="">
                     <a class="sidebar_list-text" id="edit-script-popup" href="#pop-up__edit_script">Редактировать</a>
                 </div>
                 <div id="pop-up__edit_script" class="mfp-hide white-popup-block add-script-popup">
                     <form id="update-script" method="POST" enctype="multipart/form-data">
                         <div class="mb-3">
-                            <img class="add-script-popup__blue-round-img" src="../../source/img/blue-round.svg" alt="иконка круга">
+                            <img class="add-script-popup__blue-round-img" src="../../source/img/blue-round.svg">
                             <input value="<?= $content[0]["title"] ?>" id="title" maxlength="30" class="add-script-popup__item__input-title" name="title" type="text" placeholder="Название сценария">
                         </div>
                         <input type="hidden" name="id" id="id" value="<?= $content[0]["script_id"] ?>">
@@ -135,7 +144,7 @@ $_SESSION['id_script'] = $_GET['id_script'];
                     </form>
                 </div>
                 <div class="sidebar-series__item">
-                    <img src="../../source/img/delete.svg" class="sidebar_list-img" alt="удалить">
+                    <img src="../../source/img/delete.svg" class="sidebar_list-img" alt="">
                     <a class="sidebar_list-text" id="delete-script-popup" href="#pop-up__delete_script">Удалить</a>
                 </div>
                 <div id="pop-up__delete_script" class="mfp-hide white-popup-block delete-project-popup">
@@ -148,36 +157,45 @@ $_SESSION['id_script'] = $_GET['id_script'];
                         </div>
                     </div>
                 </div>
-        <?php endif; ?>
             </div>
+        <?php endif; ?>
         </div>
-
-     <?php if ($project[0]['author'] == true) : ?>
-        <main class="main-content main-content_project-card">
-            <div class="editor-area mb-10">
-                <form id="add-script" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="id_the_script" id="id_the_script" value="<?= $content[0]["script_id"] ?>">
-                    <div class="editor-area__list mb-3">
-                        <div class="editor-area__item mb-2">
-                            <div class="editor-area__title">Номер серии</div>
-                            <input class="editor-area__input editor-area__list__number" id="number" name="number" required>
+        <main class="main-content">
+            <div class="series__area">
+                <div class="series__area__head">
+                    <h3 class="series__title mb-3"><?= $oneSeries[0]["title"] ?></h3>
+                <?php if ($project[0]['author'] == true) : ?>
+                    <div class="series__edit mb-3">
+                        <div class="series__edit__item">
+                            <img src="../../source/img/edit.svg" class="sidebar_list-img" alt="">
+                            <a class="series__link" href="edit-series.php?id_project=<?= $project[0]["id"] ?>&id_script=<?= $oneSeries[0]["script_id"] ?>&id_series=<?= $oneSeries[0]["series_id"] ?>">Редактировать</a>
                         </div>
-                        <div class="editor-area__item mb-2">
-                            <div class="editor-area__title">Название серии</div>
-                            <input maxlength="40" class="editor-area__input editor-area__list__title" id="title" name="title" required>
+                        <div class="series__edit__slash">
+                            |
+                        </div>
+                        <div class="series__edit__item">
+                            <img src="../../source/img/delete.svg" class="sidebar_list-img" alt="">
+                            <a class="series__link" id="delete-series-popup" href="#pop-up__delete_series">Удалить</a>
+                        </div>
+                        <div id="pop-up__delete_series" class="mfp-hide white-popup-block delete-project-popup">
+                            <div class="delete-project-popup__list">
+                                <div class="delete-project-popup__item mb-3">
+                                    <p class="delete-project-popup__text">Удалить серию "<?= $oneSeries[0]["title"] ?>"?</p>
+                                </div>
+                                <div class="delete-project-popup__item">
+                                    <a href="../engine/delete_editor_series.php?id=<?= $oneSeries[0]["series_id"] ?>" id="delete-project"><button class="delete-project-popup__button">Удалить cерию</button></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <textarea id="text" name="text" placeholder="Напишите что-нибудь">
-                    </textarea>
-                    <button type="submit" class="button-editor" id="RegEvent" name="RegEvent" value="RegEvent">Сохранить</button>
-                </form>
+                <?php endif; ?>
+                </div>
+                <p class="series__text"><?= $oneSeries[0]["text"] ?></p>
             </div>
         </main>
-    <?php endif; ?>
     </div>
-
     <div class="help">
-        <a href="manual.php"><img class="help__icon" src="../../source/img/question.svg" alt="вопрос"></a>
+        <a href="manual.php"><img class="help__icon" src="../../source/img/question.svg"></a>
     </div>
 
     <script src="../../source/js/jquery-3.1.1.min.js"></script>
@@ -188,10 +206,10 @@ $_SESSION['id_script'] = $_GET['id_script'];
     <script src="../../source/js/dropMenu.js"></script>
     <script src="../../source/js/buttonClose.js"></script>
     <script src="../../source/js/popupEdit.js"></script>
+    <script src="../../source/js/menu.js"></script>
     <script src="../../source/js/scriptRequests.js"></script>
     <script src="../../source/js/imagesUpload.js"></script>
     <script src="../../source/js/pagination.js"></script>
-    <script src="../../source/js/menu.js"></script>
     <script src="../../source/jquery-fileinput/jquery.fileinput.js"></script>
 </body>
 
